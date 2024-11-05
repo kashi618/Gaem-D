@@ -40,3 +40,5 @@ func doubleJump():
 	
 	if is_on_floor():
 		numJumps = 0
+		# pp
+		
