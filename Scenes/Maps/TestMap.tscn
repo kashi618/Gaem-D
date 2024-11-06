@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://b1wnlq0j37fkp"]
+[gd_scene load_steps=7 format=4 uid="uid://b1wnlq0j37fkp"]
 
 [ext_resource type="Texture2D" uid="uid://d1edbm2rt0lxf" path="res://Assets/Tile Map/Tilemap.png" id="1_2ebhm"]
 [ext_resource type="PackedScene" uid="uid://bqetxd6a5mong" path="res://Scenes/Player/player.tscn" id="2_jmqu6"]
+[ext_resource type="PackedScene" uid="uid://c6x7xm84jeo6t" path="res://Scenes/UI/stopwatch.tscn" id="3_0rwuq"]
+[ext_resource type="PackedScene" uid="uid://doxfls6lhcxok" path="res://Scenes/UI/ui.tscn" id="4_ppn7s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4sexq"]
 texture = ExtResource("1_2ebhm")
@@ -398,3 +400,17 @@ tile_set = SubResource("TileSet_bture")
 
 [node name="Player" parent="." instance=ExtResource("2_jmqu6")]
 position = Vector2(-93, -28)
+double_jump = true
+
+[node name="UI" parent="Player" instance=ExtResource("4_ppn7s")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -283.0
+offset_top = -158.0
+offset_right = -19.0
+offset_bottom = -158.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Stopwatch" parent="." groups=["stopwatch"] instance=ExtResource("3_0rwuq")]
