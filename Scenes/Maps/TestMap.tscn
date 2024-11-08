@@ -401,7 +401,6 @@ tile_set = SubResource("TileSet_bture")
 
 [node name="Player" parent="." instance=ExtResource("2_jmqu6")]
 position = Vector2(-93, -28)
-double_jump = true
 
 [node name="UI" parent="Player" instance=ExtResource("4_ppn7s")]
 anchors_preset = 0
