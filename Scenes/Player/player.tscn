@@ -9,14 +9,16 @@ height = 38.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qmyvb")
+double_jump = true
+wall_jump = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Player_Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ndi1b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Player_Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_24y02")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Player_Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
