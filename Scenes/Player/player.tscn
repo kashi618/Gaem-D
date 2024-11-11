@@ -22,5 +22,5 @@ shape = SubResource("CapsuleShape2D_24y02")
 zoom = Vector2(2, 2)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.15
+wait_time = 0.1
 one_shot = true

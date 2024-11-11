@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var wall_coyote_timer: Timer = $CoyoteTimer
 
 @export var double_jump: bool 
 @export var wall_jump: bool 
@@ -15,26 +16,31 @@ var numJumps = 0
 var can_move = true
 
 func _ready():
-	EventsBus.PlayerDied.connect(_on_PlayerDied)
+	EventsBus.PlayerDied.connect(_on_PlayerDied) # Signal connected once node is ready
 
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	# Gets input from user
+	# Allows input from user if they can move
 	if can_move:
+		# Gets input from user
 		movement() # Controls going left, right
 		doubleJump() # Controls jump and double jump
-		wallJump()
+		wallJump() # Controls wall jump
 	
 	var was_on_floor = is_on_floor()
+	var was_on_wall = is_on_wall_only()
 	# Allows movement of character
 	move_and_slide()
 	
 	if was_on_floor and !is_on_floor():
 		coyote_timer.start()
+	if was_on_wall and !is_on_wall() and !was_on_floor:
+		wall_coyote_timer.start()
 
+# Handle left and right movement
 func movement():
 	# Moves player left and right
 	var direction := Input.get_axis("left", "right")
@@ -45,14 +51,14 @@ func movement():
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-func doubleJump():
-	
+# Handles double jump
+func doubleJump():	
 	# Jump!
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
 		print("Jumped")
 		numJumps += 1
 		velocity.y = JUMP_POWER    
-	
+	# Double jump!
 	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and double_jump:
 		print("DoubleJumped")
 		numJumps += 1
@@ -62,18 +68,27 @@ func doubleJump():
 		numJumps = 0
 		# pp
 
+# Handles wall jump
 func wallJump():
+	# Direction of wall jump is in opposite direction of the wall
 	var direction := Input.get_axis("left", "right")
 	var direction_of_jump = -direction
-	if Input.is_action_just_pressed("jump") and is_on_wall_only() and wall_jump:
+	if can_wall_jump():
+		# Player input is disabled to allow no interference with jump
 		disable_movement(0.15)
 		velocity.x = WALL_JUMP_POWER * direction_of_jump
 		velocity.y = JUMP_POWER
-		
+		print("wall jumped")
+
+func can_wall_jump() -> bool:
+	return Input.is_action_just_pressed("jump") and (is_on_wall_only() or !wall_coyote_timer.is_stopped()) and wall_jump and coyote_timer.is_stopped()
+
+# Function to disable movement for a certain amount of time
 func disable_movement(time):
 	can_move = false
 	await get_tree().create_timer(time).timeout
 	can_move = true
-	
+
+# Handle Player death
 func _on_PlayerDied():
 	print("player dieed")
