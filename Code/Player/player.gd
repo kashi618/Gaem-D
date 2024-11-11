@@ -65,7 +65,7 @@ func doubleJump():
 func wallJump():
 	var direction := Input.get_axis("left", "right")
 	var direction_of_jump = -direction
-	if Input.is_action_just_pressed("jump") and is_on_wall_only() and wallJump():
+	if Input.is_action_just_pressed("jump") and is_on_wall_only() and wall_jump:
 		disable_movement(0.15)
 		velocity.x = WALL_JUMP_POWER * direction_of_jump
 		velocity.y = JUMP_POWER
