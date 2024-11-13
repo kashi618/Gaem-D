@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://ddlucvmnyj8ov"
+=======
+uid="uid://bjj0vyrq6t7uu"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Tilemap.png-5a908b49b5881942c8d5deb79aaff81b.ctex"
 metadata={
 "vram_texture": false

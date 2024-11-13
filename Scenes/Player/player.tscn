@@ -19,7 +19,7 @@ texture = ExtResource("1_ndi1b")
 shape = SubResource("CapsuleShape2D_24y02")
 
 [node name="Player_Camera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
