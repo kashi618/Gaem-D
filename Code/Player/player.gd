@@ -6,14 +6,23 @@ extends CharacterBody2D
 
 @export var double_jump: bool 
 @export var wall_jump: bool 
+
+# Constants for Tuning Movement
 const SPEED = 300.0
+
 const JUMP_POWER = -350.0
-const WALL_JUMP_POWER = 300.00
 const MAXJUMPS = 1
+const WALL_JUMP_POWER = 300.00
+
+
 const ACCELERATION = 70.00
 const DECELERATION = 20.00
+
+# Initializing and Declaring Variables
+# Basically just don't touch these
 var numJumps = 0
 var can_move = true
+
 
 func _ready():
 	EventsBus.PlayerDied.connect(_on_PlayerDied) # Signal connected once node is ready
@@ -26,9 +35,9 @@ func _physics_process(delta: float) -> void:
 	# Allows input from user if they can move
 	if can_move:
 		# Gets input from user
-		movement() # Controls going left, right
-		doubleJump() # Controls jump and double jump
-		wallJump() # Controls wall jump
+		movement()    # Controls going left, right
+		jump()  # Controls jump and double jump
+		wallJump()    # Controls wall jump
 	
 	var was_on_floor = is_on_floor()
 	var was_on_wall = is_on_wall_only()
@@ -42,22 +51,23 @@ func _physics_process(delta: float) -> void:
 
 # Handle left and right movement
 func movement():
-	# Moves player left and right
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
+	# Enhanced deceleration when falling
 	elif !is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-# Handles double jump
-func doubleJump():	
+# Handles player jump
+func jump():	
 	# Jump!
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
 		print("Jumped")
 		numJumps += 1
-		velocity.y = JUMP_POWER    
+		velocity.y = JUMP_POWER 
+	   
 	# Double jump!
 	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and double_jump:
 		print("DoubleJumped")
