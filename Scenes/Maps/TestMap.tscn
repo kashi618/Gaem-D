@@ -402,19 +402,12 @@ tile_set = SubResource("TileSet_bture")
 [node name="Player" parent="." instance=ExtResource("2_jmqu6")]
 position = Vector2(-93, -28)
 
-[node name="UI" parent="Player" instance=ExtResource("4_ppn7s")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -283.0
-offset_top = -158.0
-offset_right = -19.0
-offset_bottom = -158.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="Stopwatch" parent="." groups=["stopwatch"] instance=ExtResource("3_0rwuq")]
 
 [node name="DeathZone" parent="." instance=ExtResource("5_74rkw")]
 position = Vector2(776, 482)
 scale = Vector2(30, 30)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("4_ppn7s")]
