@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://b1wnlq0j37fkp"]
+[gd_scene load_steps=7 format=4 uid="uid://b1wnlq0j37fkp"]
 
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_tsyqu"]
 [ext_resource type="PackedScene" uid="uid://bqetxd6a5mong" path="res://Scenes/Player/player.tscn" id="2_jmqu6"]
 [ext_resource type="PackedScene" uid="uid://c6x7xm84jeo6t" path="res://Scenes/UI/stopwatch.tscn" id="3_0rwuq"]
 [ext_resource type="PackedScene" uid="uid://doxfls6lhcxok" path="res://Scenes/UI/ui.tscn" id="4_ppn7s"]
 [ext_resource type="PackedScene" uid="uid://b2mvdslakp4o7" path="res://Scenes/Map features/death_zone.tscn" id="5_74rkw"]
+[ext_resource type="PackedScene" uid="uid://bkn35y4qgq7wd" path="res://Assets/Objects/moving_platform.tscn" id="6_nuiwp"]
 
 [node name="TestMap" type="Node2D"]
 
@@ -27,3 +28,6 @@ scale = Vector2(30, 30)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("4_ppn7s")]
+
+[node name="MovingPlatform" parent="." instance=ExtResource("6_nuiwp")]
+position = Vector2(20, -82)
