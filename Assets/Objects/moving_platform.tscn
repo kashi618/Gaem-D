@@ -7,7 +7,6 @@
 size = Vector2(84, 5)
 
 [node name="MovingPlatformDown" type="CharacterBody2D"]
-position = Vector2(190, -61)
 script = ExtResource("1_bn7b0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

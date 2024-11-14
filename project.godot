@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Global="*res://Events/Global.gd"
 EventsBus="*res://Events/EventsBus.gd"
 
 [input]
