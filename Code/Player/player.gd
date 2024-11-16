@@ -8,6 +8,8 @@ extends CharacterBody2D
 @export var double_jump: bool 
 @export var wall_jump: bool 
 
+var head = preload("res://Assets/Characters/Head.png")
+
 # Constants for Tuning Movement
 const SPEED = 300.0
 const FALL_GRAVITY = 1000.0
@@ -55,6 +57,25 @@ func _physics_process(delta: float) -> void:
 		coyote_timer.start()
 	if was_on_wall and !is_on_wall() and !was_on_floor:
 		wall_coyote_timer.start()
+	
+	#flipping player left and right based on left and right movement
+	if true:
+		if Input.is_action_just_pressed("left"):
+			$Body/Head.flip_h = true
+			$Body/Torso.flip_h = true
+			$"Body/Right arm".flip_h = true
+			$"Body/Left arm".flip_h = true
+			$"Body/Right leg".flip_h = true
+			$"Body/Left leg".flip_h = true
+		
+		if Input.is_action_just_pressed("right"):
+			$Body/Head.flip_h = false
+			$Body/Torso.flip_h = false
+			$"Body/Right arm".flip_h = false
+			$"Body/Left arm".flip_h = false
+			$"Body/Right leg".flip_h = false
+			$"Body/Left leg".flip_h = false
+		
 
 # Handle left and right movement
 func movement():

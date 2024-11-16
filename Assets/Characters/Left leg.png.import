@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpkmx6p6ycnbn"
-path="res://.godot/imported/Tilemap.png-5a908b49b5881942c8d5deb79aaff81b.ctex"
+uid="uid://6g038x8xyhgq"
+path="res://.godot/imported/Left leg.png-4c0f9ea7e7adfcc8fde6474aee505617.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tile Map/Tilemap.png"
-dest_files=["res://.godot/imported/Tilemap.png-5a908b49b5881942c8d5deb79aaff81b.ctex"]
+source_file="res://Assets/Characters/Left leg.png"
+dest_files=["res://.godot/imported/Left leg.png-4c0f9ea7e7adfcc8fde6474aee505617.ctex"]
 
 [params]
 
