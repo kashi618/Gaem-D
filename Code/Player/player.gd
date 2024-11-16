@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 # Constants for Tuning Movement
 const SPEED = 300.0
-
+const FALL_GRAVITY = 1000.0
 const JUMP_POWER = -350.0
 const MAXJUMPS = 1
 const WALL_JUMP_POWER = 300.00
@@ -31,7 +31,10 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if velocity.y < 0:
+			velocity += get_gravity() * delta
+		else:
+			velocity += Vector2(0, FALL_GRAVITY) * delta
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
