@@ -132,6 +132,26 @@ script = ExtResource("1_qmyvb")
 double_jump = true
 wall_jump = true
 
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Head" type="Sprite2D" parent="Body"]
+texture = ExtResource("2_af0ou")
+
+[node name="Torso" type="Sprite2D" parent="Body"]
+texture = ExtResource("3_7ekov")
+
+[node name="Right arm" type="Sprite2D" parent="Body"]
+texture = ExtResource("4_u4j01")
+
+[node name="Left arm" type="Sprite2D" parent="Body"]
+texture = ExtResource("5_vjjn5")
+
+[node name="Right leg" type="Sprite2D" parent="Body"]
+texture = ExtResource("6_ng1oc")
+
+[node name="Left leg" type="Sprite2D" parent="Body"]
+texture = ExtResource("7_ty4t4")
+
 [node name="Player_Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_24y02")
 
@@ -155,30 +175,3 @@ shape = SubResource("CapsuleShape2D_24y02")
 libraries = {
 "": SubResource("AnimationLibrary_tjtbm")
 }
-
-[node name="Body" type="Node2D" parent="."]
-
-[node name="Head" type="Sprite2D" parent="Body"]
-texture = ExtResource("2_af0ou")
-offset = Vector2(0, 8)
-
-[node name="Torso" type="Sprite2D" parent="Body"]
-texture = ExtResource("3_7ekov")
-
-[node name="Right arm" type="Sprite2D" parent="Body"]
-texture = ExtResource("4_u4j01")
-offset = Vector2(-5, 6)
-
-[node name="Left arm" type="Sprite2D" parent="Body"]
-texture = ExtResource("5_vjjn5")
-offset = Vector2(6, 6)
-
-[node name="Right leg" type="Sprite2D" parent="Body"]
-position = Vector2(3, 9)
-texture = ExtResource("6_ng1oc")
-offset = Vector2(-3, -9)
-
-[node name="Left leg" type="Sprite2D" parent="Body"]
-position = Vector2(-4, 9)
-texture = ExtResource("7_ty4t4")
-offset = Vector2(4, -9)
