@@ -25,7 +25,13 @@ zoom = Vector2(3, 3)
 wait_time = 0.1
 one_shot = true
 
+<<<<<<< Updated upstream
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Player_Hitbox2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_24y02")
+=======
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+>>>>>>> Stashed changes
