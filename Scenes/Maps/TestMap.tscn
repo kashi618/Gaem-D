@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cp3a2c64im0y1" path="res://Assets/Objects/tree.tscn" id="7_5i5ge"]
 [ext_resource type="PackedScene" uid="uid://ddr8m07fums6u" path="res://Assets/Objects/tree_2.tscn" id="8_ubbwk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnv7f"]
-size = Vector2(86.2833, 20)
-
 [node name="TestMap" type="Node2D"]
 
 [node name="Utilities" type="TileMapLayer" parent="."]
@@ -22,31 +19,14 @@ tile_map_data = PackedByteArray("AAD8/wAAAQAJAAAAAAD9/wAAAQAKAAAAAAD+/wAAAQALAAA
 tile_set = ExtResource("1_tsyqu")
 
 [node name="Player" parent="." instance=ExtResource("2_jmqu6")]
-<<<<<<< Updated upstream
 position = Vector2(1937, -314)
-=======
-position = Vector2(-93, -28)
-double_jump = false
-
-[node name="UI" parent="Player" instance=ExtResource("4_ppn7s")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -283.0
-offset_top = -158.0
-offset_right = -19.0
-offset_bottom = -158.0
-grow_horizontal = 1
-grow_vertical = 1
->>>>>>> Stashed changes
 
 [node name="Stopwatch" parent="." groups=["stopwatch"] instance=ExtResource("3_0rwuq")]
 
 [node name="DeathZone" parent="." instance=ExtResource("5_74rkw")]
-position = Vector2(813, 457)
+position = Vector2(776, 482)
 scale = Vector2(30, 30)
 
-<<<<<<< Updated upstream
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("4_ppn7s")]
@@ -59,8 +39,3 @@ position = Vector2(1841, -426)
 
 [node name="tree2" parent="Tree" instance=ExtResource("8_ubbwk")]
 position = Vector2(170, -48)
-=======
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(-0.741669, -0.833336)
-shape = SubResource("RectangleShape2D_fnv7f")
->>>>>>> Stashed changes

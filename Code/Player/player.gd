@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var wall_coyote_timer: Timer = $CoyoteTimer
-@onready var jump_buffer_timer: Timer =$JumpBufferTimer
 
 @export var double_jump: bool 
 @export var wall_jump: bool 
@@ -19,11 +18,8 @@ const WALL_JUMP_POWER = 300.00
 const ACCELERATION = 70.00
 const DECELERATION = 20.00
 
-<<<<<<< Updated upstream
 # Initializing and Declaring Variables
 # Basically just don't touch these
-=======
->>>>>>> Stashed changes
 var numJumps = 0
 var can_move = true
 
@@ -37,9 +33,6 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	# Allows input from user if they can move
-	
-	if Input.is_action_just_pressed("jump"):
-		jump_buffer_timer.start() # jump buffer timer starts with jump button
 	if can_move:
 		# Gets input from user
 		movement()    # Controls going left, right
@@ -48,7 +41,6 @@ func _physics_process(delta: float) -> void:
 	
 	var was_on_floor = is_on_floor()
 	var was_on_wall = is_on_wall_only()
-
 	# Allows movement of character
 	move_and_slide()
 	
@@ -71,11 +63,8 @@ func movement():
 # Handles player jump
 func jump():	
 	# Jump!
-	
-	if can_jump():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
 		print("Jumped")
-		if !jump_buffer_timer.is_stopped():
-			print(jump_buffer_timer.time_left)
 		numJumps += 1
 		velocity.y = JUMP_POWER 
 	   
@@ -88,10 +77,6 @@ func jump():
 	if is_on_floor():
 		numJumps = 0
 		# pp
-
-func can_jump() -> bool:
-	# jump button just pressed removed as it is redundant
-	return (is_on_floor() or (!coyote_timer.is_stopped() and velocity.y>0)) and !jump_buffer_timer.is_stopped()
 
 # Handles wall jump
 func wallJump():
@@ -117,15 +102,3 @@ func disable_movement(time):
 # Handle Player death
 func _on_PlayerDied():
 	print("player dieed")
-	# play death animation
-	can_move = false
-	
-	await get_tree().create_timer(1).timeout
-	
-	reset_player()
-	
-func reset_player():
-	# in future will reset to a position based on the current level taken from a level manager
-	global_position = Vector2(-93, -28)
-	can_move = true
-	
