@@ -2,12 +2,13 @@
 
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_tsyqu"]
 [ext_resource type="PackedScene" uid="uid://bqetxd6a5mong" path="res://Scenes/Player/player.tscn" id="2_jmqu6"]
-[ext_resource type="PackedScene" uid="uid://c6x7xm84jeo6t" path="res://Scenes/UI/stopwatch.tscn" id="3_0rwuq"]
 [ext_resource type="PackedScene" uid="uid://doxfls6lhcxok" path="res://Scenes/UI/ui.tscn" id="4_ppn7s"]
 [ext_resource type="PackedScene" uid="uid://b2mvdslakp4o7" path="res://Scenes/Map features/death_zone.tscn" id="5_74rkw"]
 [ext_resource type="PackedScene" uid="uid://bkn35y4qgq7wd" path="res://Assets/Objects/moving_platform.tscn" id="6_nuiwp"]
 [ext_resource type="PackedScene" uid="uid://cp3a2c64im0y1" path="res://Assets/Objects/tree.tscn" id="7_5i5ge"]
 [ext_resource type="PackedScene" uid="uid://ddr8m07fums6u" path="res://Assets/Objects/tree_2.tscn" id="8_ubbwk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e8b33"]
 
 [node name="TestMap" type="Node2D"]
 
@@ -21,11 +22,14 @@ tile_set = ExtResource("1_tsyqu")
 [node name="Player" parent="." instance=ExtResource("2_jmqu6")]
 position = Vector2(1937, -314)
 
-[node name="Stopwatch" parent="." groups=["stopwatch"] instance=ExtResource("3_0rwuq")]
-
 [node name="DeathZone" parent="." instance=ExtResource("5_74rkw")]
 position = Vector2(776, 482)
 scale = Vector2(30, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+visible = false
+position = Vector2(7.51667, 0)
+shape = SubResource("WorldBoundaryShape2D_e8b33")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

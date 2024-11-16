@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://doxfls6lhcxok"]
+[gd_scene load_steps=4 format=3 uid="uid://doxfls6lhcxok"]
 
 [ext_resource type="Script" path="res://Code/UI/ui.gd" id="1_y13xg"]
+[ext_resource type="PackedScene" uid="uid://c6x7xm84jeo6t" path="res://Scenes/UI/stopwatch.tscn" id="2_sxo4n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a2pvt"]
 line_spacing = 4.0
@@ -15,6 +16,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y13xg")
 stopwatch_label = NodePath("MarginContainer/StopwatchLabel")
+
+[node name="Stopwatch" parent="." groups=["stopwatch"] instance=ExtResource("2_sxo4n")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

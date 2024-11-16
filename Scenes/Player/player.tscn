@@ -25,6 +25,10 @@ zoom = Vector2(3, 3)
 wait_time = 0.1
 one_shot = true
 
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Player_Hitbox2" type="CollisionShape2D" parent="Area2D"]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var wall_coyote_timer: Timer = $CoyoteTimer
+@onready var jump_buffer_timer: Timer = $JumpBufferTimer
 
 @export var double_jump: bool 
 @export var wall_jump: bool 
@@ -32,6 +33,9 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer_timer.start()
+		
 	# Allows input from user if they can move
 	if can_move:
 		# Gets input from user
@@ -63,7 +67,7 @@ func movement():
 # Handles player jump
 func jump():	
 	# Jump!
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
+	if can_jump():
 		print("Jumped")
 		numJumps += 1
 		velocity.y = JUMP_POWER 
@@ -77,6 +81,9 @@ func jump():
 	if is_on_floor():
 		numJumps = 0
 		# pp
+
+func can_jump() -> bool:
+	return (is_on_floor() or (!coyote_timer.is_stopped() and velocity.y > 0)) and !jump_buffer_timer.is_stopped()
 
 # Handles wall jump
 func wallJump():
@@ -101,4 +108,12 @@ func disable_movement(time):
 
 # Handle Player death
 func _on_PlayerDied():
+	
+	can_move = false
+	await get_tree().create_timer(1).timeout
+	reset_player()
 	print("player dieed")
+	
+func reset_player():
+	global_position = Vector2(1937, -314)
+	can_move = true
