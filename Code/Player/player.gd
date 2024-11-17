@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @export var double_jump: bool 
 @export var wall_jump: bool 
+@onready var animation_tree : AnimationTree = $AnimationTree
 
 var head = preload("res://Assets/Characters/Head.png")
 
@@ -28,7 +29,30 @@ var can_move = true
 
 
 func _ready():
+	animation_tree.active = true
 	EventsBus.PlayerDied.connect(_on_PlayerDied) # Signal connected once node is ready
+
+
+func _process(delta):
+	update_animation_parameters()
+	
+	#flipping player left and right based on left and right movement:
+	if true:
+		if Input.is_action_just_pressed("left"):
+			$Body/Head.flip_h = true
+			$Body/Torso.flip_h = true
+			$"Body/Right arm".flip_h = true
+			$"Body/Left arm".flip_h = true
+			$"Body/Right leg".flip_h = true
+			$"Body/Left leg".flip_h = true
+		
+		if Input.is_action_just_pressed("right"):
+			$Body/Head.flip_h = false
+			$Body/Torso.flip_h = false
+			$"Body/Right arm".flip_h = false
+			$"Body/Left arm".flip_h = false
+			$"Body/Right leg".flip_h = false
+			$"Body/Left leg".flip_h = false
 
 func _physics_process(delta: float) -> void:
 	# Gravity
@@ -59,22 +83,7 @@ func _physics_process(delta: float) -> void:
 		wall_coyote_timer.start()
 	
 	#flipping player left and right based on left and right movement
-	if true:
-		if Input.is_action_just_pressed("left"):
-			$Body/Head.flip_h = true
-			$Body/Torso.flip_h = true
-			$"Body/Right arm".flip_h = true
-			$"Body/Left arm".flip_h = true
-			$"Body/Right leg".flip_h = true
-			$"Body/Left leg".flip_h = true
-		
-		if Input.is_action_just_pressed("right"):
-			$Body/Head.flip_h = false
-			$Body/Torso.flip_h = false
-			$"Body/Right arm".flip_h = false
-			$"Body/Left arm".flip_h = false
-			$"Body/Right leg".flip_h = false
-			$"Body/Left leg".flip_h = false
+	
 		
 
 # Handle left and right movement
@@ -141,3 +150,16 @@ func _on_PlayerDied():
 func reset_player():
 	global_position = Vector2(1937, -314)
 	can_move = true
+
+func update_animation_parameters():
+	if velocity == Vector2.ZERO:
+		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/is_moving"] = false
+	else:
+		animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/is_moving"] = true
+	
+	if Input.is_action_just_pressed("jump"):
+		animation_tree["parameters/conditions/jump"] = true
+	else:
+		animation_tree["parameters/conditions/jump"] = false
