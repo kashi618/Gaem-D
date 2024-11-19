@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://fji5edywqt3b"]
+[gd_scene load_steps=6 format=4 uid="uid://fji5edywqt3b"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_w77st"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_xwq52"]
 [ext_resource type="PackedScene" uid="uid://bqetxd6a5mong" path="res://Scenes/Player/player.tscn" id="2_lr8b3"]
 [ext_resource type="PackedScene" uid="uid://bckhmwekiwxqx" path="res://Assets/Objects/spring.tscn" id="3_d040e"]
+[ext_resource type="PackedScene" uid="uid://601y8dxpqxp8" path="res://Assets/Objects/flag_end.tscn" id="5_7734w"]
 
 [node name="SpringTest" type="Node2D"]
 script = ExtResource("1_w77st")
@@ -25,3 +26,6 @@ force = -600
 
 [node name="Spring3" parent="." instance=ExtResource("3_d040e")]
 position = Vector2(567, -358)
+
+[node name="Flag End" parent="." instance=ExtResource("5_7734w")]
+position = Vector2(637, -594)

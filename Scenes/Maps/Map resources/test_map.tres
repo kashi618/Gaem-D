@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://dndb441drqwlv"]
+
+[ext_resource type="Script" path="res://Code/Resources/MapData.gd" id="1_1f3c6"]
+
+[resource]
+script = ExtResource("1_1f3c6")
+map_ID = 1
+map_name = "test_map"
+start_pos = Vector2(-83, -13)
+map_path = "Maps/TestMap"
