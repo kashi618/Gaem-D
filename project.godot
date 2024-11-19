@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Game-Jam 2024"
-run/main_scene="res://Scenes/Maps/TestMap.tscn"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Events/Global.gd"
 EventsBus="*res://Events/EventsBus.gd"
+MapManager="*res://Code/Manager/map_manager.gd"
 
 [input]
 

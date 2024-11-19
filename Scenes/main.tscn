@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dibc818ncc4g3"]
+
+[ext_resource type="PackedScene" uid="uid://doxfls6lhcxok" path="res://Scenes/UI/ui.tscn" id="1_jkguw"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_ynf03"]
+[ext_resource type="Script" path="res://Code/Resources/MapData.gd" id="2_u3f0a"]
+
+[sub_resource type="Resource" id="Resource_aimbn"]
+script = ExtResource("2_u3f0a")
+map_ID = 1
+map_name = "TestMap"
+start_pos = Vector2(-83, -13)
+map_path = "Maps/TestMap"
+
+[sub_resource type="Resource" id="Resource_y32ry"]
+script = ExtResource("2_u3f0a")
+map_ID = 2
+map_name = "move_map"
+start_pos = Vector2(-63, 19)
+map_path = "Maps/move_map"
+
+[sub_resource type="Resource" id="Resource_bowf2"]
+script = ExtResource("2_u3f0a")
+map_ID = 3
+map_name = "spring_test"
+start_pos = Vector2(-18, 211)
+map_path = "Maps/spring_test"
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ynf03")
+Maps = Array[ExtResource("2_u3f0a")]([SubResource("Resource_aimbn"), SubResource("Resource_y32ry"), SubResource("Resource_bowf2")])
+
+[node name="Menus_UI" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="Menus_UI" instance=ExtResource("1_jkguw")]
+
+[node name="current_map" type="Node2D" parent="."]

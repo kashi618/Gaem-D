@@ -10,7 +10,8 @@ extends CharacterBody2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 
 var head = preload("res://Assets/Characters/Head.png")
-
+var current_map : Map
+var start_pos : Vector2
 # Constants for Tuning Movement
 const SPEED = 300.0
 const FALL_GRAVITY = 1000.0
@@ -29,6 +30,11 @@ var can_move = true
 
 
 func _ready():
+	
+	current_map = get_parent()
+	if not current_map.ready:
+		await current_map.ready
+	#start_pos = current_map.map_data.start_pos
 	animation_tree.active = true
 	EventsBus.PlayerDied.connect(_on_PlayerDied) # Signal connected once node is ready
 
@@ -148,7 +154,8 @@ func _on_PlayerDied():
 	print("player dieed")
 	
 func reset_player():
-	global_position = Vector2(1937, -314)
+	start_pos = current_map.map_data.start_pos
+	global_position = start_pos
 	can_move = true
 
 func update_animation_parameters():
