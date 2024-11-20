@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://b1wnlq0j37fkp"]
+[gd_scene load_steps=12 format=4 uid="uid://b1wnlq0j37fkp"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_rfci4"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_tsyqu"]
 [ext_resource type="PackedScene" uid="uid://bqetxd6a5mong" path="res://Scenes/Player/player.tscn" id="2_jmqu6"]
 [ext_resource type="PackedScene" uid="uid://doxfls6lhcxok" path="res://Scenes/UI/ui.tscn" id="4_ppn7s"]
 [ext_resource type="PackedScene" uid="uid://b2mvdslakp4o7" path="res://Scenes/Map features/death_zone.tscn" id="5_74rkw"]
-[ext_resource type="PackedScene" uid="uid://bkn35y4qgq7wd" path="res://Assets/Objects/moving_platform.tscn" id="6_nuiwp"]
-[ext_resource type="PackedScene" uid="uid://cp3a2c64im0y1" path="res://Assets/Objects/tree.tscn" id="7_5i5ge"]
-[ext_resource type="PackedScene" uid="uid://ddr8m07fums6u" path="res://Assets/Objects/tree_2.tscn" id="8_ubbwk"]
-[ext_resource type="PackedScene" uid="uid://601y8dxpqxp8" path="res://Assets/Objects/flag_end.tscn" id="9_d632t"]
+[ext_resource type="PackedScene" path="res://Assets/Objects/moving_platform.tscn" id="6_nuiwp"]
+[ext_resource type="PackedScene" path="res://Assets/Objects/tree.tscn" id="7_5i5ge"]
+[ext_resource type="PackedScene" path="res://Assets/Objects/tree_2.tscn" id="8_ubbwk"]
+[ext_resource type="PackedScene" path="res://Assets/Objects/flag_end.tscn" id="9_d632t"]
+[ext_resource type="PackedScene" uid="uid://dc37pl78kgely" path="res://Assets/Objects/one_way_platform.tscn" id="10_qr6fs"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e8b33"]
 
@@ -50,3 +51,6 @@ position = Vector2(170, -48)
 
 [node name="Flag End" parent="." instance=ExtResource("9_d632t")]
 position = Vector2(1921, -306)
+
+[node name="OneWayPlatform" parent="." instance=ExtResource("10_qr6fs")]
+position = Vector2(142, -94)
