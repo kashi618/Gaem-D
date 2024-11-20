@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_1f3c6")
-map_ID = 1
+map_ID = 0
 map_name = "test_map"
 start_pos = Vector2(-83, -13)
 map_path = "Maps/TestMap"

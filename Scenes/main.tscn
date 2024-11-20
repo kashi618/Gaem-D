@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dibc818ncc4g3"]
+[gd_scene load_steps=9 format=3 uid="uid://dibc818ncc4g3"]
 
 [ext_resource type="PackedScene" uid="uid://doxfls6lhcxok" path="res://Scenes/UI/ui.tscn" id="1_jkguw"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ynf03"]
 [ext_resource type="Script" path="res://Code/Resources/MapData.gd" id="2_u3f0a"]
 [ext_resource type="Resource" uid="uid://dndb441drqwlv" path="res://Scenes/Maps/Map resources/test_map.tres" id="3_qlnuh"]
 [ext_resource type="Resource" uid="uid://bvgwtdigsap8w" path="res://Scenes/Maps/Map resources/death_funnel.tres" id="4_johgv"]
+[ext_resource type="Resource" uid="uid://8obce84ywf0g" path="res://Scenes/Maps/Map resources/flag_secret.tres" id="5_onhrp"]
 
 [sub_resource type="Resource" id="Resource_y32ry"]
 script = ExtResource("2_u3f0a")
@@ -22,7 +23,7 @@ map_path = "Maps/spring_test"
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ynf03")
-Maps = Array[ExtResource("2_u3f0a")]([SubResource("Resource_y32ry"), SubResource("Resource_bowf2"), ExtResource("3_qlnuh"), ExtResource("4_johgv")])
+Maps = Array[ExtResource("2_u3f0a")]([SubResource("Resource_y32ry"), SubResource("Resource_bowf2"), ExtResource("3_qlnuh"), ExtResource("4_johgv"), ExtResource("5_onhrp")])
 
 [node name="Menus_UI" type="CanvasLayer" parent="."]
 

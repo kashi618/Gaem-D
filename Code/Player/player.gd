@@ -7,6 +7,9 @@ extends CharacterBody2D
 
 @export var double_jump: bool 
 @export var wall_jump: bool 
+@onready var jumper: GPUParticles2D = $Particles/Jump
+@onready var x2jump: GPUParticles2D = $Particles/DoubleJump
+@onready var runner: GPUParticles2D = $Particles/Running
 @onready var animation_tree : AnimationTree = $AnimationTree
 
 var head = preload("res://Assets/Characters/Head.png")
@@ -38,9 +41,20 @@ func _ready():
 	animation_tree.active = true
 	EventsBus.PlayerDied.connect(_on_PlayerDied) # Signal connected once node is ready
 
+var motion = Vector2()
 
 func _process(delta):
 	update_animation_parameters()
+	
+	if velocity == Vector2.ZERO:
+		runner.emitting = true
+	else:
+		runner.emitting = false
+	
+	#if Input.is_action_pressed("right"):
+		#runner.emitting = true
+	#if Input.is_action_pressed("left"):
+		#runner.emitting = true
 	
 	#flipping player left and right based on left and right movement:
 	if true:
@@ -51,6 +65,8 @@ func _process(delta):
 			$"Body/Left arm".flip_h = true
 			$"Body/Right leg".flip_h = true
 			$"Body/Left leg".flip_h = true
+			runner.scale.x = 1
+			
 		
 		if Input.is_action_just_pressed("right"):
 			$Body/Head.flip_h = false
@@ -59,6 +75,8 @@ func _process(delta):
 			$"Body/Left arm".flip_h = false
 			$"Body/Right leg".flip_h = false
 			$"Body/Left leg".flip_h = false
+			runner.scale.x = -1
+			
 
 func _physics_process(delta: float) -> void:
 	# Gravity
@@ -110,12 +128,14 @@ func jump():
 		print("Jumped")
 		numJumps += 1
 		velocity.y = JUMP_POWER 
+		jumper.emitting = true
 	   
 	# Double jump!
 	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and double_jump:
 		print("DoubleJumped")
 		numJumps += 1
 		velocity.y = JUMP_POWER+50
+		x2jump.emitting = true
 	
 	if is_on_floor():
 		numJumps = 0
