@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://bhfwwytp2uqeg"]
+
+[ext_resource type="Script" path="res://Code/Resources/MapData.gd" id="1_rc1r4"]
+
+[resource]
+script = ExtResource("1_rc1r4")
+map_ID = 3
+map_name = "spring_test"
+start_pos = Vector2(-18, 211)
+map_path = "Maps/spring_test"
