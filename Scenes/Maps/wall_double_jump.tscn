@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bwudwhq8vmc1q"]
+[gd_scene load_steps=11 format=4 uid="uid://bwudwhq8vmc1q"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_gevym"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_hg62b"]
@@ -6,9 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://d1251ti07uioo" path="res://Assets/Objects/flag_start.tscn" id="3_wpbge"]
 [ext_resource type="PackedScene" uid="uid://601y8dxpqxp8" path="res://Assets/Objects/flag_end.tscn" id="4_cdj2q"]
 [ext_resource type="PackedScene" uid="uid://bckhmwekiwxqx" path="res://Assets/Objects/spring.tscn" id="6_cu74a"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_e0m6b"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_3xyoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d0oj"]
-size = Vector2(12.8155, 125.744)
+size = Vector2(12.8155, 107.872)
+
+[sub_resource type="Resource" id="Resource_laltc"]
+script = ExtResource("8_3xyoh")
+duration = 0.3
+transition = 1
+ease = 2
 
 [node name="wall_double jump" type="Node2D"]
 script = ExtResource("1_gevym")
@@ -33,9 +41,28 @@ position = Vector2(895, -18)
 [node name="Spring" parent="." instance=ExtResource("6_cu74a")]
 position = Vector2(-402, -487)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="zone0-1" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zone0-1"]
 position = Vector2(-40, -37)
 rotation = -0.981452
 shape = SubResource("RectangleShape2D_5d0oj")
+
+[node name="PhantomCamera2D" type="Node2D" parent="zone0-1"]
+position = Vector2(-78, -38)
+script = ExtResource("7_e0m6b")
+zoom = Vector2(3, 3)
+tween_resource = SubResource("Resource_laltc")
+
+[node name="zone1-2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zone1-2"]
+position = Vector2(-208, -320.936)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_5d0oj")
+
+[node name="PhantomCamera2D" type="Node2D" parent="zone1-2"]
+position = Vector2(144, -160)
+script = ExtResource("7_e0m6b")
+zoom = Vector2(1.4, 1.4)
+tween_resource = SubResource("Resource_laltc")

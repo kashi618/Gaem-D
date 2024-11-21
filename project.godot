@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 Global="*res://Events/Global.gd"
 EventsBus="*res://Events/EventsBus.gd"
 MapManager="*res://Code/Manager/map_manager.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
