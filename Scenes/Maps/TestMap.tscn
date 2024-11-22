@@ -49,4 +49,4 @@ position = Vector2(1841, -426)
 position = Vector2(170, -48)
 
 [node name="Flag End" parent="." instance=ExtResource("9_d632t")]
-position = Vector2(1921, -306)
+position = Vector2(394, -307)

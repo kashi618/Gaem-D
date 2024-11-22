@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ynf03"]
 [ext_resource type="Script" path="res://Code/Resources/MapData.gd" id="2_u3f0a"]
 [ext_resource type="Resource" uid="uid://d0736daxlqotv" path="res://Scenes/Maps/Map resources/move_map.tres" id="3_ivyqi"]
-[ext_resource type="Resource" uid="uid://dndb441drqwlv" path="res://Scenes/Maps/Map resources/test_map.tres" id="3_qlnuh"]
+[ext_resource type="Resource" uid="uid://bvb8xoivqpjfj" path="res://Scenes/Maps/Map resources/1_tutorial.tres" id="3_ixmbw"]
 [ext_resource type="Resource" uid="uid://bvgwtdigsap8w" path="res://Scenes/Maps/Map resources/death_funnel.tres" id="4_johgv"]
 [ext_resource type="Resource" uid="uid://bhfwwytp2uqeg" path="res://Scenes/Maps/Map resources/spring_test.tres" id="5_gf4ty"]
 [ext_resource type="Resource" uid="uid://8obce84ywf0g" path="res://Scenes/Maps/Map resources/flag_secret.tres" id="5_onhrp"]
@@ -14,7 +14,7 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ynf03")
-Maps = Array[ExtResource("2_u3f0a")]([ExtResource("3_qlnuh"), ExtResource("4_johgv"), ExtResource("5_gf4ty"), ExtResource("6_ywg3b"), ExtResource("7_q25gg"), ExtResource("5_onhrp"), ExtResource("3_ivyqi")])
+Maps = Array[ExtResource("2_u3f0a")]([ExtResource("3_ixmbw"), ExtResource("4_johgv"), ExtResource("5_gf4ty"), ExtResource("6_ywg3b"), ExtResource("7_q25gg"), ExtResource("5_onhrp"), ExtResource("3_ivyqi")])
 
 [node name="current_map" type="Node2D" parent="."]
 

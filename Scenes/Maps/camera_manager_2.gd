@@ -11,13 +11,15 @@ extends Node
 
 var current_camera_zone: int = 0
 
-
+#func _ready():
+	#$"CameraNode/zone0-1/PhantomCamera2D".priority = 1
 
 func update_camera():
 	var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
 	for camera in cameras:
 		if camera != null:
 			camera.priority = 0
+			print("null: ", camera)
 	
 	match current_camera_zone:
 		0:
@@ -39,15 +41,17 @@ func update_current_zone(body, zone_a, zone_b):
 		match current_camera_zone:
 			zone_a:
 				current_camera_zone = zone_b
+				print("entering: zone: ", zone_b)
 			zone_b:
 				current_camera_zone = zone_a
+				print("entering: zone: ", zone_a)
 		update_camera()
 
 
 
 
-func _on_zone_01_body_entered(body):
-	update_current_zone(body,0,1)
+
+	
 
 
 func _on_zone_12_body_entered(body):
@@ -56,3 +60,7 @@ func _on_zone_12_body_entered(body):
 
 func _on_zone_13_body_entered(body):
 	update_current_zone(body,1,3)
+
+
+func _on_zone_0_one_body_entered(body):
+	update_current_zone(body,0,1)

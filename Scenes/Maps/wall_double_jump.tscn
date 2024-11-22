@@ -93,6 +93,7 @@ position = Vector2(-78, -38)
 script = ExtResource("7_e0m6b")
 zoom = Vector2(5, 5)
 tween_resource = SubResource("Resource_laltc")
+draw_limits = true
 
 [node name="zone1-2" type="Area2D" parent="CameraManager/CameraNodes"]
 
@@ -107,6 +108,7 @@ follow_target = NodePath("../../../../Player")
 zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_laltc")
 follow_damping = true
+draw_limits = true
 limit_bottom = 106
 
 [node name="zone2-3" type="Area2D" parent="CameraManager/CameraNodes"]
@@ -116,6 +118,7 @@ position = Vector2(-22, -451)
 script = ExtResource("7_e0m6b")
 zoom = Vector2(2.4, 2.4)
 tween_resource = SubResource("Resource_laltc")
+draw_limits = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone2-3"]
 position = Vector2(-385.034, -645.5)
@@ -129,6 +132,7 @@ position = Vector2(-268, -844)
 script = ExtResource("7_e0m6b")
 zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_5flav")
+draw_limits = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone3-4"]
 position = Vector2(350, -464)
@@ -145,6 +149,7 @@ follow_target = NodePath("../../../../Player")
 zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_ok6ox")
 follow_damping = true
+draw_limits = true
 limit_top = -579
 limit_right = 1444
 
@@ -155,6 +160,7 @@ position = Vector2(681, -112)
 script = ExtResource("7_e0m6b")
 zoom = Vector2(2.5, 2.5)
 tween_resource = SubResource("Resource_5tvum")
+draw_limits = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone 1-6"]
 position = Vector2(398.455, -83.1065)

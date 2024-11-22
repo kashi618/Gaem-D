@@ -53,26 +53,27 @@ position = Vector2(316, 975)
 [node name="CameraManager2" type="Node" parent="." node_paths=PackedStringArray("player", "CameraZone0", "CameraZone1", "CameraZone2", "CameraZone3")]
 script = ExtResource("5_yx2x5")
 player = NodePath("../Player")
-CameraZone0 = NodePath("CameraNode/zone0-1/PhantomCamera2D")
+CameraZone0 = NodePath("CameraNode/zone0-one/PhantomCamera2D")
 CameraZone1 = NodePath("CameraNode/zone1-2/PhantomCamera2D")
 CameraZone2 = NodePath("CameraNode/zone1-3/PhantomCamera2D")
 CameraZone3 = NodePath("CameraNode/zone1-3/PhantomCamera2D")
 
 [node name="CameraNode" type="StaticBody2D" parent="CameraManager2"]
 
-[node name="zone0-1" type="Area2D" parent="CameraManager2/CameraNode"]
+[node name="zone0-one" type="Area2D" parent="CameraManager2/CameraNode"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager2/CameraNode/zone0-1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager2/CameraNode/zone0-one"]
 position = Vector2(-112, -117)
 rotation = -1.56409
 shape = SubResource("RectangleShape2D_kslfm")
 
-[node name="PhantomCamera2D" type="Node2D" parent="CameraManager2/CameraNode/zone0-1"]
+[node name="PhantomCamera2D" type="Node2D" parent="CameraManager2/CameraNode/zone0-one"]
 position = Vector2(-112, -117)
 rotation = -1.56409
 script = ExtResource("6_rk5ir")
 zoom = Vector2(5, 5)
 tween_resource = SubResource("Resource_o7nlq")
+draw_limits = true
 
 [node name="zone1-2" type="Area2D" parent="CameraManager2/CameraNode"]
 
@@ -85,6 +86,7 @@ position = Vector2(406, 43)
 script = ExtResource("6_rk5ir")
 zoom = Vector2(1.7, 1.7)
 tween_resource = SubResource("Resource_kmwj7")
+draw_limits = true
 
 [node name="zone1-3" type="Area2D" parent="CameraManager2/CameraNode"]
 
@@ -101,9 +103,10 @@ follow_target = NodePath("../../../../Player")
 zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_wtvxl")
 follow_damping = true
+draw_limits = true
 
 [node name="2-3" type="Area2D" parent="CameraManager2/CameraNode"]
 
-[connection signal="body_entered" from="CameraManager2/CameraNode/zone0-1" to="CameraManager2" method="_on_zone_01_body_entered"]
+[connection signal="body_entered" from="CameraManager2/CameraNode/zone0-one" to="CameraManager2" method="_on_zone_0_one_body_entered"]
 [connection signal="body_entered" from="CameraManager2/CameraNode/zone1-2" to="CameraManager2" method="_on_zone_12_body_entered"]
 [connection signal="body_entered" from="CameraManager2/CameraNode/zone1-3" to="CameraManager2" method="_on_zone_13_body_entered"]

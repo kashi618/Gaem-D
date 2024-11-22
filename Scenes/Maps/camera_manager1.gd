@@ -11,7 +11,6 @@ extends Node
 
 var current_camera_zone: int = 0
 
-
 func update_camera():
 	var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
 	for camera in cameras:
@@ -49,6 +48,16 @@ func _on_zone_01_body_entered(body):
 func _on_zone_12_body_entered(body):
 	update_current_zone(body,1,2)
 	
-
-func _on_zone_23_body_entered(body):
-	update_current_zone(body,2,3)
+#func _on_zone_23_body_entered(body):
+	#update_current_zone(body,2,3)
+#
+#func _on_zone_34_body_entered(body):
+	#update_current_zone(body,2,4)
+#
+#
+#func _on_zone_45_body_entered(body):
+	#update_current_zone(body,2,4)
+#
+#
+#func _on_zone_16_body_entered(body):
+	#update_current_zone(body,1,6)
