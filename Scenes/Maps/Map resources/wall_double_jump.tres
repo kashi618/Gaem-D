@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://daptfw0jvi10y"]
+
+[ext_resource type="Script" path="res://Code/Resources/MapData.gd" id="1_kqgf8"]
+
+[resource]
+script = ExtResource("1_kqgf8")
+map_ID = 4
+map_name = ""
+start_pos = Vector2(-150, 19)
+map_path = "Maps/wall_double_jump"
