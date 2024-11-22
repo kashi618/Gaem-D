@@ -120,7 +120,6 @@ tween_resource = SubResource("Resource_laltc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone2-3"]
 position = Vector2(-385.034, -645.5)
 rotation = 1.56676
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6fvwt")
 
 [node name="zone3-4" type="Area2D" parent="CameraManager/CameraNodes"]
