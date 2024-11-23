@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8blcq3ojv7un"]
+[gd_scene load_steps=3 format=3 uid="uid://c8blcq3ojv7un"]
 
 [ext_resource type="Script" path="res://Scenes/UI/pause_menu.gd" id="1_cpkam"]
+[ext_resource type="Theme" uid="uid://cjjnne5ktjnxi" path="res://Scenes/UI/UI Assets/UI.tres" id="2_ewfg6"]
 
 [node name="Pause menu" type="Control"]
 process_mode = 3
@@ -34,18 +35,22 @@ theme_override_constants/separation = 20
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_ewfg6")
 text = "Resume"
 
 [node name="Retry from start" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_ewfg6")
 text = "Retry from beginning"
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_ewfg6")
 text = "Settings"
 
 [node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_ewfg6")
 text = "Exit to Main Menu"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

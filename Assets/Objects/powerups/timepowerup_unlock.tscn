@@ -1,0 +1,237 @@
+[gd_scene load_steps=8 format=3 uid="uid://h0eg4l110wey"]
+
+[ext_resource type="Script" path="res://Assets/Objects/powerups/timepowerup_unlock.gd" id="1_72s71"]
+[ext_resource type="Theme" uid="uid://cjjnne5ktjnxi" path="res://Scenes/UI/UI Assets/UI.tres" id="1_p3fv4"]
+[ext_resource type="Texture2D" uid="uid://8pdvbvwij7xu" path="res://Assets/Objects/powerups/images/timePowerupbig.png" id="2_7cv8c"]
+[ext_resource type="Material" uid="uid://6xew18640bs1" path="res://Assets/Objects/powerups/explosion.tres" id="4_dsb6q"]
+
+[sub_resource type="Animation" id="Animation_r884s"]
+resource_name = "reveal"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.662745)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/MarginContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/MarginContainer2/TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p35io"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/MarginContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/MarginContainer2/TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f2wcm"]
+_data = {
+"RESET": SubResource("Animation_p35io"),
+"reveal": SubResource("Animation_r884s")
+}
+
+[node name="PowerupUnlock" type="Control"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_72s71")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0862745, 0.117647, 0.172549, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 300
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_p3fv4")
+text = "Extra Time Unlocked!"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -692.0
+offset_right = 96.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.998467, 1)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 400
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_7cv8c")
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/MarginContainer3"]
+modulate = Color(0, 1, 0.976471, 1)
+rotation = -1.5708
+emitting = false
+amount = 20
+process_material = ExtResource("4_dsb6q")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.8
+trail_enabled = true
+trail_lifetime = 0.1
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/MarginContainer5"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="CanvasLayer/MarginContainer5/MarginContainer4"]
+modulate = Color(0, 1, 0.976471, 1)
+rotation = -0.785398
+emitting = false
+amount = 20
+process_material = ExtResource("4_dsb6q")
+one_shot = true
+explosiveness = 0.8
+trail_enabled = true
+trail_lifetime = 0.1
+
+[node name="MarginContainer6" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 100
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/MarginContainer6"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="CanvasLayer/MarginContainer6/MarginContainer4"]
+modulate = Color(0, 1, 0.976471, 1)
+rotation = -2.48482
+emitting = false
+amount = 20
+process_material = ExtResource("4_dsb6q")
+one_shot = true
+explosiveness = 0.8
+trail_enabled = true
+trail_lifetime = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f2wcm")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

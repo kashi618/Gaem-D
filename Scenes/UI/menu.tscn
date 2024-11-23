@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://by0rja68g8x28"]
+[gd_scene load_steps=4 format=3 uid="uid://by0rja68g8x28"]
 
 [ext_resource type="Script" path="res://Scenes/UI/menu.gd" id="1_cfc05"]
+[ext_resource type="Theme" uid="uid://cjjnne5ktjnxi" path="res://Scenes/UI/UI Assets/UI.tres" id="2_wvds5"]
+[ext_resource type="PackedScene" uid="uid://52o241i0fvl5" path="res://Scenes/UI/UI Assets/ui_player.tscn" id="3_wi2ff"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -14,28 +16,53 @@ script = ExtResource("1_cfc05")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -41.0
-offset_top = -33.0
-offset_bottom = 33.0
-grow_horizontal = 0
+offset_top = -158.0
+offset_right = 316.0
+offset_bottom = 158.0
 grow_vertical = 2
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 300
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
 [node name="Play" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_wvds5")
 text = "Play"
+alignment = 0
+
+[node name="Setting" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wvds5")
+text = "Settings"
+alignment = 0
 
 [node name="Exit" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_wvds5")
 text = "Exit"
+alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 500
+
+[node name="UI Player" parent="MarginContainer" instance=ExtResource("3_wi2ff")]
+scale = Vector2(10, 10)
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
