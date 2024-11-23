@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://knfybjd5qgpc"]
+[gd_scene load_steps=18 format=4 uid="uid://knfybjd5qgpc"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_1q2v1"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_lihhe"]
@@ -34,6 +34,15 @@ duration = 1.0
 transition = 0
 ease = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtmo3"]
+size = Vector2(57.5, 63)
+
+[sub_resource type="Resource" id="Resource_ps1rx"]
+script = ExtResource("9_i0aqp")
+duration = 1.0
+transition = 10
+ease = 2
+
 [sub_resource type="Curve2D" id="Curve2D_5044x"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1447, -75, 0, 0, 0, 0, 1447, -408)
@@ -66,12 +75,14 @@ position = Vector2(657, -6)
 [node name="Spring2" parent="." instance=ExtResource("6_wy2w4")]
 position = Vector2(1155, 90)
 
-[node name="CameraManager" type="Node" parent="." node_paths=PackedStringArray("player", "CameraZone0", "CameraZone1", "CameraZone2")]
+[node name="CameraManager" type="Node" parent="." node_paths=PackedStringArray("player", "CameraZone0", "CameraZone1", "CameraZone2", "Interaction_Area1", "Interaction_Camera1")]
 script = ExtResource("7_pxvix")
 player = NodePath("../Player")
 CameraZone0 = NodePath("StaticBody2D/Zone0-1/PhantomCamera2D")
 CameraZone1 = NodePath("StaticBody2D/Zone1-2/PhantomCamera2D")
 CameraZone2 = NodePath("StaticBody2D/Zone2-3/PhantomCamera2D")
+Interaction_Area1 = NodePath("StaticBody2D/interaction_area1")
+Interaction_Camera1 = NodePath("StaticBody2D/interaction_area1/PhantomCamera2D")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CameraManager"]
 
@@ -113,6 +124,19 @@ follow_path = NodePath("../../../../Path2D")
 zoom = Vector2(2.5, 2.5)
 tween_resource = SubResource("Resource_knrkf")
 follow_damping = true
+draw_limits = true
+
+[node name="interaction_area1" type="Area2D" parent="CameraManager/StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/StaticBody2D/interaction_area1"]
+position = Vector2(-20.75, -26)
+shape = SubResource("RectangleShape2D_qtmo3")
+
+[node name="PhantomCamera2D" type="Node2D" parent="CameraManager/StaticBody2D/interaction_area1"]
+position = Vector2(-3, -32)
+script = ExtResource("8_nwlsx")
+zoom = Vector2(10, 10)
+tween_resource = SubResource("Resource_ps1rx")
 draw_limits = true
 
 [node name="Path2D" type="Path2D" parent="."]

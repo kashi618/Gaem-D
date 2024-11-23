@@ -9,7 +9,36 @@ extends Node
 @export var CameraZone4: PhantomCamera2D
 @export var CameraZone5: PhantomCamera2D
 
+@export var Interaction_Area1: Area2D
+@export var Interaction_Camera1: PhantomCamera2D
+
 var current_camera_zone: int = 0
+
+var is_active_interaction: bool = false
+var active_interaction: Area2D 
+
+func _input(event):
+	if Input.is_action_just_pressed("e"):
+		if is_active_interaction:
+			is_active_interaction = false
+			update_camera()
+		else:
+			find_interaction()
+
+
+func find_interaction():
+	var areas: Array = [Interaction_Area1]
+	var found_interaction_area: Area2D
+	
+	for area in areas:
+		if found_interaction_area == null:
+			var overlapping_bodies = area.get_overlapping_bodies()
+			for i in overlapping_bodies:
+				if i == player:
+					found_interaction_area = area
+					is_active_interaction = true
+					active_interaction = found_interaction_area
+					update_camera()
 
 func update_camera():
 	var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
@@ -17,19 +46,24 @@ func update_camera():
 		if camera != null:
 			camera.priority = 0
 	
-	match current_camera_zone:
-		0:
-			CameraZone0.priority = 1
-		1:
-			CameraZone1.priority = 1
-		2:
-			CameraZone2.priority = 1
-		3:
-			CameraZone3.priority = 1
-		4:
-			CameraZone4.priority = 1
-		5:
-			CameraZone5.priority = 1
+	if is_active_interaction:
+		match active_interaction:
+			Interaction_Area1:
+				Interaction_Camera1.priority = 1
+	else:
+		match current_camera_zone:
+			0:
+				CameraZone0.priority = 1
+			1:
+				CameraZone1.priority = 1
+			2:
+				CameraZone2.priority = 1
+			3:
+				CameraZone3.priority = 1
+			4:
+				CameraZone4.priority = 1
+			5:
+				CameraZone5.priority = 1
 		
 
 func update_current_zone(body, zone_a, zone_b):
