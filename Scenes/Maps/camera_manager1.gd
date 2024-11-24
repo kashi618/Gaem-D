@@ -23,7 +23,9 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_just_pressed("e"):
+		$"../E".visible = false
 		if is_active_interaction:
+			
 			is_active_interaction = false
 			update_camera()
 		else:

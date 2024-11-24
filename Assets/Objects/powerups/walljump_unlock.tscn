@@ -128,7 +128,7 @@ theme_override_constants/margin_bottom = 300
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("2_30e2u")
-text = "Double Jump Unlocked!"
+text = "Wall Jump Unlocked!"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 7

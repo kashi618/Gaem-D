@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cjjnne5ktjnxi"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cjjnne5ktjnxi"]
 
 [ext_resource type="FontFile" uid="uid://4v2yc027cqdd" path="res://Scenes/UI/UI Assets/Silver.ttf" id="1_pvprn"]
 
@@ -72,6 +72,18 @@ corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rlb1b"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdb5a"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.839216, 1, 0.996078, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [resource]
 Button/colors/font_color = Color(0.839216, 1, 0.988235, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -108,3 +120,4 @@ Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 104
 Label/fonts/font = ExtResource("1_pvprn")
 Label/styles/normal = SubResource("StyleBoxEmpty_rlb1b")
+Panel/styles/panel = SubResource("StyleBoxFlat_mdb5a")
