@@ -1,6 +1,7 @@
 extends Node
 
 @export var player: CharacterBody2D
+#@onready var oldDude = $"../OldGuy"
 
 @export var CameraZone0: PhantomCamera2D
 @export var CameraZone1: PhantomCamera2D
@@ -26,6 +27,10 @@ func _input(event):
 			find_interaction()
 
 
+func run_dialogue(dialogue):
+	var layout = Dialogic.start(dialogue)
+	layout.register_character(load("res://Assets/Characters/Old dude/Old Dude.dch"), %SpeechPos)
+
 func find_interaction():
 	var areas: Array = [Interaction_Area1]
 	var found_interaction_area: Area2D
@@ -38,6 +43,7 @@ func find_interaction():
 					found_interaction_area = area
 					is_active_interaction = true
 					active_interaction = found_interaction_area
+					run_dialogue("First Encounter")
 					update_camera()
 
 func update_camera():

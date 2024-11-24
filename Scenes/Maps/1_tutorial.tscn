@@ -67,7 +67,12 @@ position = Vector2(-136, -13)
 position = Vector2(1279, -369)
 
 [node name="OldGuy" parent="." instance=ExtResource("5_lqrf4")]
+unique_name_in_owner = true
 position = Vector2(28, -16)
+
+[node name="SpeechPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(35, -33)
 
 [node name="Spring" parent="." instance=ExtResource("6_wy2w4")]
 position = Vector2(657, -6)
@@ -133,7 +138,7 @@ position = Vector2(-20.75, -26)
 shape = SubResource("RectangleShape2D_qtmo3")
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager/StaticBody2D/interaction_area1"]
-position = Vector2(-3, -32)
+position = Vector2(-9, -37)
 script = ExtResource("8_nwlsx")
 zoom = Vector2(10, 10)
 tween_resource = SubResource("Resource_ps1rx")

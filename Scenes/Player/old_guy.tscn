@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b15loplvf06c6"]
 
-[ext_resource type="Texture2D" uid="uid://dvsu855fxwt1g" path="res://Assets/Characters/Old dude-Sheet.png" id="1_0qyrq"]
+[ext_resource type="Texture2D" uid="uid://dvsu855fxwt1g" path="res://Assets/Characters/Old dude/Old dude-Sheet.png" id="1_0qyrq"]
 [ext_resource type="Script" path="res://Scenes/Player/old_guy.gd" id="1_vvw53"]
 
 [sub_resource type="Animation" id="Animation_c78pc"]
@@ -42,7 +42,7 @@ _data = {
 "idle": SubResource("Animation_o14sg")
 }
 
-[node name="OldGuy" type="Node2D"]
+[node name="OldGuy" type="CharacterBody2D"]
 script = ExtResource("1_vvw53")
 
 [node name="OldDudepng" type="Sprite2D" parent="."]

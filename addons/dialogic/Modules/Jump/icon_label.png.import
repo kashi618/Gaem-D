@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvsu855fxwt1g"
-path="res://.godot/imported/Old dude-Sheet.png-19fdd35ce37574aae63e5fd1a9d5c789.ctex"
+uid="uid://c53yjrxmhmgh"
+path="res://.godot/imported/icon_label.png-3923bd1131990c8869923c838ffdb9ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Old dude-Sheet.png"
-dest_files=["res://.godot/imported/Old dude-Sheet.png-19fdd35ce37574aae63e5fd1a9d5c789.ctex"]
+source_file="res://addons/dialogic/Modules/Jump/icon_label.png"
+dest_files=["res://.godot/imported/icon_label.png-3923bd1131990c8869923c838ffdb9ae.ctex"]
 
 [params]
 
