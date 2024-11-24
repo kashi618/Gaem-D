@@ -30,11 +30,14 @@ directories/dch_directory={
 "Old Dude": "res://Assets/Characters/Old dude/Old Dude.dch"
 }
 directories/dtl_directory={
-"First Encounter": "res://Assets/Characters/Old dude/First Encounter.dtl"
+"First Encounter": "res://Assets/Characters/Old dude/First Encounter.dtl",
+"PowerupEncounter": "res://Assets/Characters/Old dude/PowerupEncounter.dtl",
+"randomConvo": "res://Scenes/UI/UI Assets/randomConvo.dtl"
 }
 layout/style_list=["res://Assets/Characters/Old dude/Bubble.tres"]
 layout/default_style="res://Assets/Characters/Old dude/Bubble.tres"
 glossary/default_case_sensitive=true
+variables={}
 
 [display]
 

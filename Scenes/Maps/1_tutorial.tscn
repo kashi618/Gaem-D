@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://knfybjd5qgpc"]
+[gd_scene load_steps=19 format=4 uid="uid://knfybjd5qgpc"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_1q2v1"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_lihhe"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/Maps/camera_manager1.gd" id="7_pxvix"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_nwlsx"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_i0aqp"]
+[ext_resource type="PackedScene" uid="uid://c1flpcle71wsc" path="res://Assets/Objects/powerups/walljump_unlock.tscn" id="10_rx06k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrjt0"]
 size = Vector2(1, 118)
@@ -147,5 +148,8 @@ draw_limits = true
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_5044x")
 
+[node name="PowerupUnlock" parent="." instance=ExtResource("10_rx06k")]
+
+[connection signal="collected" from="CameraManager" to="PowerupUnlock" method="_on_camera_manager_collected"]
 [connection signal="body_entered" from="CameraManager/StaticBody2D/Zone0-1" to="CameraManager" method="_on_zone_01_body_entered"]
 [connection signal="body_entered" from="CameraManager/StaticBody2D/Zone1-2" to="CameraManager" method="_on_zone_12_body_entered"]

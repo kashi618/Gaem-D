@@ -1,0 +1,15 @@
+"Old Dude": psst...
+"Old Dude": Listen here pal.
+"Old Dude": Sorry keeping you busy last time.
+"Old Dude": Not many stop to listen to me ramble.
+"Old Dude": Because I'm old, not many people take me seriously.
+"Old Dude": So I got excited that I had someone to talk to.
+"Old Dude": It's lonely being old.
+"Old Dude": Anyways.
+"Old Dude": I have a SECRET to let you in onto.
+"Old Dude": It will be worth your time, I promise.
+"Old Dude": I've witnessed your attempts at traversing the difficult terain.
+"Old Dude": As thanks for stopping to listen to me, take this powerup. You are going to need it.
+"Old Dude": Have a nice day!
+[signal arg="doubleJumpPickedUp"]
+[signal arg="ConvoEnd"]

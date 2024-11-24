@@ -16,9 +16,14 @@ script = ExtResource("2_qs586")
 scene = ExtResource("4_lq44y")
 overrides = {
 "box_modulate": "Color(0.839216, 1, 0.996078, 1)",
+"box_padding": "Vector2(30, 30)",
 "name_label_box_modulate": "Color(0.839216, 1, 0.996078, 1)",
 "name_label_color": "Color(0.0862745, 0.117647, 0.172549, 1)",
-"text_color": "Color(0.0862745, 0.117647, 0.172549, 1)"
+"name_label_font_size": "26.0",
+"name_label_padding": "Vector2(10, 5)",
+"normal_font": "\"res://Scenes/UI/UI Assets/Silver.ttf\"",
+"text_color": "Color(0.0862745, 0.117647, 0.172549, 1)",
+"text_size": "52.0"
 }
 
 [resource]

@@ -18,6 +18,9 @@ var current_camera_zone: int = 0
 var is_active_interaction: bool = false
 var active_interaction: Area2D 
 
+func _ready():
+	Dialogic.signal_event.connect(DialogicSignal)
+
 func _input(event):
 	if Input.is_action_just_pressed("e"):
 		if is_active_interaction:
@@ -31,6 +34,18 @@ func run_dialogue(dialogue):
 	var layout = Dialogic.start(dialogue)
 	layout.register_character(load("res://Assets/Characters/Old dude/Old Dude.dch"), %SpeechPos)
 
+signal collected
+
+func DialogicSignal(arg: String):
+	if arg == "ConvoEnd":
+		if is_active_interaction:
+			is_active_interaction = false
+			update_camera()
+	if arg == "doubleJumpPickedUp":
+		emit_signal("collected")
+
+
+
 func find_interaction():
 	var areas: Array = [Interaction_Area1]
 	var found_interaction_area: Area2D
@@ -43,7 +58,15 @@ func find_interaction():
 					found_interaction_area = area
 					is_active_interaction = true
 					active_interaction = found_interaction_area
-					run_dialogue("First Encounter")
+					if Global.isFirstEncounter == true:
+						run_dialogue("First Encounter")
+						Global.isFirstEncounter = false
+					elif Global.isFirstEncounter == false and (Global.hasPowerup == true):
+						Global.hasPowerup = false
+						run_dialogue("PowerupEncounter")
+					else:
+						run_dialogue("randomConvo")
+					#Dialogic.signal_event.connect(DialogicSignal)
 					update_camera()
 
 func update_camera():
