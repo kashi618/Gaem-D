@@ -126,3 +126,12 @@ func _on_zone_12_body_entered(body):
 #
 #func _on_zone_16_body_entered(body):
 	#update_current_zone(body,1,6)
+
+
+
+func _on_interaction_area_1_body_entered(body):
+	$"../E".visible = true
+
+
+func _on_interaction_area_1_body_exited(body):
+	$"../E".visible = false
