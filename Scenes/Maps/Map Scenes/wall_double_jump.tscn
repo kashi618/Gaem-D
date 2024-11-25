@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bwudwhq8vmc1q"]
+[gd_scene load_steps=24 format=4 uid="uid://bwudwhq8vmc1q"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_gevym"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_hg62b"]
@@ -24,13 +24,16 @@ size = Vector2(445, 12)
 size = Vector2(349, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d0oj"]
-size = Vector2(1.69057, 107.872)
+size = Vector2(0.0279499, 107.872)
 
 [sub_resource type="Resource" id="Resource_laltc"]
 script = ExtResource("8_3xyoh")
 duration = 0.8
 transition = 1
 ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ke8"]
+size = Vector2(0, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fvwt"]
 size = Vector2(3.00006, 285)
@@ -115,8 +118,9 @@ CameraZone5 = NodePath("CameraNodes/zone 1-6/PhantomCamera2D")
 [node name="zone0-1" type="Area2D" parent="CameraManager/CameraNodes"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone0-1"]
-position = Vector2(-36.9083, -41.6241)
+position = Vector2(-36.4462, -42.3152)
 rotation = -0.981452
+scale = Vector2(0.0457422, 1)
 shape = SubResource("RectangleShape2D_5d0oj")
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager/CameraNodes/zone0-1"]
@@ -128,9 +132,6 @@ draw_limits = true
 
 [node name="zone1-2" type="Area2D" parent="CameraManager/CameraNodes"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CameraManager/CameraNodes/zone1-2"]
-polygon = PackedVector2Array(-200, -280, -204, -280, -197, -366, 283, -370, 282, -363, -186, -359)
-
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager/CameraNodes/zone1-2" node_paths=PackedStringArray("follow_target")]
 position = Vector2(-150, -74)
 script = ExtResource("7_e0m6b")
@@ -141,6 +142,16 @@ tween_resource = SubResource("Resource_laltc")
 follow_damping = true
 draw_limits = true
 limit_bottom = 106
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone1-2"]
+position = Vector2(-210, -320.5)
+shape = SubResource("RectangleShape2D_n7ke8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone1-2"]
+position = Vector2(37, -370)
+rotation = 1.5708
+scale = Vector2(1, 5.08)
+shape = SubResource("RectangleShape2D_n7ke8")
 
 [node name="zone2-3" type="Area2D" parent="CameraManager/CameraNodes"]
 
@@ -154,6 +165,7 @@ draw_limits = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone2-3"]
 position = Vector2(-385.034, -645.5)
 rotation = 1.56676
+scale = Vector2(-0.000321641, 1.00279)
 shape = SubResource("RectangleShape2D_6fvwt")
 
 [node name="zone3-4" type="Area2D" parent="CameraManager/CameraNodes"]
@@ -167,6 +179,7 @@ draw_limits = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone3-4"]
 position = Vector2(350, -464)
+scale = Vector2(1, 1.95503e-05)
 shape = SubResource("RectangleShape2D_5wsrc")
 
 [node name="zone4-5" type="Area2D" parent="CameraManager/CameraNodes"]
@@ -195,7 +208,8 @@ draw_limits = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone 1-6"]
 position = Vector2(398.455, -83.1065)
-rotation = -0.54333
+rotation = 2.59826
+scale = Vector2(0.000725398, 1.10926)
 shape = SubResource("RectangleShape2D_qgnov")
 
 [connection signal="body_entered" from="CameraManager/CameraNodes/zone0-1" to="CameraManager" method="_on_zone_01_body_entered"]

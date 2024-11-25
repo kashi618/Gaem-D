@@ -7,4 +7,4 @@ script = ExtResource("1_icgyp")
 map_ID = 1
 map_name = ""
 start_pos = Vector2(-136, -13)
-map_path = "Maps/1_tutorial"
+map_path = "Maps/Map Scenes/1_tutorial"

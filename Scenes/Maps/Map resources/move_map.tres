@@ -7,4 +7,4 @@ script = ExtResource("1_vdsi4")
 map_ID = 7
 map_name = "move_map"
 start_pos = Vector2(-63, 19)
-map_path = "Maps/move_map"
+map_path = "Maps/Map Scenes/move_map"

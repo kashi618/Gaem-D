@@ -1,5 +1,7 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://cjjnne5ktjnxi"]
 
+[ext_resource type="FontFile" uid="uid://4v2yc027cqdd" path="res://Scenes/UI/UI Assets/Silver.ttf" id="1_6t6my"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8dge"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -70,18 +72,6 @@ corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rlb1b"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdb5a"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.839216, 1, 0.996078, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
 [resource]
 Button/colors/font_color = Color(0.839216, 1, 0.988235, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -101,7 +91,7 @@ Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 104
-Button/fonts/font = null
+Button/fonts/font = ExtResource("1_6t6my")
 Button/styles/disabled = SubResource("StyleBoxFlat_g8dge")
 Button/styles/focus = SubResource("StyleBoxFlat_ggevy")
 Button/styles/hover = SubResource("StyleBoxFlat_yjri2")
@@ -116,6 +106,5 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 104
-Label/fonts/font = null
+Label/fonts/font = ExtResource("1_6t6my")
 Label/styles/normal = SubResource("StyleBoxEmpty_rlb1b")
-Panel/styles/panel = SubResource("StyleBoxFlat_mdb5a")
