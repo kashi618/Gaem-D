@@ -31,3 +31,4 @@ func _on_camera_manager_collected():
 	particleLeft.emitting = true
 	particleMiddle.emitting = true
 	particleRight.emitting = true
+	Global.wall_jump = true

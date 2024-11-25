@@ -5,8 +5,8 @@ extends CharacterBody2D
 @onready var wall_coyote_timer: Timer = $CoyoteTimer
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
 
-@export var double_jump: bool 
-@export var wall_jump: bool 
+#@export var double_jump: bool 
+#@export var wall_jump: bool 
 @onready var jumper: GPUParticles2D = $Particles/Jump
 @onready var x2jump: GPUParticles2D = $Particles/DoubleJump
 @onready var runner: GPUParticles2D = $Particles/Running
@@ -29,7 +29,6 @@ const DECELERATION = 20.00
 # Initializing and Declaring Variables
 # Basically just don't touch these
 var numJumps = 0
-var can_move = true
 
 
 func _ready():
@@ -90,7 +89,7 @@ func _physics_process(delta: float) -> void:
 		jump_buffer_timer.start()
 		
 	# Allows input from user if they can move
-	if can_move:
+	if Global.can_move:
 		# Gets input from user
 		movement()    # Controls going left, right
 		jump()  # Controls jump and double jump
@@ -131,7 +130,7 @@ func jump():
 		jumper.emitting = true
 	   
 	# Double jump!
-	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and double_jump:
+	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and Global.double_jump:
 		print("DoubleJumped")
 		numJumps += 1
 		velocity.y = JUMP_POWER+50
@@ -157,18 +156,18 @@ func wallJump():
 		print("wall jumped")
 
 func can_wall_jump() -> bool:
-	return Input.is_action_just_pressed("jump") and (is_on_wall_only() or !wall_coyote_timer.is_stopped()) and wall_jump and coyote_timer.is_stopped()
+	return Input.is_action_just_pressed("jump") and (is_on_wall_only() or !wall_coyote_timer.is_stopped()) and Global.wall_jump and coyote_timer.is_stopped()
 
 # Function to disable movement for a certain amount of time
 func disable_movement(time):
-	can_move = false
+	Global.can_move = false
 	await get_tree().create_timer(time).timeout
-	can_move = true
+	Global.can_move = true
 
 # Handle Player death
 func _on_PlayerDied():
 	
-	can_move = false
+	Global.can_move = false
 	await get_tree().create_timer(1).timeout
 	reset_player()
 	print("player dieed")
@@ -176,7 +175,7 @@ func _on_PlayerDied():
 func reset_player():
 	start_pos = current_map.map_data.start_pos
 	global_position = start_pos
-	can_move = true
+	Global.can_move = true
 
 func update_animation_parameters():
 	if velocity == Vector2.ZERO:

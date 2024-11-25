@@ -13,6 +13,8 @@ func _ready():
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if Global.spring_disabled == true:
+		return
+	elif body is Player:
 		$Sprite2D/AnimationPlayer.play("Spring")
 		body.velocity.y = force

@@ -20,6 +20,8 @@ var active_interaction: Area2D
 
 func _ready():
 	Dialogic.signal_event.connect(DialogicSignal)
+	if Global.firstPlay == true:
+		Dialogic.start("GameBegin")
 
 func _input(event):
 	if Input.is_action_just_pressed("e"):
@@ -42,9 +44,12 @@ func DialogicSignal(arg: String):
 	if arg == "ConvoEnd":
 		if is_active_interaction:
 			is_active_interaction = false
+			Global.can_move = true
 			update_camera()
 	if arg == "doubleJumpPickedUp":
 		emit_signal("collected")
+	if arg == "GameStartOnce":
+		Global.firstPlay = false
 
 
 
@@ -59,12 +64,13 @@ func find_interaction():
 				if i == player:
 					found_interaction_area = area
 					is_active_interaction = true
+					Global.can_move = false
 					active_interaction = found_interaction_area
 					if Global.isFirstEncounter == true:
 						run_dialogue("First Encounter")
 						Global.isFirstEncounter = false
-					elif Global.isFirstEncounter == false and (Global.hasPowerup == true):
-						Global.hasPowerup = false
+					elif Global.isFirstEncounter == false and (Global.hasWallPowerup == false):
+						Global.hasWallPowerup = true
 						run_dialogue("PowerupEncounter")
 					else:
 						run_dialogue("randomConvo")

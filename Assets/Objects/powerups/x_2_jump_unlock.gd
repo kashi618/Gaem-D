@@ -28,3 +28,4 @@ func _on_x_2_jump_powerup_collected():
 	particleLeft.emitting = true
 	particleMiddle.emitting = true
 	particleRight.emitting = true
+	Global.double_jump = true

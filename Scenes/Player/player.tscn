@@ -1760,8 +1760,6 @@ collision_mode = 2
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qmyvb")
-double_jump = true
-wall_jump = true
 
 [node name="Body" type="Node2D" parent="."]
 

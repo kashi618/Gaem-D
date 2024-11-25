@@ -31,13 +31,30 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "First Encounter": "res://Assets/Characters/Old dude/First Encounter.dtl",
+"GameBegin": "res://Assets/Characters/Old dude/GameBegin.dtl",
 "PowerupEncounter": "res://Assets/Characters/Old dude/PowerupEncounter.dtl",
-"randomConvo": "res://Scenes/UI/UI Assets/randomConvo.dtl"
+"randomConvo": "res://Assets/Characters/Old dude/randomConvo.dtl"
 }
-layout/style_list=["res://Assets/Characters/Old dude/Bubble.tres"]
+layout/style_list=["res://Assets/Characters/Old dude/Bubble.tres", "res://Assets/Characters/Old dude/Visual Novel.tres"]
 layout/default_style="res://Assets/Characters/Old dude/Bubble.tres"
 glossary/default_case_sensitive=true
 variables={}
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/join_default_wait=true
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
 
 [display]
 
