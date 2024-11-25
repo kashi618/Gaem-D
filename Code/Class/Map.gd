@@ -2,7 +2,7 @@ class_name Map
 extends Node
 
 @export var map_ID: int
-
+@export var start_pos: Vector2
 var map_data : MapData
 
 func _ready() -> void:

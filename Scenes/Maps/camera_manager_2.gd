@@ -10,9 +10,10 @@ extends Node
 @export var CameraZone5: PhantomCamera2D
 
 var current_camera_zone: int = 0
-
-#func _ready():
+const CAMERA_RESET_TIME: int = 1
+func _ready():
 	#$"CameraNode/zone0-1/PhantomCamera2D".priority = 1
+	EventsBus.PlayerDied.connect(_on_playerdied)
 
 func update_camera():
 	var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
@@ -34,33 +35,34 @@ func update_camera():
 			CameraZone4.priority = 1
 		5:
 			CameraZone5.priority = 1
-		
 
-func update_current_zone(body, zone_a, zone_b):
-	if body == player:
-		match current_camera_zone:
-			zone_a:
-				current_camera_zone = zone_b
-				print("entering: zone: ", zone_b)
-			zone_b:
-				current_camera_zone = zone_a
-				print("entering: zone: ", zone_a)
-		update_camera()
+func get_current_camera_zone() -> int:
+	return current_camera_zone
 
-
-
-
-
-	
-
+func update_current_zone(zone_a, zone_b):
+	match current_camera_zone:
+		zone_a:
+			current_camera_zone = zone_b
+			print("entering: zone: ", zone_b)
+		zone_b:
+			current_camera_zone = zone_a
+			print("entering: zone: ", zone_a)
+	update_camera()
 
 func _on_zone_12_body_entered(body):
-	update_current_zone(body,1,2)
+	if body == player:
+		update_current_zone(1,2)
 
 
 func _on_zone_13_body_entered(body):
-	update_current_zone(body,1,3)
+	if body == player:
+		update_current_zone(1,3)
 
 
 func _on_zone_0_one_body_entered(body):
-	update_current_zone(body,0,1)
+	if body == player:
+		update_current_zone(0,1)
+
+func _on_playerdied():
+	await get_tree().create_timer(CAMERA_RESET_TIME).timeout
+	update_current_zone(0, get_current_camera_zone())

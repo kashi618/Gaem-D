@@ -15,6 +15,7 @@ func load_map(map_ID: int) -> void:
 	
 	unload_map()
 	
+	await get_tree().create_timer(0.01).timeout
 	var map_data = get_map_data_by_ID(map_ID)
 	print("Loading Map: %s" % map_data.map_name)
 	if not map_data:
@@ -25,7 +26,7 @@ func load_map(map_ID: int) -> void:
 	
 	if map_res:
 		loaded_map = map_res.instantiate()
-	
+
 		main_scene.add_child(loaded_map)
 	else:
 		print("map doesn't exist")

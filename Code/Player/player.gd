@@ -21,7 +21,7 @@ const FALL_GRAVITY = 1000.0
 const JUMP_POWER = -350.0
 const MAXJUMPS = 1
 const WALL_JUMP_POWER = 300.00
-
+const PLAYER_DEATH_TIME = 1
 
 const ACCELERATION = 70.00
 const DECELERATION = 20.00
@@ -168,12 +168,12 @@ func disable_movement(time):
 func _on_PlayerDied():
 	
 	Global.can_move = false
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(PLAYER_DEATH_TIME).timeout
 	reset_player()
 	print("player dieed")
 	
 func reset_player():
-	start_pos = current_map.map_data.start_pos
+	start_pos = current_map.start_pos
 	global_position = start_pos
 	Global.can_move = true
 

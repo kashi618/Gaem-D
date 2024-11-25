@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2mvdslakp4o7"]
 
-[ext_resource type="Script" path="res://Scenes/Map features/death_zone.gd" id="1_xvam7"]
+[ext_resource type="Script" path="res://Scenes/Maps/Map features/death_zone.gd" id="1_xvam7"]
 
 [node name="DeathZone" type="Area2D"]
 collision_layer = 0
