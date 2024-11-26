@@ -20,16 +20,17 @@ var start_pos : Vector2
 
 
 # Constants for Tuning Movement
-@export var SPEED = 350
-@export var JUMP_POWER = -300
-@export var GRAVITY = 1
-@export_range(0.0, 1.0) var friction = 0.5
-@export_range(0.0 , 1.0) var acceleration = 0.3
+@export var SPEED = 320
+@export var JUMP_POWER = -320
+@export var GRAVITY = 15
+@export_range(0.0, 1.0) var friction = 0.28
+@export_range(0.0 , 1.0) var acceleration = 0.06
 
-const FALL_GRAVITY = 1300.0
+const FALL_GRAVITY = 1100.0
 
-const MAXJUMPS = 1
+const MAXJUMPS = 2
 const WALL_JUMP_POWER = 300.00
+const DOUBLE_JUMP_POWER = -250
 
 
 # Initializing and Declaring Variables
@@ -82,10 +83,10 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
-		if velocity.y < 0:
-			velocity += get_gravity() * delta
-		else:
-			velocity += Vector2(0, FALL_GRAVITY) * delta
+		velocity.y += GRAVITY
+		if velocity.y > 0:
+			velocity.y *= 1.07
+
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
@@ -112,38 +113,30 @@ func _physics_process(delta: float) -> void:
 
 # Handle left and right movement
 func movement():
-	# Base Gravity
-	velocity.y += GRAVITY
-	
-	# Increased Gravity when falling
-	if velocity.y > 0:
-		velocity.y *= 1.05
-	
-	# Left and right movement
 	var dir = Input.get_axis("left", "right")
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * SPEED, acceleration)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
-	
-
-
-
 
 # Handles player jump
 func jump():	
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_POWER
+		#velocity.x = 200
+		print("jump")
 	   
 	# Double jump!
 	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and double_jump:
-		print("DoubleJumped")
 		numJumps += 1
-		velocity.y = JUMP_POWER+50
-		x2jump.emitting = true
+		if numJumps < MAXJUMPS:
+			print("doubleJump")
+			velocity.y = DOUBLE_JUMP_POWER
+			x2jump.emitting = true
 	
-	if is_on_floor():
+	
+	if is_on_floor_only():
 		numJumps = 0
 		# pp
 
