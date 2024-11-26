@@ -300,3 +300,4 @@ shape = SubResource("RectangleShape2D_m1dqe")
 [connection signal="body_entered" from="CameraManager2/CameraNode/zone0-one" to="CameraManager2" method="_on_zone_0_one_body_entered"]
 [connection signal="body_entered" from="CameraManager2/CameraNode/zone1-2" to="CameraManager2" method="_on_zone_12_body_entered"]
 [connection signal="body_entered" from="CameraManager2/CameraNode/zone1-3" to="CameraManager2" method="_on_zone_13_body_entered"]
+[connection signal="body_entered" from="DeathZone" to="CameraManager2" method="_on_death_zone_body_entered"]

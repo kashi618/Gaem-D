@@ -66,3 +66,12 @@ func _on_zone_0_one_body_entered(body):
 func _on_playerdied():
 	await get_tree().create_timer(CAMERA_RESET_TIME).timeout
 	update_current_zone(0, get_current_camera_zone())
+
+
+func _on_death_zone_body_entered(body):
+	current_camera_zone = 0
+	var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
+	for camera in cameras:
+		if camera != null:
+			camera.priority = 0
+	CameraZone0.priority = 1

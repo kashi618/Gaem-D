@@ -30,12 +30,12 @@ const FALL_GRAVITY = 1100.0
 
 const MAXJUMPS = 2
 const WALL_JUMP_POWER = 300.00
-<<<<<<< HEAD
+#<<<<<<< HEAD
 const PLAYER_DEATH_TIME = 1
-=======
+#=======
 const DOUBLE_JUMP_POWER = -250
 
->>>>>>> Dev
+#>>>>>>> Dev
 
 # Initializing and Declaring Variables
 # Basically just don't touch these
@@ -131,12 +131,12 @@ func jump():
 		print("jump")
 	   
 	# Double jump!
-<<<<<<< HEAD
+#<<<<<<< HEAD
 	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and Global.double_jump:
 		print("DoubleJumped")
-=======
-	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and double_jump:
->>>>>>> Dev
+#=======
+	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and Global.double_jump:
+#>>>>>>> Dev
 		numJumps += 1
 		if numJumps < MAXJUMPS:
 			print("doubleJump")

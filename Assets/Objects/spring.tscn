@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bckhmwekiwxqx"]
 
 [ext_resource type="Script" path="res://Assets/Objects/spring.gd" id="1_dw7mi"]
-[ext_resource type="Texture2D" uid="uid://dyo4a7juynvll" path="res://Assets/Objects/spring-sheet.png" id="2_kclas"]
+[ext_resource type="Texture2D" uid="uid://drrvkgnmeia48" path="res://Assets/Objects/Textures/spring-sheet.png" id="2_6k00a"]
 
 [sub_resource type="Animation" id="Animation_om0o7"]
 length = 0.001
@@ -47,7 +47,7 @@ height = 26.0
 script = ExtResource("1_dw7mi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_kclas")
+texture = ExtResource("2_6k00a")
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]

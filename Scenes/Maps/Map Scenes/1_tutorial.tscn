@@ -181,7 +181,7 @@ position = Vector2(-115, -110)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("14_jtk4q")
 
-[connection signal="resetCamera" from="DeathZone" to="CameraManager" method="_on_death_zone_reset_camera"]
+[connection signal="body_entered" from="DeathZone" to="CameraManager" method="_on_death_zone_body_entered"]
 [connection signal="collected" from="CameraManager" to="PowerupUnlock" method="_on_camera_manager_collected"]
 [connection signal="body_entered" from="CameraManager/StaticBody2D/Zone0-1" to="CameraManager" method="_on_zone_01_body_entered"]
 [connection signal="body_entered" from="CameraManager/StaticBody2D/Zone1-2" to="CameraManager" method="_on_zone_12_body_entered"]

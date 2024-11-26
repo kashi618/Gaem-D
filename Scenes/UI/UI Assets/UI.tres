@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://cjjnne5ktjnxi"]
 
-[ext_resource type="FontFile" uid="uid://4v2yc027cqdd" path="res://Scenes/UI/UI Assets/Silver.ttf" id="1_6t6my"]
+[ext_resource type="FontFile" uid="uid://4v2yc027cqdd" path="res://Scenes/UI/UI Assets/Silver.ttf" id="1_ixy7a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8dge"]
 content_margin_left = 4.0
@@ -91,7 +91,7 @@ Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 104
-Button/fonts/font = ExtResource("1_6t6my")
+Button/fonts/font = ExtResource("1_ixy7a")
 Button/styles/disabled = SubResource("StyleBoxFlat_g8dge")
 Button/styles/focus = SubResource("StyleBoxFlat_ggevy")
 Button/styles/hover = SubResource("StyleBoxFlat_yjri2")
@@ -106,5 +106,5 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 104
-Label/fonts/font = ExtResource("1_6t6my")
+Label/fonts/font = ExtResource("1_ixy7a")
 Label/styles/normal = SubResource("StyleBoxEmpty_rlb1b")
