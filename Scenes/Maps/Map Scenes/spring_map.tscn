@@ -29,6 +29,7 @@ size = Vector2(350, 13)
 
 [node name="Spring map" type="Node2D"]
 script = ExtResource("1_fsfh1")
+start_pos = Vector2(85, -14)
 
 [node name="DeathZone" parent="." instance=ExtResource("2_lc3r3")]
 position = Vector2(100, -100)

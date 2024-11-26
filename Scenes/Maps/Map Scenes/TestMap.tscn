@@ -15,6 +15,7 @@
 [node name="TestMap" type="Node2D"]
 script = ExtResource("1_7mbqq")
 map_ID = 1
+start_pos = Vector2(-83, -13)
 
 [node name="Utilities" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_k2iui")

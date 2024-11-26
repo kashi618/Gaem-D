@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://knfybjd5qgpc"]
+[gd_scene load_steps=26 format=4 uid="uid://knfybjd5qgpc"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_74gsx"]
 [ext_resource type="PackedScene" uid="uid://b2mvdslakp4o7" path="res://Scenes/Maps/Map features/death_zone.tscn" id="2_aalkx"]
@@ -22,7 +22,7 @@ size = Vector2(588, 12)
 size = Vector2(877, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrjt0"]
-size = Vector2(1, 118)
+size = Vector2(3.28e+07, 187)
 
 [sub_resource type="Resource" id="Resource_qjuvu"]
 script = ExtResource("10_pnxbo")
@@ -31,7 +31,7 @@ transition = 1
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3sr"]
-size = Vector2(181, 5)
+size = Vector2(348.306, 915.748)
 
 [sub_resource type="Resource" id="Resource_1o28v"]
 script = ExtResource("10_pnxbo")
@@ -44,6 +44,9 @@ script = ExtResource("10_pnxbo")
 duration = 1.0
 transition = 0
 ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7noft"]
+size = Vector2(747.5, 646)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtmo3"]
 size = Vector2(57.5, 63)
@@ -62,6 +65,7 @@ point_count = 2
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_74gsx")
+start_pos = Vector2(-136, -13)
 
 [node name="DeathZone" parent="." instance=ExtResource("2_aalkx")]
 
@@ -115,7 +119,7 @@ Interaction_Camera1 = NodePath("StaticBody2D/interaction_area1/PhantomCamera2D")
 [node name="Zone0-1" type="Area2D" parent="CameraManager/StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/StaticBody2D/Zone0-1"]
-position = Vector2(130.5, -36)
+position = Vector2(-66, -76.5)
 scale = Vector2(1e-05, 1)
 shape = SubResource("RectangleShape2D_hrjt0")
 
@@ -129,8 +133,9 @@ draw_limits = true
 [node name="Zone1-2" type="Area2D" parent="CameraManager/StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/StaticBody2D/Zone1-2"]
-position = Vector2(1054, 48)
+position = Vector2(594.856, -42.157)
 rotation = -1.55665
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rd3sr")
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager/StaticBody2D/Zone1-2"]
@@ -152,6 +157,10 @@ zoom = Vector2(2.5, 2.5)
 tween_resource = SubResource("Resource_knrkf")
 follow_damping = true
 draw_limits = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/StaticBody2D/Zone2-3"]
+position = Vector2(1475.75, -197)
+shape = SubResource("RectangleShape2D_7noft")
 
 [node name="interaction_area1" type="Area2D" parent="CameraManager/StaticBody2D"]
 
@@ -185,5 +194,6 @@ texture = ExtResource("14_jtk4q")
 [connection signal="collected" from="CameraManager" to="PowerupUnlock" method="_on_camera_manager_collected"]
 [connection signal="body_entered" from="CameraManager/StaticBody2D/Zone0-1" to="CameraManager" method="_on_zone_01_body_entered"]
 [connection signal="body_entered" from="CameraManager/StaticBody2D/Zone1-2" to="CameraManager" method="_on_zone_12_body_entered"]
+[connection signal="body_entered" from="CameraManager/StaticBody2D/Zone2-3" to="CameraManager" method="_on_zone_23_body_entered"]
 [connection signal="body_entered" from="CameraManager/StaticBody2D/interaction_area1" to="CameraManager" method="_on_interaction_area_1_body_entered"]
 [connection signal="body_exited" from="CameraManager/StaticBody2D/interaction_area1" to="CameraManager" method="_on_interaction_area_1_body_exited"]

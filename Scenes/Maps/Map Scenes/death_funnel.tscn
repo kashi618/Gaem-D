@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dpgs62fixcwq8"]
+[gd_scene load_steps=38 format=4 uid="uid://dpgs62fixcwq8"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_drjkm"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="2_eugyw"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b2mvdslakp4o7" path="res://Scenes/Maps/Map features/death_zone.tscn" id="8_th3ng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kslfm"]
-size = Vector2(266, 2.00684)
+size = Vector2(378.12, 26126.9)
 
 [sub_resource type="Resource" id="Resource_o7nlq"]
 script = ExtResource("7_xmgdb")
@@ -19,13 +19,16 @@ transition = 1
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l46xu"]
-size = Vector2(1, 510)
+size = Vector2(244.5, 1363)
 
 [sub_resource type="Resource" id="Resource_kmwj7"]
 script = ExtResource("7_xmgdb")
 duration = 1.0
 transition = 0
 ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0j0m"]
+size = Vector2(366, 619)
 
 [sub_resource type="Resource" id="Resource_wtvxl"]
 script = ExtResource("7_xmgdb")
@@ -134,7 +137,7 @@ CameraZone3 = NodePath("CameraNode/zone1-3/PhantomCamera2D")
 [node name="zone0-one" type="Area2D" parent="CameraManager2/CameraNode"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager2/CameraNode/zone0-one"]
-position = Vector2(-112, -117)
+position = Vector2(383.778, -113.675)
 rotation = -1.56409
 scale = Vector2(1, -0.0389026)
 shape = SubResource("RectangleShape2D_kslfm")
@@ -150,7 +153,7 @@ draw_limits = true
 [node name="zone1-2" type="Area2D" parent="CameraManager2/CameraNode"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager2/CameraNode/zone1-2"]
-position = Vector2(932, -76)
+position = Vector2(1053.75, 350.5)
 shape = SubResource("RectangleShape2D_l46xu")
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager2/CameraNode/zone1-2"]
@@ -162,10 +165,9 @@ draw_limits = true
 
 [node name="zone1-3" type="Area2D" parent="CameraManager2/CameraNode"]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraManager2/CameraNode/zone1-3"]
-position = Vector2(416, 412)
-rotation = -3.12819
-shape = SubResource("RectangleShape2D_kslfm")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager2/CameraNode/zone1-3"]
+position = Vector2(449, 711.5)
+shape = SubResource("RectangleShape2D_d0j0m")
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager2/CameraNode/zone1-3" node_paths=PackedStringArray("follow_target")]
 position = Vector2(-164, -77)

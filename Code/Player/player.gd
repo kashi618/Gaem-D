@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var wall_coyote_timer: Timer = $CoyoteTimer
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
+@onready var phantom_camera_host: PhantomCameraHost = $Player_Camera/PhantomCameraHost
+@onready var death: AnimationPlayer = $death
 
 #@export var double_jump: bool 
 #@export var wall_jump: bool 
@@ -126,7 +128,7 @@ func movement():
 # Handles player jump
 func jump():	
 	# Jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if can_jump():
 		velocity.y = JUMP_POWER
 		#velocity.x = 200
 		print("jump")
@@ -143,7 +145,6 @@ func jump():
 			print("doubleJump")
 			velocity.y = DOUBLE_JUMP_POWER
 			x2jump.emitting = true
-	
 	
 	if is_on_floor_only():
 		numJumps = 0
@@ -175,6 +176,8 @@ func disable_movement(time):
 
 # Handle Player death
 func _on_PlayerDied():
+	velocity.x = 0
+	velocity.y = 0
 	canvas.visible = true
 	Global.can_move = false
 	death_animation.play("onDeath")
@@ -186,8 +189,10 @@ func _on_PlayerDied():
 	print("player dieed")
 	
 func reset_player():
+	
 	start_pos = current_map.start_pos
 	global_position = start_pos
+	await get_tree().create_timer(0.7).timeout
 	Global.can_move = true
 
 func update_animation_parameters():
