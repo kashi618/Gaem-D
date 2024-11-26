@@ -15,16 +15,27 @@ extends CharacterBody2D
 var head = preload("res://Assets/Characters/Head.png")
 var current_map : Map
 var start_pos : Vector2
-# Constants for Tuning Movement
-const SPEED = 300.0
-const FALL_GRAVITY = 1000.0
-const JUMP_POWER = -350.0
-const MAXJUMPS = 1
-const WALL_JUMP_POWER = 300.00
-const PLAYER_DEATH_TIME = 1
 
-const ACCELERATION = 70.00
-const DECELERATION = 20.00
+
+
+
+# Constants for Tuning Movement
+@export var SPEED = 320
+@export var JUMP_POWER = -320
+@export var GRAVITY = 15
+@export_range(0.0, 1.0) var friction = 0.28
+@export_range(0.0 , 1.0) var acceleration = 0.06
+
+const FALL_GRAVITY = 1100.0
+
+const MAXJUMPS = 2
+const WALL_JUMP_POWER = 300.00
+<<<<<<< HEAD
+const PLAYER_DEATH_TIME = 1
+=======
+const DOUBLE_JUMP_POWER = -250
+
+>>>>>>> Dev
 
 # Initializing and Declaring Variables
 # Basically just don't touch these
@@ -32,7 +43,6 @@ var numJumps = 0
 
 
 func _ready():
-	
 	current_map = get_parent()
 	if not current_map.ready:
 		await current_map.ready
@@ -49,11 +59,7 @@ func _process(delta):
 		runner.emitting = true
 	else:
 		runner.emitting = false
-	
-	#if Input.is_action_pressed("right"):
-		#runner.emitting = true
-	#if Input.is_action_pressed("left"):
-		#runner.emitting = true
+
 	
 	#flipping player left and right based on left and right movement:
 	if true:
@@ -80,10 +86,10 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
-		if velocity.y < 0:
-			velocity += get_gravity() * delta
-		else:
-			velocity += Vector2(0, FALL_GRAVITY) * delta
+		velocity.y += GRAVITY
+		if velocity.y > 0:
+			velocity.y *= 1.07
+
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
@@ -107,36 +113,38 @@ func _physics_process(delta: float) -> void:
 	
 	#flipping player left and right based on left and right movement
 	
-		
 
 # Handle left and right movement
 func movement():
-	var direction := Input.get_axis("left", "right")
-	if direction:
-		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
-	# Enhanced deceleration when falling
-	elif !is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, DECELERATION)
+	var dir = Input.get_axis("left", "right")
+	if dir != 0:
+		velocity.x = lerp(velocity.x, dir * SPEED, acceleration)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = lerp(velocity.x, 0.0, friction)
 
 # Handles player jump
 func jump():	
-	# Jump!
-	if can_jump():
-		print("Jumped")
-		numJumps += 1
-		velocity.y = JUMP_POWER 
-		jumper.emitting = true
+	# Jump
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_POWER
+		#velocity.x = 200
+		print("jump")
 	   
 	# Double jump!
+<<<<<<< HEAD
 	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and Global.double_jump:
 		print("DoubleJumped")
+=======
+	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and double_jump:
+>>>>>>> Dev
 		numJumps += 1
-		velocity.y = JUMP_POWER+50
-		x2jump.emitting = true
+		if numJumps < MAXJUMPS:
+			print("doubleJump")
+			velocity.y = DOUBLE_JUMP_POWER
+			x2jump.emitting = true
 	
-	if is_on_floor():
+	
+	if is_on_floor_only():
 		numJumps = 0
 		# pp
 
@@ -151,7 +159,7 @@ func wallJump():
 	if can_wall_jump():
 		# Player input is disabled to allow no interference with jump
 		disable_movement(0.15)
-		velocity.x = WALL_JUMP_POWER * direction_of_jump
+		velocity.x = WALL_JUMP_POWER * direction_of_jump - 100
 		velocity.y = JUMP_POWER
 		print("wall jumped")
 
