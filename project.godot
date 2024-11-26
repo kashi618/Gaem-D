@@ -26,8 +26,15 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"Old Dude": "res://Assets/Characters/Old dude/Old Dude.dch"
+}
+directories/dtl_directory={
+"First Encounter": "res://Assets/Characters/Old dude/First Encounter.dtl",
+"GameBegin": "res://Assets/Characters/Old dude/GameBegin.dtl",
+"PowerupEncounter": "res://Assets/Characters/Old dude/PowerupEncounter.dtl",
+"randomConvo": "res://Assets/Characters/Old dude/randomConvo.dtl"
+}
 layout/style_list=["res://Assets/Characters/Old dude/Bubble.tres", "res://Assets/Characters/Old dude/Visual Novel.tres"]
 layout/default_style="res://Assets/Characters/Old dude/Bubble.tres"
 glossary/default_case_sensitive=true

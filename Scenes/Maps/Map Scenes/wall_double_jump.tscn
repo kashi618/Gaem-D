@@ -212,6 +212,7 @@ rotation = 2.59826
 scale = Vector2(0.000725398, 1.10926)
 shape = SubResource("RectangleShape2D_qgnov")
 
+[connection signal="resetCamera" from="DeathZone" to="CameraManager" method="_on_death_zone_reset_camera"]
 [connection signal="body_entered" from="CameraManager/CameraNodes/zone0-1" to="CameraManager" method="_on_zone_01_body_entered"]
 [connection signal="body_entered" from="CameraManager/CameraNodes/zone1-2" to="CameraManager" method="_on_zone_12_body_entered"]
 [connection signal="body_entered" from="CameraManager/CameraNodes/zone2-3" to="CameraManager" method="_on_zone_23_body_entered"]

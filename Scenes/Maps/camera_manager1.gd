@@ -141,3 +141,12 @@ func _on_interaction_area_1_body_entered(body):
 
 func _on_interaction_area_1_body_exited(body):
 	$"../E".visible = false
+
+
+func _on_death_zone_reset_camera():
+	current_camera_zone = 0
+	var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
+	for camera in cameras:
+		if camera != null:
+			camera.priority = 0
+	CameraZone0.priority = 1
