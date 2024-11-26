@@ -69,6 +69,7 @@ func _on_playerdied():
 
 
 func _on_death_zone_body_entered(body):
+	await get_tree().create_timer(0.8).timeout
 	current_camera_zone = 0
 	var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
 	for camera in cameras:

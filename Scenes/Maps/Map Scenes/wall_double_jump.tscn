@@ -118,7 +118,7 @@ CameraZone5 = NodePath("CameraNodes/zone 1-6/PhantomCamera2D")
 [node name="zone0-1" type="Area2D" parent="CameraManager/CameraNodes"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNodes/zone0-1"]
-position = Vector2(-36.4462, -42.3152)
+position = Vector2(-31, -51)
 rotation = -0.981452
 scale = Vector2(0.0457422, 1)
 shape = SubResource("RectangleShape2D_5d0oj")

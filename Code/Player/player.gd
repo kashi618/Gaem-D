@@ -16,12 +16,12 @@ var head = preload("res://Assets/Characters/Head.png")
 var current_map : Map
 var start_pos : Vector2
 
-
-
+@onready var canvas = $CanvasLayer
+@onready var death_animation = $death
 
 # Constants for Tuning Movement
 @export var SPEED = 320
-@export var JUMP_POWER = -320
+@export var JUMP_POWER = -350
 @export var GRAVITY = 15
 @export_range(0.0, 1.0) var friction = 0.28
 @export_range(0.0 , 1.0) var acceleration = 0.06
@@ -31,7 +31,7 @@ const FALL_GRAVITY = 1100.0
 const MAXJUMPS = 2
 const WALL_JUMP_POWER = 300.00
 #<<<<<<< HEAD
-const PLAYER_DEATH_TIME = 1
+const PLAYER_DEATH_TIME = 0.5
 #=======
 const DOUBLE_JUMP_POWER = -250
 
@@ -44,6 +44,7 @@ var numJumps = 0
 
 func _ready():
 	current_map = get_parent()
+	canvas.visible = false
 	if not current_map.ready:
 		await current_map.ready
 	#start_pos = current_map.map_data.start_pos
@@ -174,10 +175,14 @@ func disable_movement(time):
 
 # Handle Player death
 func _on_PlayerDied():
-	
+	canvas.visible = true
 	Global.can_move = false
+	death_animation.play("onDeath")
 	await get_tree().create_timer(PLAYER_DEATH_TIME).timeout
+	death_animation.play_backwards("onDeath")
 	reset_player()
+	await get_tree().create_timer(PLAYER_DEATH_TIME).timeout
+	canvas.visible = false
 	print("player dieed")
 	
 func reset_player():

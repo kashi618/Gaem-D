@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bqetxd6a5mong"]
+[gd_scene load_steps=66 format=3 uid="uid://bqetxd6a5mong"]
 
 [ext_resource type="Script" path="res://Code/Player/player.gd" id="1_qmyvb"]
 [ext_resource type="Texture2D" uid="uid://b23abcfwex7ad" path="res://Assets/Characters/Head.png" id="2_af0ou"]
@@ -1758,6 +1758,44 @@ gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_pvgkn")
 collision_mode = 2
 
+[sub_resource type="Animation" id="Animation_lf8af"]
+resource_name = "onDeath"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.466517, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1mum8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_otq0o"]
+_data = {
+"RESET": SubResource("Animation_1mum8"),
+"onDeath": SubResource("Animation_lf8af")
+}
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qmyvb")
 
@@ -1852,3 +1890,19 @@ lifetime = 0.5
 preprocess = 10.17
 explosiveness = 0.08
 collision_base_size = 0.0
+
+[node name="death" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_otq0o")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.180392, 0.388235, 1)
