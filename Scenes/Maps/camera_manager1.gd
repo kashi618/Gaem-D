@@ -17,22 +17,53 @@ var current_camera_zone: int = 0
 
 var is_active_interaction: bool = false
 var active_interaction: Area2D 
+var inDialogue = false
+
 
 func _ready():
+	var inDialogue = false
 	Dialogic.signal_event.connect(DialogicSignal)
 	if Global.firstPlay == true:
 		Dialogic.start("GameBegin")
 
-func _input(event):
-	if Input.is_action_just_pressed("e"):
-		$"../E".visible = false
-		if is_active_interaction:
-			
-			is_active_interaction = false
-			update_camera()
-		else:
-			find_interaction()
+#func _input(event):
+	#if Input.is_action_just_pressed("e"):
+		#$"../E".visible = false
+		#if is_active_interaction:
+			#
+			#is_active_interaction = false
+			#update_camera()
+		#else:
+			#find_interaction()
 
+
+
+func _input(event):
+	print(inDialogue)
+	if Input.is_action_just_pressed("e"):
+		if inDialogue == false:
+			$"../E".visible = false
+			if is_active_interaction:
+				is_active_interaction = false
+				update_camera()
+			else:
+				find_interaction()
+		else:
+			return
+
+#func _input(event):
+	#if inDialogue == false:
+		#if Input.is_action_just_pressed("e"):
+			#$"../E".visible = false
+			#if is_active_interaction:
+				#
+				#is_active_interaction = false
+				#update_camera()
+			#else:
+				#find_interaction()
+		#inDialogue = true
+	#else:
+		#return
 
 func run_dialogue(dialogue):
 	var layout = Dialogic.start(dialogue)
@@ -41,7 +72,11 @@ func run_dialogue(dialogue):
 signal collected
 
 func DialogicSignal(arg: String):
+	if arg == "ConvoBegin":
+		print("yooo")
+		inDialogue = true
 	if arg == "ConvoEnd":
+		inDialogue = false
 		if is_active_interaction:
 			is_active_interaction = false
 			Global.can_move = true

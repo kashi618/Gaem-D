@@ -1,2 +1,3 @@
+[signal arg="ConvoBegin"]
 "Old Dude": Hello!
 [signal arg="ConvoEnd"]

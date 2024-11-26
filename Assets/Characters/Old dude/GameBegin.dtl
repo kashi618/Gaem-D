@@ -1,5 +1,6 @@
 [style name="Visual Novel"]
 [background arg="res://Assets/Characters/Old dude/Dark Blue.png" fade="0.0"]
+[signal arg="ConvoBegin"]
 You deliver pizza
 You are on a special mission
 Deliver this pizza in 1 minute to the Demon Lord's Castle.
@@ -10,3 +11,4 @@ You take a deep breath.
 Now is the time to display your delivery skills!
 - Go!
 	[signal arg="GameStartOnce"]
+	[signal arg="ConvoEnd"]
