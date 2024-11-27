@@ -43,11 +43,6 @@ layout_mode = 2
 theme = ExtResource("2_ewfg6")
 text = "Retry from beginning"
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_ewfg6")
-text = "Settings"
-
 [node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_ewfg6")
@@ -55,5 +50,4 @@ text = "Exit to Main Menu"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Retry from start" to="." method="_on_retry_from_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

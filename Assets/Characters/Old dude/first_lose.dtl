@@ -1,0 +1,18 @@
+[style name="Visual Novel"]
+[background arg="res://Assets/Characters/Old dude/Dark Blue.png" fade="0.0"]
+You feel a sharp chill run down your spine.
+You are LATE.
+You head towards the gate.
+You are scared.
+You ring the doorbell.
+[sound volume="0.0"]
+[wait time="1.0"]
+You see the door open.
+You see it.
+join pizza 2
+You want to RUN.
+You are grabbed.
+You cannot escape.
+You hear a sound.
+"Don't be late."
+[signal arg="ConvoLoseEnd"]

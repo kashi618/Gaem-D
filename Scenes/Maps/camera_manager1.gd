@@ -25,6 +25,10 @@ func _ready():
 	Dialogic.signal_event.connect(DialogicSignal)
 	if Global.firstPlay == true:
 		Dialogic.start("GameBegin")
+	elif Global.firstLost == true:
+		Dialogic.start("first_lose")
+	else:
+		Global.timer_start = true
 
 #func _input(event):
 	#if Input.is_action_just_pressed("e"):
@@ -84,6 +88,10 @@ func DialogicSignal(arg: String):
 		emit_signal("collected")
 	if arg == "GameStartOnce":
 		Global.firstPlay = false
+		Global.timer_start = true
+	if arg == "ConvoLoseEnd":
+		Global.timer_start = true
+		Global.firstLost = false
 
 
 

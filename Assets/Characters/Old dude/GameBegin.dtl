@@ -3,10 +3,12 @@
 [signal arg="ConvoBegin"]
 You deliver pizza
 You are on a special mission
+join pizza 2
 Deliver this pizza in 1 minute to the Demon Lord's Castle.
 Or else the Demon Lord will go berserk.
 And the world will END!
 ...
+leave pizza
 You take a deep breath.
 Now is the time to display your delivery skills!
 - Go!

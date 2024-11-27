@@ -1,17 +1,24 @@
 class_name stopwatch
 extends Node
 
-var time = 0.0
+var time = 8
 var stopped = false
 
+signal no_more_time
+
+
 func _process(delta: float) -> void:
-	if stopped:
-		return
-	
-	time += delta
+	if Global.timer_start == true:
+		if time > 0:
+			time -= delta
+		else:
+			print("timer has stopped")
+			emit_signal("no_more_time")
+		if stopped:
+			return
 
 func reset():
-	time = 0.0
+	time = 60
 
 #changes time to string
 func time_to_string() -> String:

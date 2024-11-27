@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cjjnne5ktjnxi"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cjjnne5ktjnxi"]
 
 [ext_resource type="FontFile" uid="uid://4v2yc027cqdd" path="res://Scenes/UI/UI Assets/Silver.ttf" id="1_ixy7a"]
 
@@ -72,6 +72,33 @@ corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rlb1b"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nia8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oihas"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
 [resource]
 Button/colors/font_color = Color(0.839216, 1, 0.988235, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -108,3 +135,30 @@ Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 104
 Label/fonts/font = ExtResource("1_ixy7a")
 Label/styles/normal = SubResource("StyleBoxEmpty_rlb1b")
+RichTextLabel/colors/default_color = Color(0.839216, 1, 0.996078, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 1
+RichTextLabel/constants/table_h_separation = 3
+RichTextLabel/constants/table_v_separation = 3
+RichTextLabel/constants/text_highlight_h_padding = 3
+RichTextLabel/constants/text_highlight_v_padding = 3
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 104
+RichTextLabel/fonts/bold_font = ExtResource("1_ixy7a")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_ixy7a")
+RichTextLabel/fonts/italics_font = ExtResource("1_ixy7a")
+RichTextLabel/fonts/mono_font = ExtResource("1_ixy7a")
+RichTextLabel/fonts/normal_font = ExtResource("1_ixy7a")
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_5nia8")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_oihas")

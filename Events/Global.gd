@@ -7,6 +7,7 @@ extends Node
 #var spring_disabled = false
 #var isFirstEncounter = false
 #var firstPlay = false
+#var firstLost = false
 #var can_move = true
  
 
@@ -17,4 +18,9 @@ var hasWallPowerup = false
 var spring_disabled = true
 var isFirstEncounter = true
 var firstPlay = true
+var firstLost = true
 var can_move = true
+
+
+#Applies to entire game
+var timer_start = false

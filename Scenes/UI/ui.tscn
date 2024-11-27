@@ -37,3 +37,5 @@ layout_mode = 2
 theme = ExtResource("3_svmd5")
 text = "00:00:000"
 label_settings = SubResource("LabelSettings_a2pvt")
+
+[connection signal="no_more_time" from="Stopwatch" to="." method="_on_stopwatch_no_more_time"]

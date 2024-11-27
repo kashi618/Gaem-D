@@ -135,7 +135,6 @@ draw_limits = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/StaticBody2D/Zone1-2"]
 position = Vector2(594.856, -42.157)
 rotation = -1.55665
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rd3sr")
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager/StaticBody2D/Zone1-2"]

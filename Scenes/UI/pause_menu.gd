@@ -29,8 +29,6 @@ func _on_resume_pressed():
 	self.visible = false
 
 
-func _on_settings_pressed():
-	pass # Replace with function body.
 
 
 func _on_menu_pressed():

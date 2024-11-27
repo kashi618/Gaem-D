@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dc37pl78kgely"]
 
-[ext_resource type="Texture2D" uid="uid://d2apqiy5b8cub" path="res://Assets/Objects/oneWayPlatform.png" id="1_00300"]
 [ext_resource type="Script" path="res://Assets/Objects/one_way_platform.gd" id="1_j1yyu"]
+[ext_resource type="Texture2D" uid="uid://djxtol22hm6gu" path="res://Assets/Objects/Textures/oneWayPlatform.png" id="2_s4hvk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2lft"]
 size = Vector2(84, 6)
@@ -13,7 +13,7 @@ size = Vector2(80, 7)
 script = ExtResource("1_j1yyu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_00300")
+texture = ExtResource("2_s4hvk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
