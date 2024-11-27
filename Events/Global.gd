@@ -18,7 +18,8 @@ var hasWallPowerup = false
 var spring_disabled = true
 var isFirstEncounter = true
 var firstPlay = true
-var firstLost = true
+var firstLost = false
+var firstLost_checker = true
 var can_move = true
 
 

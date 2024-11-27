@@ -7,11 +7,15 @@ var stopped = false
 signal no_more_time
 
 
+
 func _process(delta: float) -> void:
 	if Global.timer_start == true:
 		if time > 0:
 			time -= delta
 		else:
+			if Global.firstLost_checker == true:
+				Global.firstLost = true
+				Global.firstLost_checker = false
 			print("timer has stopped")
 			emit_signal("no_more_time")
 		if stopped:
