@@ -65,25 +65,22 @@ func _process(delta):
 
 	
 	#flipping player left and right based on left and right movement:
-	if true:
-		if Input.is_action_just_pressed("left"):
-			$Body/Head.flip_h = true
-			$Body/Torso.flip_h = true
-			$"Body/Right arm".flip_h = true
-			$"Body/Left arm".flip_h = true
-			$"Body/Right leg".flip_h = true
-			$"Body/Left leg".flip_h = true
-			runner.scale.x = 1
-			
-		
-		if Input.is_action_just_pressed("right"):
-			$Body/Head.flip_h = false
-			$Body/Torso.flip_h = false
-			$"Body/Right arm".flip_h = false
-			$"Body/Left arm".flip_h = false
-			$"Body/Right leg".flip_h = false
-			$"Body/Left leg".flip_h = false
-			runner.scale.x = -1
+	if Input.is_action_just_pressed("left"):
+		$Body/Head.flip_h = true
+		$Body/Torso.flip_h = true
+		$"Body/Right arm".flip_h = true
+		$"Body/Left arm".flip_h = true
+		$"Body/Right leg".flip_h = true
+		$"Body/Left leg".flip_h = true
+		runner.scale.x = 1
+	if Input.is_action_just_pressed("right"):
+		$Body/Head.flip_h = false
+		$Body/Torso.flip_h = false
+		$"Body/Right arm".flip_h = false
+		$"Body/Left arm".flip_h = false
+		$"Body/Right leg".flip_h = false
+		$"Body/Left leg".flip_h = false
+		runner.scale.x = -1
 			
 
 func _physics_process(delta: float) -> void:
@@ -134,12 +131,7 @@ func jump():
 		print("jump")
 	   
 	# Double jump!
-#<<<<<<< HEAD
 	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and Global.double_jump:
-		print("DoubleJumped")
-#=======
-	if Input.is_action_just_pressed("jump") and (numJumps < MAXJUMPS) and not is_on_floor() and Global.double_jump:
-#>>>>>>> Dev
 		numJumps += 1
 		if numJumps < MAXJUMPS:
 			print("doubleJump")
