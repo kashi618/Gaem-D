@@ -184,10 +184,11 @@ func _on_interaction_area_1_body_exited(body):
 
 
 func _on_death_zone_body_entered(body):
-	await get_tree().create_timer(1).timeout
-	current_camera_zone = 0
-	var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
-	for camera in cameras:
-		if camera != null:
-			camera.priority = 0
-	CameraZone0.priority = 1
+	if body ==player:
+		await get_tree().create_timer(1).timeout
+		current_camera_zone = 0
+		var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
+		for camera in cameras:
+			if camera != null:
+				camera.priority = 0
+		CameraZone0.priority = 1

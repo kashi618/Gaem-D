@@ -1,7 +1,7 @@
 class_name stopwatch
 extends Node
 
-var time = 8
+var time = 60
 var stopped = false
 
 signal no_more_time

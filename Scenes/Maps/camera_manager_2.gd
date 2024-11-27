@@ -52,7 +52,12 @@ func _on_zone_13_body_entered(body):
 
 func _on_zone_0_one_body_entered(body):
 	update_current_zone(body, 1)
-
+	print("zone1")
+	
+func _on_zone_0_body_entered(body):
+	update_current_zone(body, 0)
+	print("zone 0")
+	
 func _on_playerdied():
 #	await get_tree().create_timer(CAMERA_RESET_TIME).timeout
 #	update_current_zone(0, get_current_camera_zone())
@@ -60,10 +65,12 @@ func _on_playerdied():
 
 
 func _on_death_zone_body_entered(body):
-	await get_tree().create_timer(0.8).timeout
-	current_camera_zone = 0
-	var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
-	for camera in cameras:
-		if camera != null:
-			camera.priority = 0
-	CameraZone0.priority = 1
+	if body ==player:
+		await get_tree().create_timer(0.8).timeout
+		current_camera_zone = 0
+		var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5]
+		for camera in cameras:
+			if camera != null:
+				camera.priority = 0
+		CameraZone0.priority = 1
+		print("death_zone")

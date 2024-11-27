@@ -4,8 +4,10 @@ extends CharacterBody2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var wall_coyote_timer: Timer = $CoyoteTimer
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
+@onready var wall_jump_buffer_timer: Timer = $JumpBufferTimer
 @onready var phantom_camera_host: PhantomCameraHost = $Player_Camera/PhantomCameraHost
 @onready var death: AnimationPlayer = $death
+
 
 #@export var double_jump: bool 
 #@export var wall_jump: bool 
@@ -29,7 +31,7 @@ var start_pos : Vector2
 @export_range(0.0 , 1.0) var acceleration = 0.06
 
 const FALL_GRAVITY = 1100.0
-
+const TERMINAL_VELOCITY = 500.0
 const MAXJUMPS = 2
 const WALL_JUMP_POWER = 300.00
 #<<<<<<< HEAD
@@ -42,7 +44,7 @@ const DOUBLE_JUMP_POWER = -250
 # Initializing and Declaring Variables
 # Basically just don't touch these
 var numJumps = 0
-
+var wall_jump_direction: float
 
 func _ready():
 	current_map = get_parent()
@@ -62,8 +64,6 @@ func _process(delta):
 		runner.emitting = true
 	else:
 		runner.emitting = false
-
-	
 	#flipping player left and right based on left and right movement:
 	if Input.is_action_just_pressed("left"):
 		$Body/Head.flip_h = true
@@ -87,19 +87,24 @@ func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
 		velocity.y += GRAVITY
-		if velocity.y > 0:
+		if velocity.y > 0 and velocity.y < TERMINAL_VELOCITY:
 			velocity.y *= 1.07
+		else:
+			velocity.y = velocity.y
+		
 
-	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
+	if Input.is_action_just_pressed("jump") and is_on_wall_only():
+		wall_jump_buffer_timer.start()
+		wall_jump_direction = -Input.get_axis("left", "right")
 		
 	# Allows input from user if they can move
 	if Global.can_move:
 		# Gets input from user
 		movement()    # Controls going left, right
 		jump()  # Controls jump and double jump
-		wallJump()    # Controls wall jump
+		wallJump(wall_jump_direction)    # Controls wall jump
 	
 	var was_on_floor = is_on_floor()
 	var was_on_wall = is_on_wall_only()
@@ -146,19 +151,17 @@ func can_jump() -> bool:
 	return (is_on_floor() or (!coyote_timer.is_stopped() and velocity.y > 0)) and !jump_buffer_timer.is_stopped()
 
 # Handles wall jump
-func wallJump():
+func wallJump(wall_jump_direction: float):
 	# Direction of wall jump is in opposite direction of the wall
-	var direction := Input.get_axis("left", "right")
-	var direction_of_jump = -direction
 	if can_wall_jump():
 		# Player input is disabled to allow no interference with jump
 		disable_movement(0.15)
-		velocity.x = WALL_JUMP_POWER * direction_of_jump - 100
+		velocity.x = WALL_JUMP_POWER * wall_jump_direction - 100
 		velocity.y = JUMP_POWER
 		print("wall jumped")
 
 func can_wall_jump() -> bool:
-	return Input.is_action_just_pressed("jump") and (is_on_wall_only() or !wall_coyote_timer.is_stopped()) and Global.wall_jump and coyote_timer.is_stopped()
+	return !wall_jump_buffer_timer.is_stopped() and (is_on_wall_only() or !wall_coyote_timer.is_stopped()) and Global.wall_jump and coyote_timer.is_stopped()
 
 # Function to disable movement for a certain amount of time
 func disable_movement(time):

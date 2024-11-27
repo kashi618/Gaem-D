@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dpgs62fixcwq8"]
+[gd_scene load_steps=39 format=4 uid="uid://dpgs62fixcwq8"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_drjkm"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="2_eugyw"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b2mvdslakp4o7" path="res://Scenes/Maps/Map features/death_zone.tscn" id="8_th3ng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kslfm"]
-size = Vector2(378.12, 26126.9)
+size = Vector2(378.12, 25835.1)
 
 [sub_resource type="Resource" id="Resource_o7nlq"]
 script = ExtResource("7_xmgdb")
@@ -35,6 +35,9 @@ script = ExtResource("7_xmgdb")
 duration = 0.5
 transition = 1
 ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jo5hj"]
+size = Vector2(53.5, 179)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mvvr"]
 size = Vector2(32.25, 11)
@@ -137,7 +140,7 @@ CameraZone3 = NodePath("CameraNode/zone1-3/PhantomCamera2D")
 [node name="zone0-one" type="Area2D" parent="CameraManager2/CameraNode"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager2/CameraNode/zone0-one"]
-position = Vector2(383.778, -113.675)
+position = Vector2(389.454, -113.637)
 rotation = -1.56409
 scale = Vector2(1, -0.0389026)
 shape = SubResource("RectangleShape2D_kslfm")
@@ -179,7 +182,11 @@ tween_resource = SubResource("Resource_wtvxl")
 follow_damping = true
 draw_limits = true
 
-[node name="2-3" type="Area2D" parent="CameraManager2/CameraNode"]
+[node name="Zone0" type="Area2D" parent="CameraManager2/CameraNode"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager2/CameraNode/Zone0"]
+position = Vector2(-170.75, -143)
+shape = SubResource("RectangleShape2D_jo5hj")
 
 [node name="DeathZone" parent="." instance=ExtResource("8_th3ng")]
 
@@ -302,4 +309,5 @@ shape = SubResource("RectangleShape2D_m1dqe")
 [connection signal="body_entered" from="CameraManager2/CameraNode/zone0-one" to="CameraManager2" method="_on_zone_0_one_body_entered"]
 [connection signal="body_entered" from="CameraManager2/CameraNode/zone1-2" to="CameraManager2" method="_on_zone_12_body_entered"]
 [connection signal="body_entered" from="CameraManager2/CameraNode/zone1-3" to="CameraManager2" method="_on_zone_13_body_entered"]
+[connection signal="body_entered" from="CameraManager2/CameraNode/Zone0" to="CameraManager2" method="_on_zone_0_body_entered"]
 [connection signal="body_entered" from="DeathZone" to="CameraManager2" method="_on_death_zone_body_entered"]
