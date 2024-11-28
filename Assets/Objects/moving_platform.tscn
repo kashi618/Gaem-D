@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uvtj"]
 size = Vector2(84, 5)
 
-[node name="MovingPlatformDown" type="CharacterBody2D"]
+[node name="MovingPlatformDown" type="AnimatableBody2D"]
 script = ExtResource("1_bn7b0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

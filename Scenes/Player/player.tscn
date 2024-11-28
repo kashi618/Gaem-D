@@ -1797,6 +1797,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+platform_on_leave = 2
 script = ExtResource("1_qmyvb")
 
 [node name="Body" type="Node2D" parent="."]

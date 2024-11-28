@@ -15,7 +15,7 @@ extends Node
 var wall_jump = false
 var double_jump = false
 var hasWallPowerup = false
-var spring_disabled = true
+var spring_disabled = false
 var isFirstEncounter = true
 var firstPlay = true
 var firstLost = false

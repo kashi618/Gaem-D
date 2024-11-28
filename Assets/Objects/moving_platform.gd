@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends AnimatableBody2D
 
 @onready var x = Vector2(0, -300)
 @export var start_pos: Vector2: set = _set_start_pos
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 		return
 	 
 	position.y += 100
-	move_and_slide()
+	#move_and_slide()
 	
 #func _process(delta):
 	#
