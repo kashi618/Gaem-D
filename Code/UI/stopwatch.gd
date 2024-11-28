@@ -6,6 +6,9 @@ var stopped = false
 
 signal no_more_time
 
+func ready():
+	if Global.has_time_powerup == true:
+		time += 30
 
 
 func _process(delta: float) -> void:

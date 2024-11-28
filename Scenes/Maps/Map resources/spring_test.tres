@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_rc1r4")
-map_ID = 3
+map_ID = 5
 map_name = "spring_test"
 start_pos = Vector2(-18, 211)
 map_path = "Maps/Map Scenes/spring_test"

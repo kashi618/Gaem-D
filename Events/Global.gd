@@ -9,7 +9,7 @@ extends Node
 #var firstPlay = false
 #var firstLost = false
 #var can_move = true
- 
+#var has_time_powerup = true
 
 #for normal settings:
 var wall_jump = false
@@ -21,7 +21,7 @@ var firstPlay = true
 var firstLost = false
 var firstLost_checker = true
 var can_move = true
-
+var has_time_powerup = false
 
 #Applies to entire game
 var timer_start = false

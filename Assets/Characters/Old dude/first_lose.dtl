@@ -1,5 +1,6 @@
 [style name="Visual Novel"]
 [background arg="res://Assets/Characters/Old dude/Dark Blue.png" fade="0.0"]
+[signal arg="ConvoBegin"]
 You feel a sharp chill run down your spine.
 You are LATE.
 You head towards the gate.

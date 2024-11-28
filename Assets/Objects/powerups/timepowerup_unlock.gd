@@ -22,3 +22,4 @@ func _on_time_powerup_collected():
 	$CanvasLayer/MarginContainer3/GPUParticles2D.emitting = true
 	$CanvasLayer/MarginContainer5/MarginContainer4/GPUParticles2D2.emitting = true
 	$CanvasLayer/MarginContainer6/MarginContainer4/GPUParticles2D2.emitting = true
+	Global.has_time_powerup = true

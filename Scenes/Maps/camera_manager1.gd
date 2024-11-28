@@ -77,6 +77,7 @@ signal collected
 func DialogicSignal(arg: String):
 	if arg == "ConvoBegin":
 		print("yooo")
+		Global.can_move = false
 		inDialogue = true
 	if arg == "ConvoEnd":
 		inDialogue = false
@@ -87,9 +88,11 @@ func DialogicSignal(arg: String):
 	if arg == "doubleJumpPickedUp":
 		emit_signal("collected")
 	if arg == "GameStartOnce":
+		Global.can_move = true
 		Global.firstPlay = false
 		Global.timer_start = true
 	if arg == "ConvoLoseEnd":
+		Global.can_move = true
 		Global.timer_start = true
 		Global.firstLost = false
 
