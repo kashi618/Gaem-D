@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bqetxd6a5mong"]
+[gd_scene load_steps=68 format=3 uid="uid://bqetxd6a5mong"]
 
 [ext_resource type="Script" path="res://Code/Player/player.gd" id="1_qmyvb"]
 [ext_resource type="Texture2D" uid="uid://b23abcfwex7ad" path="res://Assets/Characters/Head.png" id="2_af0ou"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dk0tihh7ir121" path="res://Assets/Characters/Right leg.png" id="6_ng1oc"]
 [ext_resource type="Texture2D" uid="uid://crgavq0nw7wib" path="res://Assets/Characters/Left leg.png" id="7_ty4t4"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_hutjk"]
+[ext_resource type="AudioStream" uid="uid://dbgswoiscjtoq" path="res://Assets/Sounds/Jump.mp3" id="9_wsa1c"]
+[ext_resource type="AudioStream" uid="uid://bitwi431i1p1s" path="res://Assets/Sounds/DoubleJump.mp3" id="10_3orse"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24y02"]
 radius = 6.0
@@ -1907,3 +1909,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.180392, 0.388235, 1)
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_wsa1c")
+
+[node name="DoubleJumpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_3orse")

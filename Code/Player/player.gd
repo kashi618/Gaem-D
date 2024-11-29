@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var phantom_camera_host: PhantomCameraHost = $Player_Camera/PhantomCameraHost
 @onready var death: AnimationPlayer = $death
 
+@onready var jumpSFX = $JumpSFX
+@onready var doubleJumpSFX = $DoubleJumpSFX
 
 #@export var double_jump: bool 
 #@export var wall_jump: bool 
@@ -37,7 +39,7 @@ const WALL_JUMP_POWER = 300.00
 #<<<<<<< HEAD
 const PLAYER_DEATH_TIME = 0.5
 #=======
-const DOUBLE_JUMP_POWER = -250
+const DOUBLE_JUMP_POWER = -280
 
 #>>>>>>> Dev
 
@@ -132,6 +134,8 @@ func jump():
 	# Jump
 	if can_jump():
 		velocity.y = JUMP_POWER
+		jumpSFX.pitch_scale = randf_range(0.8, 1.2)
+		jumpSFX.play()
 		#velocity.x = 200
 		print("jump")
 	   
@@ -140,12 +144,14 @@ func jump():
 		numJumps += 1
 		if numJumps < MAXJUMPS:
 			print("doubleJump")
+			doubleJumpSFX.pitch_scale = randf_range(0.8, 1.2)
+			doubleJumpSFX.play()
 			velocity.y = DOUBLE_JUMP_POWER
 			x2jump.emitting = true
 	
 	if is_on_floor_only():
 		numJumps = 0
-		# pp
+
 
 func can_jump() -> bool:
 	return (is_on_floor() or (!coyote_timer.is_stopped() and velocity.y > 0)) and !jump_buffer_timer.is_stopped()

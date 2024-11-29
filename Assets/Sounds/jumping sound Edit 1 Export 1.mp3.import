@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8pqtn8bev5cd"
+path="res://.godot/imported/jumping sound Edit 1 Export 1.mp3-b72654fe3ea99f66444f3e937d1ba2d7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/jumping sound Edit 1 Export 1.mp3"
+dest_files=["res://.godot/imported/jumping sound Edit 1 Export 1.mp3-b72654fe3ea99f66444f3e937d1ba2d7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

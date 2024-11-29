@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://601y8dxpqxp8"]
+[gd_scene load_steps=6 format=3 uid="uid://601y8dxpqxp8"]
 
 [ext_resource type="Script" path="res://Assets/Objects/flag_end.gd" id="1_58gaq"]
 [ext_resource type="Texture2D" uid="uid://dmy3ktoqmc628" path="res://Assets/Objects/Textures/flag.png" id="2_45frp"]
+[ext_resource type="Material" uid="uid://dc0dd87b0ilgj" path="res://Assets/Objects/powerups/powerupParticle.tres" id="3_bw51t"]
+[ext_resource type="Texture2D" uid="uid://nieyv15hhkma" path="res://Assets/Objects/powerups/images/crosshair121.png" id="4_5ovjq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atsad"]
 size = Vector2(52, 67)
@@ -17,5 +19,11 @@ texture = ExtResource("2_45frp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_atsad")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.262745, 0.862745, 0.854902, 1)
+position = Vector2(0, 29)
+process_material = ExtResource("3_bw51t")
+texture = ExtResource("4_5ovjq")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

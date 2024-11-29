@@ -1,6 +1,7 @@
 extends Control
 
 @onready var canvas = $CanvasLayer
+@onready var loseSound = $LoseSound
 
 func _ready():
 	canvas.visible = false
@@ -14,5 +15,6 @@ func _on_retry_pressed():
 
 func _on_ui_no_more_time_v_2():
 	print("Lose screen showing")
+	loseSound.play()
 	get_tree().paused = true
 	canvas.visible = true
