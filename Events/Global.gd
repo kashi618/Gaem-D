@@ -1,5 +1,6 @@
 extends Node
 
+##
 #for testing powerups:
 var wall_jump = true
 var double_jump = true
@@ -20,9 +21,9 @@ var firstLost_checker = false
 #var isFirstEncounter = true
 #var firstPlay = true
 #var firstLost = false
-#var firstLost_checker = true
 #var can_move = true
 #var has_time_powerup = false
+#var firstLost_checker = true
 
 #Applies to entire game
 var timer_start = false

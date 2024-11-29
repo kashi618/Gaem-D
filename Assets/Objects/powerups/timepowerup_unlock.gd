@@ -4,7 +4,7 @@ signal clearPowerup
 
 func _ready():
 	$CanvasLayer.visible = false
-
+	EventsBus.time_collected.connect(_on_time_powerup_collected)
 
 func _on_timer_timeout():
 	$AnimationPlayer.play_backwards("reveal")
@@ -15,6 +15,7 @@ func _on_timer_timeout():
 
 
 func _on_time_powerup_collected():
+	print("collected")
 	get_tree().paused = true
 	$Timer.start()
 	$CanvasLayer.visible = true

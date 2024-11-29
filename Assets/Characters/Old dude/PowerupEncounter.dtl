@@ -7,10 +7,12 @@
 "Old Dude": So I got excited that I had someone to talk to.
 "Old Dude": It's lonely being old.
 "Old Dude": Anyways.
-"Old Dude": I have a SECRET to let you in onto.
+"Old Dude": I have a SECRET to let you in on.
 "Old Dude": It will be worth your time, I promise.
 "Old Dude": I've witnessed your attempts at traversing the difficult terain.
 "Old Dude": As thanks for stopping to listen to me, take this powerup. You are going to need it.
-"Old Dude": Have a nice day!
+"Old Dude": You'll see more secret power ups on your travels.
+"Old Dude": and they're all PERMANENT!
+"Old Dude": Good luck on your journey!
 [signal arg="doubleJumpPickedUp"]
 [signal arg="ConvoEnd"]

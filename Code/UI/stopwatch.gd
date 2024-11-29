@@ -1,17 +1,19 @@
 class_name stopwatch
 extends Node
 
-var time = 60
+var start_time = 60
+var additional_time = 30
 var stopped = false
-
+var time = start_time
 signal no_more_time
 
-func ready():
-	if Global.has_time_powerup == true:
-		time += 30
-
+func _ready():
+	EventsBus.time_collected.connect(_on_time_collected)
+	if Global.has_time_powerup:
+		time += additional_time
 
 func _process(delta: float) -> void:
+	
 	if Global.timer_start == true:
 		if time > 0:
 			time -= delta
@@ -25,7 +27,9 @@ func _process(delta: float) -> void:
 			return
 
 func reset():
-	time = 60
+	time = start_time
+	if Global.has_time_powerup:
+		time += additional_time
 
 #changes time to string
 func time_to_string() -> String:
@@ -37,3 +41,6 @@ func time_to_string() -> String:
 	
 	var actual_string = format_string%[min, sec, msec]
 	return actual_string
+
+func _on_time_collected():
+	time += additional_time

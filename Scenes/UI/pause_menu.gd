@@ -4,7 +4,6 @@ extends Control
 func _process(delta):
 	testEsc()
 	
-
 func _ready():
 	self.visible = false
 
@@ -19,7 +18,6 @@ func testEsc():
 func pause():
 	get_tree().paused = true
 
-
 func resume():
 	get_tree().paused = false
 	self.visible = false
@@ -27,9 +25,6 @@ func resume():
 func _on_resume_pressed():
 	get_tree().paused = false
 	self.visible = false
-
-
-
 
 func _on_menu_pressed():
 	get_tree().paused = false

@@ -1834,12 +1834,22 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("8_hutjk")
 
-[node name="CoyoteTimer" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="CoyoteTimer" type="Timer" parent="Timers"]
 wait_time = 0.1
 one_shot = true
 
-[node name="JumpBufferTimer" type="Timer" parent="."]
+[node name="WallJumpCoyoteTimer" type="Timer" parent="Timers"]
+wait_time = 0.05
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="Timers"]
 wait_time = 0.2
+one_shot = true
+
+[node name="WallJumpBufferTimer" type="Timer" parent="Timers"]
+wait_time = 0.05
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
