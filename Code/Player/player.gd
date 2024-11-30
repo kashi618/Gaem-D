@@ -45,6 +45,7 @@ var wall_jump_direction: float
 var old_pos: Vector2
 var current_pos: Vector2
 var dir
+var didWallJump
 
 func _ready():
 	current_map = get_parent()
@@ -141,6 +142,7 @@ func jump():
 	
 	if is_on_floor_only():
 		numJumps = 0
+		didWallJump = 0
 
 
 func can_jump() -> bool:
@@ -162,6 +164,7 @@ func wallJump():
 		velocity.x = WALL_JUMP_POWER * get_wall_normal().x - 100
 		velocity.y = JUMP_POWER
 		numJumps -= 1
+		didWallJump = 1
 		print("wall jumped")
 
 
@@ -194,7 +197,7 @@ func reset_player():
 
 func update_animation_parameters():
 	# Animations for moving right
-	if dir == 1 and numJumps == 1:
+	if dir == 1 and numJumps == 1 and didWallJump == 0:
 		animation_tree["parameters/conditions/is_idle"] = false
 		animation_tree["parameters/conditions/moving_right"] = false
 		animation_tree["parameters/conditions/is_jump"] = true
@@ -218,7 +221,7 @@ func update_animation_parameters():
 		runner.scale.x = -1
 	
 	# Animations for moving left
-	if dir == -1 and numJumps == 1:
+	if dir == -1 and numJumps == 1 and didWallJump == 0:
 		animation_tree["parameters/conditions/is_idle"] = false
 		animation_tree["parameters/conditions/moving_left"] = false
 		animation_tree["parameters/conditions/is_jump"] = true
