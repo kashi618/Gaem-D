@@ -1,9 +1,9 @@
 extends Node
 
 @export var player: CharacterBody2D
-#@onready var oldDude = $"../OldGuy"
-@onready var speechBubblePos = %SpeechBubblePos
-@onready var e = %E
+@onready var oldDude = $"../OldGuy"
+@onready var speechBubblePos = $"../SpeechPos"
+@onready var e = $"../E"
 
 @export var CameraZone0: PhantomCamera2D
 @export var CameraZone1: PhantomCamera2D
@@ -36,7 +36,7 @@ func _ready():
 func _input(event):
 	if Input.is_action_just_pressed("e"):
 		if inDialogue == false:
-			$"../E".visible = false
+			e.visible = false
 			if is_active_interaction:
 				is_active_interaction = false
 				update_camera()
@@ -90,7 +90,7 @@ func find_interaction():
 					is_active_interaction = true
 					Global.can_move = false
 					active_interaction = found_interaction_area
-					run_dialogue("springConvo")
+					run_dialogue("troll")
 					#Dialogic.signal_event.connect(DialogicSignal)
 					update_camera()
 
@@ -126,23 +126,18 @@ func update_current_zone(body, zone):
 		update_camera()
 
 
-func _on_zone_01_body_entered(body):
+func _on_zone_0_body_entered(body):
+	update_current_zone(body,0)
+
+
+func _on_zone_spring_spikes_body_entered(body):
 	update_current_zone(body,1)
 
 
-func _on_zone_02_body_entered(body):
+func _on_zone_floor_spikes_body_entered(body):
 	update_current_zone(body,2)
 
 
-func _on_zone_1_body_entered(body):
-	update_current_zone(body,3)
-
-
-func _on_bad_end_body_entered(body):
-	e.visible = true
-func _on_bad_end_body_exited(body):
-	e.visible = false
-	
 
 func _on_death_zone_body_entered(body):
 	if body ==player:
@@ -153,3 +148,10 @@ func _on_death_zone_body_entered(body):
 			if camera != null:
 				camera.priority = 0
 		CameraZone0.priority = 1
+
+
+func _on_interaction_area_body_entered(body):
+	e.visible = true
+
+func _on_interaction_area_body_exited(body):
+	e.visible = false

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://cf0ubjy12g32s"]
+
+[ext_resource type="Script" path="res://Code/Resources/MapData.gd" id="1_yw4fb"]
+
+[resource]
+script = ExtResource("1_yw4fb")
+map_ID = 9
+map_name = ""
+start_pos = Vector2(-148, -10)
+map_path = "Maps/Map Scenes/9_troll"

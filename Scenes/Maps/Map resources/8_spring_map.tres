@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://dxfhb652yvm0b"]
+
+[ext_resource type="Script" path="res://Code/Resources/MapData.gd" id="1_l5whp"]
+
+[resource]
+script = ExtResource("1_l5whp")
+map_ID = 8
+map_name = "Spring_Map"
+start_pos = Vector2(44, 4)
+map_path = "Maps/Map Scenes/spring_map"

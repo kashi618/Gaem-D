@@ -12,7 +12,7 @@
 "Old Dude": I've witnessed your attempts at traversing the difficult terain.
 "Old Dude": As thanks for stopping to listen to me, take this powerup. You are going to need it.
 "Old Dude": You'll see more secret power ups on your travels.
-"Old Dude": and they're all PERMANENT!
+"Old Dude": and they're all [wave amp=50.0 freq=5.0 connected=1]PERMANENT![/wave]
 "Old Dude": Good luck on your journey!
 [signal arg="doubleJumpPickedUp"]
 [signal arg="ConvoEnd"]

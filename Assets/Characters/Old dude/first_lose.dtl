@@ -9,11 +9,20 @@ You ring the doorbell.
 [sound volume="0.0"]
 [wait time="1.0"]
 You see the door open.
-You see it.
 join pizza 2
-You want to RUN.
-You are grabbed.
+You give them the pizza.
+leave pizza
+Your pizza is taken.[n+] It is [shake rate=20.0 level=7 connected=1]COLD[/shake].
+The demon lord is NOT satisfied. [n+]You don't get paid.
+You run away.
+As you run, you feel a hand touch your shoulder.
+You are GRABBED and pulled into the darkness.
 You cannot escape.
-You hear a sound.
-"Don't be late."
-[signal arg="ConvoLoseEnd"]
+A whisper enters your ear.
+[shake rate=20.0 level=7 connected=1]"Don't be late."[/shake]
+[wait time="1.0"]
+You reached a bad ending.
+But this story does not end here.
+[wait time="0.5"]
+- FIND THE SECRETS
+	[signal arg="ConvoLoseEnd"]

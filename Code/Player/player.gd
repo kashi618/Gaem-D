@@ -35,11 +35,8 @@ const FALL_GRAVITY = 1100.0
 const TERMINAL_VELOCITY = 500.0
 const MAXJUMPS = 2
 const WALL_JUMP_POWER = 300.00
-#<<<<<<< HEAD
 const PLAYER_DEATH_TIME = 0.5
-#=======
 const DOUBLE_JUMP_POWER = -280
-#>>>>>>> Dev
 
 # Initializing and Declaring Variables
 # Basically just don't touch these
@@ -47,6 +44,8 @@ var numJumps = 0
 var wall_jump_direction: float
 var old_pos: Vector2
 var current_pos: Vector2
+var dir
+var didWallJump
 
 func _ready():
 	current_map = get_parent()
@@ -60,31 +59,15 @@ func _ready():
 	
 var motion = Vector2()
 
-func _process(delta):
+func _process(_delta):
 	update_animation_parameters()
 	
 	if velocity == Vector2.ZERO:
 		runner.emitting = true
 	else:
 		runner.emitting = false
-	#flipping player left and right based on left and right movement:
-	if Input.is_action_just_pressed("left"):
-		$Body/Head.flip_h = true
-		$Body/Torso.flip_h = true
-		$"Body/Right arm".flip_h = true
-		$"Body/Left arm".flip_h = true
-		$"Body/Right leg".flip_h = true
-		$"Body/Left leg".flip_h = true
-		runner.scale.x = 1
-	if Input.is_action_just_pressed("right"):
-		$Body/Head.flip_h = false
-		$Body/Torso.flip_h = false
-		$"Body/Right arm".flip_h = false
-		$"Body/Left arm".flip_h = false
-		$"Body/Right leg".flip_h = false
-		$"Body/Left leg".flip_h = false
-		runner.scale.x = -1
-			
+
+
 
 func _physics_process(delta: float) -> void:
 	# Gravity
@@ -130,7 +113,7 @@ func _physics_process(delta: float) -> void:
 
 # Handle left and right movement
 func movement():
-	var dir = Input.get_axis("left", "right")
+	dir = Input.get_axis("left", "right")
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * SPEED, acceleration)
 	else:
@@ -142,6 +125,7 @@ func movement():
 func jump():	
 	# Jump
 	if can_jump():
+		numJumps += 1
 		velocity.y = JUMP_POWER
 		jumpSFX.pitch_scale = randf_range(0.8, 1.2)
 		jumpSFX.play()
@@ -159,6 +143,7 @@ func jump():
 	
 	if is_on_floor_only():
 		numJumps = 0
+		didWallJump = 0
 
 
 func can_jump() -> bool:
@@ -180,6 +165,7 @@ func wallJump():
 		velocity.x = WALL_JUMP_POWER * get_wall_normal().x - 100
 		velocity.y = JUMP_POWER
 		numJumps -= 1
+		didWallJump = 1
 		print("wall jumped")
 
 
@@ -209,24 +195,53 @@ func reset_player():
 	global_position = start_pos
 	disable_movement(0.7)
 
-func update_animation_parameters():
-	if velocity.length() <=0.3:  
-		animation_tree["parameters/conditions/idle"] = true
-		animation_tree["parameters/conditions/is_moving"] = false
-	else:
-		animation_tree["parameters/conditions/idle"] = false
-		animation_tree["parameters/conditions/is_moving"] = true
-	
-	if Input.is_action_just_pressed("jump"):
-		animation_tree["parameters/conditions/jump"] = true
-	else:
-		animation_tree["parameters/conditions/jump"] = false
 
-func _on_dialogic(arg):
-	if arg == "ConvoBegin":
-		Global.can_move =false
-		velocity.x = 0
-	elif arg == "ConvoEnd":
-		Global.can_move = true
-	else:
-		pass
+func update_animation_parameters():
+	# Animations for moving right
+	if dir == 1 and numJumps == 1 and didWallJump == 0:
+		animation_tree["parameters/conditions/is_idle"] = false
+		animation_tree["parameters/conditions/moving_right"] = false
+		animation_tree["parameters/conditions/is_jump"] = true
+		$Body/Head.flip_h = false
+		$Body/Torso.flip_h = false
+		$"Body/Right arm".flip_h = false
+		$"Body/Left arm".flip_h = false
+		$"Body/Right leg".flip_h = false
+		$"Body/Left leg".flip_h = false
+		runner.scale.x = -1
+	elif dir == 1:
+		animation_tree["parameters/conditions/is_idle"] = false
+		animation_tree["parameters/conditions/moving_right"] = true
+		animation_tree["parameters/conditions/is_jump"] = false
+		$Body/Head.flip_h = false
+		$Body/Torso.flip_h = false
+		$"Body/Right arm".flip_h = false
+		$"Body/Left arm".flip_h = false
+		$"Body/Right leg".flip_h = false
+		$"Body/Left leg".flip_h = false
+		runner.scale.x = -1
+	
+	# Animations for moving left
+	if dir == -1 and numJumps == 1 and didWallJump == 0:
+		animation_tree["parameters/conditions/is_idle"] = false
+		animation_tree["parameters/conditions/moving_left"] = false
+		animation_tree["parameters/conditions/is_jump"] = true
+		$Body/Head.flip_h = true
+		$Body/Torso.flip_h = true
+		$"Body/Right arm".flip_h = true
+		$"Body/Left arm".flip_h = true
+	elif dir == -1:
+		animation_tree["parameters/conditions/is_idle"] = false
+		animation_tree["parameters/conditions/moving_left"] = true
+		animation_tree["parameters/conditions/is_jump"] = false
+		$Body/Head.flip_h = true
+		$Body/Torso.flip_h = true
+		$"Body/Right arm".flip_h = true
+		$"Body/Left arm".flip_h = true
+	
+	# Animations for idle
+	if dir == 0:
+		animation_tree["parameters/conditions/is_idle"] = true
+		animation_tree["parameters/conditions/moving_left"] = false
+		animation_tree["parameters/conditions/moving_right"] = false
+		animation_tree["parameters/conditions/is_jump"] = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=4 uid="uid://knfybjd5qgpc"]
+[gd_scene load_steps=27 format=4 uid="uid://knfybjd5qgpc"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_74gsx"]
 [ext_resource type="PackedScene" uid="uid://b2mvdslakp4o7" path="res://Scenes/Maps/Map features/death_zone.tscn" id="2_aalkx"]
+[ext_resource type="PackedScene" uid="uid://dc37pl78kgely" path="res://Assets/Objects/one_way_platform.tscn" id="2_got8t"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="3_kn5wf"]
 [ext_resource type="PackedScene" uid="uid://bqetxd6a5mong" path="res://Scenes/Player/player.tscn" id="4_dcpu1"]
 [ext_resource type="PackedScene" uid="uid://601y8dxpqxp8" path="res://Assets/Objects/flag_end.tscn" id="5_wu1a6"]
@@ -67,6 +68,9 @@ point_count = 2
 script = ExtResource("1_74gsx")
 start_pos = Vector2(-136, -13)
 
+[node name="OneWayPlatform" parent="." instance=ExtResource("2_got8t")]
+position = Vector2(993, -15)
+
 [node name="DeathZone" parent="." instance=ExtResource("2_aalkx")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
@@ -86,7 +90,7 @@ tile_map_data = PackedByteArray("AAAAAAIAAQAKAAEAAAAAAAEAAQAKAAEAAAAAAAAAAQAKAAA
 tile_set = ExtResource("3_kn5wf")
 
 [node name="Player" parent="." instance=ExtResource("4_dcpu1")]
-position = Vector2(-136, -13)
+position = Vector2(-204, -17)
 
 [node name="Flag End" parent="." instance=ExtResource("5_wu1a6")]
 position = Vector2(1279, -369)
@@ -185,9 +189,25 @@ texture = ExtResource("12_klaqf")
 script = ExtResource("13_evm87")
 
 [node name="Controls" type="Sprite2D" parent="."]
-position = Vector2(-115, -110)
+position = Vector2(-116, -100)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("14_jtk4q")
+region_enabled = true
+region_rect = Rect2(0, 644.432, 1753.68, 435.568)
+
+[node name="Controls2" type="Sprite2D" parent="."]
+position = Vector2(943, -104)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_jtk4q")
+region_enabled = true
+region_rect = Rect2(0, 9.48944, 1427.85, 375.953)
+
+[node name="Controls3" type="Sprite2D" parent="."]
+position = Vector2(308, -37)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_jtk4q")
+region_enabled = true
+region_rect = Rect2(0, 340.054, 1711.91, 325.264)
 
 [connection signal="body_entered" from="DeathZone" to="CameraManager" method="_on_death_zone_body_entered"]
 [connection signal="collected" from="CameraManager" to="PowerupUnlock" method="_on_camera_manager_collected"]
