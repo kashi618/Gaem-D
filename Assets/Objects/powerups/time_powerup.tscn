@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbt3a136aehqb"]
+[gd_scene load_steps=10 format=3 uid="uid://bbt3a136aehqb"]
 
 [ext_resource type="Script" path="res://Assets/Objects/powerups/time_powerup.gd" id="1_m6qea"]
 [ext_resource type="Texture2D" uid="uid://bet4ee86m82jx" path="res://Assets/Objects/powerups/images/timePowerup.png" id="1_w36oe"]
 [ext_resource type="Material" uid="uid://dc0dd87b0ilgj" path="res://Assets/Objects/powerups/powerupParticle.tres" id="2_bhrvu"]
 [ext_resource type="Texture2D" uid="uid://nieyv15hhkma" path="res://Assets/Objects/powerups/images/crosshair121.png" id="3_pbx6x"]
+[ext_resource type="AudioStream" uid="uid://dp5ejxnee6mlf" path="res://Assets/Sounds/retrogame-win-song_67bpm_F_major.wav" id="5_gskj0"]
 
 [sub_resource type="Animation" id="Animation_udlu1"]
 length = 0.001
@@ -67,5 +68,9 @@ texture = ExtResource("3_pbx6x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_4485w")
+
+[node name="UnlockMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_gskj0")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

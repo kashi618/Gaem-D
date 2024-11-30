@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1flpcle71wsc"]
+[gd_scene load_steps=9 format=3 uid="uid://c1flpcle71wsc"]
 
 [ext_resource type="Script" path="res://Assets/Objects/powerups/walljump_unlock.gd" id="1_biih6"]
 [ext_resource type="Theme" uid="uid://cjjnne5ktjnxi" path="res://Scenes/UI/UI Assets/UI.tres" id="2_30e2u"]
 [ext_resource type="Texture2D" uid="uid://cghe453wvgmi4" path="res://Assets/Objects/powerups/images/wallJump powerupbig.png" id="3_xskit"]
 [ext_resource type="Material" uid="uid://6xew18640bs1" path="res://Assets/Objects/powerups/explosion.tres" id="4_w5i2a"]
+[ext_resource type="AudioStream" uid="uid://dp5ejxnee6mlf" path="res://Assets/Sounds/retrogame-win-song_67bpm_F_major.wav" id="5_wf408"]
 
 [sub_resource type="Animation" id="Animation_p35io"]
 length = 0.001
@@ -234,7 +235,10 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 8.0
 one_shot = true
+
+[node name="UnlockMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wf408")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

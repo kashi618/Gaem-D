@@ -7,10 +7,10 @@ signal clearPowerup
 @onready var particleLeft = %particleLeft
 @onready var particleMiddle = %particleMiddle
 @onready var particleRight = %particleRight
+@onready var unlock_music: AudioStreamPlayer2D = $UnlockMusic
 
 func _ready():
 	canvas.visible = false
-
 
 func _on_timer_timeout():
 	animation.play_backwards("reveal")
@@ -29,3 +29,4 @@ func _on_x_2_jump_powerup_collected():
 	particleMiddle.emitting = true
 	particleRight.emitting = true
 	Global.double_jump = true
+	unlock_music.play()

@@ -41,34 +41,31 @@ func update_current_zone(body, zone):
 		update_camera()
 
 
-func _on_zone_01_body_entered(body):
+func _on_zone_0_body_entered(body):
+	update_current_zone(body, 0)
+
+func _on_zone_1_body_entered(body):
 	update_current_zone(body, 1)
-
-func _on_zone_1_secret_body_entered(body):
-	update_current_zone(body, 6)
-
-
-#func _on_zone_secret_body_entered(body):
-	#update_current_zone(body, 1)
-
-
-func _on_zone_15_body_entered(body):
-	update_current_zone(body, 5)
-
-
-func _on_zone_02_body_entered(body):
+	
+func _on_zone_2_body_entered(body):
 	update_current_zone(body, 2)
 
-
-func _on_zone_23_body_entered(body):
+func _on_zone_3_body_entered(body):
 	update_current_zone(body, 3)
-
-
-func _on_zone_34_body_entered(body):
+	
+func _on_Follow_zone_body_entered(body):
 	update_current_zone(body, 4)
+	
+func _on_zone_4_body_entered(body: Node2D) -> void:
+	update_current_zone(body, 5)
+	
+func _on_zone_secret_body_entered(body: Node2D) -> void:
+	update_current_zone(body, 6)
+	
 
+	
 func _on_death_zone_body_entered(body):
-	if body ==player:
+	if body == player:
 		await get_tree().create_timer(1).timeout
 		current_camera_zone = 0
 		var cameras = [CameraZone0, CameraZone1, CameraZone2, CameraZone3, CameraZone4, CameraZone5, CameraZoneSecret]

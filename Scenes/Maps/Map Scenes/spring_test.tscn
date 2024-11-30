@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://fji5edywqt3b"]
+[gd_scene load_steps=28 format=4 uid="uid://fji5edywqt3b"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_2dq07"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="2_gc11e"]
@@ -14,13 +14,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgc2f"]
 size = Vector2(422, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj0s5"]
-size = Vector2(598, 8)
-
 [sub_resource type="Resource" id="Resource_7e0xa"]
 script = ExtResource("9_oh1hn")
-duration = 1.0
-transition = 0
+duration = 0.5
+transition = 1
 ease = 2
 
 [sub_resource type="Curve2D" id="Curve2D_vmr3b"]
@@ -28,6 +25,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 88, 128, 0, 0, 0, 0, 1261, 127)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14bme"]
+size = Vector2(155.291, 24.0239)
 
 [sub_resource type="Resource" id="Resource_l67d0"]
 script = ExtResource("9_oh1hn")
@@ -41,11 +41,20 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4nbp"]
+size = Vector2(725, 958.5)
+
 [sub_resource type="Resource" id="Resource_yxfvf"]
 script = ExtResource("9_oh1hn")
 duration = 0.5
 transition = 1
 ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7llo8"]
+size = Vector2(230, 175)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj0s5"]
+size = Vector2(1283.37, 133.5)
 
 [sub_resource type="Resource" id="Resource_qdcrg"]
 script = ExtResource("9_oh1hn")
@@ -76,6 +85,15 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1618, -458, 0, 0, 0, 0, 1618, -861)
 }
 point_count = 2
+
+[sub_resource type="Resource" id="Resource_lsv3h"]
+script = ExtResource("9_oh1hn")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xan1"]
+size = Vector2(579, 393.5)
 
 [node name="SpringTest" type="Node2D"]
 script = ExtResource("1_2dq07")
@@ -200,23 +218,19 @@ position = Vector2(409, -122)
 [node name="CameraManager_Spring" type="Node" parent="." node_paths=PackedStringArray("player", "CameraZone0", "CameraZone1", "CameraZone2", "CameraZone3", "CameraZone4", "CameraZone5", "CameraZoneSecret")]
 script = ExtResource("8_58esd")
 player = NodePath("../Player")
-CameraZone0 = NodePath("CameraNode/Zone0-1/PhantomCamera2D")
-CameraZone1 = NodePath("CameraNode/zone1-secret/PhantomCamera2D")
-CameraZone2 = NodePath("CameraNode/Zone0-2/PhantomCamera2D")
-CameraZone3 = NodePath("CameraNode/Zone2-3/PhantomCamera2D")
-CameraZone4 = NodePath("CameraNode/Zone3-4/PhantomCamera2D")
-CameraZone5 = NodePath("CameraNode/zone1-5/PhantomCamera2D2")
-CameraZoneSecret = NodePath("CameraNode/zone_secret/PhantomCamera2D")
+CameraZone0 = NodePath("CameraNode/Zone0/Zone0Camera")
+CameraZone1 = NodePath("CameraNode/zone1/Zone1Camera")
+CameraZone2 = NodePath("CameraNode/Zone2/Zone2Camera")
+CameraZone3 = NodePath("CameraNode/Zone3/Zone3Camera")
+CameraZone4 = NodePath("CameraNode/Follow_zone/FollowCamera")
+CameraZone5 = NodePath("CameraNode/Zone4/Zone4Camera")
+CameraZoneSecret = NodePath("CameraNode/zone_secret/SecretCamera")
 
 [node name="CameraNode" type="StaticBody2D" parent="CameraManager_Spring"]
 
-[node name="Zone0-1" type="Area2D" parent="CameraManager_Spring/CameraNode"]
+[node name="Zone0" type="Area2D" parent="CameraManager_Spring/CameraNode"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/Zone0-1"]
-position = Vector2(614, -44)
-shape = SubResource("RectangleShape2D_nj0s5")
-
-[node name="PhantomCamera2D" type="Node2D" parent="CameraManager_Spring/CameraNode/Zone0-1" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="Zone0Camera" type="Node2D" parent="CameraManager_Spring/CameraNode/Zone0" node_paths=PackedStringArray("follow_target", "follow_path")]
 position = Vector2(213, 164)
 script = ExtResource("8_k5kvv")
 follow_mode = 4
@@ -230,18 +244,17 @@ limit_top = -52
 limit_right = 1452
 limit_bottom = 384
 
-[node name="Path2D" type="Path2D" parent="CameraManager_Spring/CameraNode/Zone0-1"]
+[node name="Path2D" type="Path2D" parent="CameraManager_Spring/CameraNode/Zone0"]
 curve = SubResource("Curve2D_vmr3b")
 
-[node name="zone1-secret" type="Area2D" parent="CameraManager_Spring/CameraNode"]
+[node name="Zone0 shape" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/Zone0"]
+position = Vector2(666, 164)
+scale = Vector2(9.16024, 13.882)
+shape = SubResource("RectangleShape2D_14bme")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/zone1-secret"]
-position = Vector2(-79, -710)
-rotation = 1.5708
-scale = Vector2(0.32, -1)
-shape = SubResource("RectangleShape2D_nj0s5")
+[node name="zone1" type="Area2D" parent="CameraManager_Spring/CameraNode"]
 
-[node name="PhantomCamera2D" type="Node2D" parent="CameraManager_Spring/CameraNode/zone1-secret" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="Zone1Camera" type="Node2D" parent="CameraManager_Spring/CameraNode/zone1" node_paths=PackedStringArray("follow_target", "follow_path")]
 position = Vector2(312.783, -291.783)
 script = ExtResource("8_k5kvv")
 follow_mode = 4
@@ -255,30 +268,38 @@ limit_top = -1159
 limit_right = 728
 limit_bottom = -57
 
-[node name="Path2D" type="Path2D" parent="CameraManager_Spring/CameraNode/zone1-secret"]
+[node name="Path2D" type="Path2D" parent="CameraManager_Spring/CameraNode/zone1"]
 curve = SubResource("Curve2D_pf4th")
 
-[node name="Marker2D" type="Marker2D" parent="CameraManager_Spring/CameraNode/zone1-secret"]
+[node name="Marker2D" type="Marker2D" parent="CameraManager_Spring/CameraNode/zone1"]
 position = Vector2(378, -57)
+
+[node name="Zone1_shape" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/zone1"]
+position = Vector2(313.5, -588.75)
+shape = SubResource("RectangleShape2D_n4nbp")
 
 [node name="zone_secret" type="Area2D" parent="CameraManager_Spring/CameraNode"]
 
-[node name="PhantomCamera2D" type="Node2D" parent="CameraManager_Spring/CameraNode/zone_secret"]
+[node name="SecretCamera" type="Node2D" parent="CameraManager_Spring/CameraNode/zone_secret"]
 position = Vector2(-155, -720)
 script = ExtResource("8_k5kvv")
 zoom = Vector2(6, 6)
 tween_resource = SubResource("Resource_yxfvf")
 draw_limits = true
 
-[node name="zone1-5" type="Area2D" parent="CameraManager_Spring/CameraNode"]
+[node name="ZoneSecretShape" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/zone_secret"]
+position = Vector2(-209, -736)
+shape = SubResource("RectangleShape2D_7llo8")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/zone1-5"]
-position = Vector2(563, -1125)
+[node name="Follow_zone" type="Area2D" parent="CameraManager_Spring/CameraNode"]
+
+[node name="FollowShape" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/Follow_zone"]
+position = Vector2(689, -1195.75)
 rotation = -3.14159
 scale = Vector2(0.32, -1)
 shape = SubResource("RectangleShape2D_nj0s5")
 
-[node name="PhantomCamera2D2" type="Node2D" parent="CameraManager_Spring/CameraNode/zone1-5" node_paths=PackedStringArray("follow_target")]
+[node name="FollowCamera" type="Node2D" parent="CameraManager_Spring/CameraNode/Follow_zone" node_paths=PackedStringArray("follow_target")]
 position = Vector2(-18, 211)
 script = ExtResource("8_k5kvv")
 follow_mode = 2
@@ -288,15 +309,9 @@ tween_resource = SubResource("Resource_qdcrg")
 follow_damping = true
 draw_limits = true
 
-[node name="Zone0-2" type="Area2D" parent="CameraManager_Spring/CameraNode"]
+[node name="Zone2" type="Area2D" parent="CameraManager_Spring/CameraNode"]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/Zone0-2"]
-position = Vector2(1327, -117)
-rotation = 3.14159
-scale = Vector2(0.32, -1)
-shape = SubResource("RectangleShape2D_nj0s5")
-
-[node name="PhantomCamera2D" type="Node2D" parent="CameraManager_Spring/CameraNode/Zone0-2" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="Zone2Camera" type="Node2D" parent="CameraManager_Spring/CameraNode/Zone2" node_paths=PackedStringArray("follow_target", "follow_path")]
 position = Vector2(1045.33, -240)
 script = ExtResource("8_k5kvv")
 follow_mode = 4
@@ -311,18 +326,15 @@ limit_top = -665
 limit_right = 1430
 limit_bottom = -41
 
-[node name="Path2D" type="Path2D" parent="CameraManager_Spring/CameraNode/Zone0-2"]
+[node name="Path2D" type="Path2D" parent="CameraManager_Spring/CameraNode/Zone2"]
 curve = SubResource("Curve2D_xciis")
 
-[node name="Zone2-3" type="Area2D" parent="CameraManager_Spring/CameraNode"]
+[node name="Zone3_shape" type="CollisionPolygon2D" parent="CameraManager_Spring/CameraNode/Zone2"]
+polygon = PackedVector2Array(1236, -60, 1404, -57, 1397, -332, 1386, -627, 737, -640, 733, -69)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/Zone2-3"]
-position = Vector2(1416, -544)
-rotation = 1.5708
-scale = Vector2(0.32, -1)
-shape = SubResource("RectangleShape2D_nj0s5")
+[node name="Zone3" type="Area2D" parent="CameraManager_Spring/CameraNode"]
 
-[node name="PhantomCamera2D" type="Node2D" parent="CameraManager_Spring/CameraNode/Zone2-3" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="Zone3Camera" type="Node2D" parent="CameraManager_Spring/CameraNode/Zone3" node_paths=PackedStringArray("follow_target", "follow_path")]
 position = Vector2(1618, -505.286)
 script = ExtResource("8_k5kvv")
 follow_mode = 4
@@ -335,34 +347,31 @@ limit_left = 660
 limit_top = -980
 limit_bottom = -351
 
-[node name="Path2D" type="Path2D" parent="CameraManager_Spring/CameraNode/Zone2-3"]
+[node name="Path2D" type="Path2D" parent="CameraManager_Spring/CameraNode/Zone3"]
 curve = SubResource("Curve2D_xqaf2")
 
-[node name="Zone3-4" type="Area2D" parent="CameraManager_Spring/CameraNode"]
+[node name="Zone3Shape" type="CollisionPolygon2D" parent="CameraManager_Spring/CameraNode/Zone3"]
+polygon = PackedVector2Array(1451, -371, 1415, -704, 1320, -731, 1320, -939, 1900, -918, 1926, -347)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/Zone3-4"]
-position = Vector2(1372, -815)
-rotation = 1.5708
-scale = Vector2(0.32, -1)
-shape = SubResource("RectangleShape2D_nj0s5")
+[node name="Zone4" type="Area2D" parent="CameraManager_Spring/CameraNode"]
 
-[node name="PhantomCamera2D" type="Node2D" parent="CameraManager_Spring/CameraNode/Zone3-4" node_paths=PackedStringArray("follow_target")]
-position = Vector2(932.857, -842.286)
+[node name="Zone4Camera" type="Node2D" parent="CameraManager_Spring/CameraNode/Zone4"]
+position = Vector2(1000, -928)
 script = ExtResource("8_k5kvv")
-follow_mode = 2
-follow_target = NodePath("../../../../Player")
-zoom = Vector2(3.5, 3.5)
-tween_resource = SubResource("Resource_qdcrg")
+zoom = Vector2(3, 3)
+tween_resource = SubResource("Resource_lsv3h")
+tween_on_load = false
 draw_limits = true
-limit_left = 660
-limit_top = -1156
-limit_bottom = -688
+
+[node name="Zone4Shape" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/Zone4"]
+position = Vector2(1000, -874)
+shape = SubResource("RectangleShape2D_3xan1")
 
 [connection signal="body_entered" from="DeathZone" to="CameraManager_Spring" method="_on_death_zone_body_entered"]
-[connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone0-1" to="CameraManager_Spring" method="_on_zone_01_body_entered"]
-[connection signal="body_entered" from="CameraManager_Spring/CameraNode/zone1-secret" to="CameraManager_Spring" method="_on_zone_1_secret_body_entered"]
+[connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone0" to="CameraManager_Spring" method="_on_zone_0_body_entered"]
+[connection signal="body_entered" from="CameraManager_Spring/CameraNode/zone1" to="CameraManager_Spring" method="_on_zone_1_body_entered"]
 [connection signal="body_entered" from="CameraManager_Spring/CameraNode/zone_secret" to="CameraManager_Spring" method="_on_zone_secret_body_entered"]
-[connection signal="body_entered" from="CameraManager_Spring/CameraNode/zone1-5" to="CameraManager_Spring" method="_on_zone_15_body_entered"]
-[connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone0-2" to="CameraManager_Spring" method="_on_zone_02_body_entered"]
-[connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone2-3" to="CameraManager_Spring" method="_on_zone_23_body_entered"]
-[connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone3-4" to="CameraManager_Spring" method="_on_zone_34_body_entered"]
+[connection signal="body_entered" from="CameraManager_Spring/CameraNode/Follow_zone" to="CameraManager_Spring" method="_on_Follow_zone_body_entered"]
+[connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone2" to="CameraManager_Spring" method="_on_zone_2_body_entered"]
+[connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone3" to="CameraManager_Spring" method="_on_zone_3_body_entered"]
+[connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone4" to="CameraManager_Spring" method="_on_zone_4_body_entered"]

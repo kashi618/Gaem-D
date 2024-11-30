@@ -1,6 +1,7 @@
 extends Control
 
 signal clearPowerup
+@onready var unlock_music: AudioStreamPlayer2D = $UnlockMusic
 
 func _ready():
 	$CanvasLayer.visible = false
@@ -13,7 +14,6 @@ func _on_timer_timeout():
 	emit_signal("clearPowerup")
 	queue_free()
 
-
 func _on_time_powerup_collected():
 	print("collected")
 	get_tree().paused = true
@@ -24,3 +24,4 @@ func _on_time_powerup_collected():
 	$CanvasLayer/MarginContainer5/MarginContainer4/GPUParticles2D2.emitting = true
 	$CanvasLayer/MarginContainer6/MarginContainer4/GPUParticles2D2.emitting = true
 	Global.has_time_powerup = true
+	unlock_music.play()

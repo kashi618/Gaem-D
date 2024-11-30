@@ -115,6 +115,10 @@ down={
 
 2d_physics/layer_1="Player Layer"
 
+[phantom_camera]
+
+tips/show_jitter_tips=false
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

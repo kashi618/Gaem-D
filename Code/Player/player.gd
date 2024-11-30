@@ -56,7 +56,8 @@ func _ready():
 	#start_pos = current_map.map_data.start_pos
 	animation_tree.active = true
 	EventsBus.PlayerDied.connect(_on_PlayerDied) # Signal connected once node is ready
-
+	Dialogic.signal_event.connect(_on_dialogic)
+	
 var motion = Vector2()
 
 func _process(delta):
@@ -220,3 +221,12 @@ func update_animation_parameters():
 		animation_tree["parameters/conditions/jump"] = true
 	else:
 		animation_tree["parameters/conditions/jump"] = false
+
+func _on_dialogic(arg):
+	if arg == "ConvoBegin":
+		Global.can_move =false
+		velocity.x = 0
+	elif arg == "ConvoEnd":
+		Global.can_move = true
+	else:
+		pass
