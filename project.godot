@@ -36,12 +36,15 @@ directories/dtl_directory={
 "GameBegin": "res://Assets/Characters/Old dude/GameBegin.dtl",
 "PowerupEncounter": "res://Assets/Characters/Old dude/PowerupEncounter.dtl",
 "first_lose": "res://Assets/Characters/Old dude/first_lose.dtl",
-"randomConvo": "res://Assets/Characters/Old dude/randomConvo.dtl"
+"randomConvo": "res://Assets/Characters/Old dude/randomConvo.dtl",
+"springConvo": "res://Assets/Characters/Old dude/springConvo.dtl"
 }
 layout/style_list=["res://Assets/Characters/Old dude/Bubble.tres", "res://Assets/Characters/Old dude/Visual Novel.tres"]
 layout/default_style="res://Assets/Characters/Old dude/Bubble.tres"
 glossary/default_case_sensitive=true
-variables={}
+variables={
+"Var": ""
+}
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1

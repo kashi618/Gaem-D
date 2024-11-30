@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=4 uid="uid://dbtxc22hg0nt8"]
+[gd_scene load_steps=34 format=4 uid="uid://dbtxc22hg0nt8"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_fsfh1"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_y37d3"]
+[ext_resource type="PackedScene" uid="uid://dc37pl78kgely" path="res://Assets/Objects/one_way_platform.tscn" id="2_2b34x"]
 [ext_resource type="PackedScene" uid="uid://bqetxd6a5mong" path="res://Scenes/Player/player.tscn" id="2_is74e"]
 [ext_resource type="PackedScene" uid="uid://b2mvdslakp4o7" path="res://Scenes/Maps/Map features/death_zone.tscn" id="2_lc3r3"]
 [ext_resource type="PackedScene" uid="uid://bckhmwekiwxqx" path="res://Assets/Objects/spring.tscn" id="3_vyb4p"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_d0eid"]
 [ext_resource type="Texture2D" uid="uid://dojfvqmc0q0f5" path="res://Assets/Characters/Old dude/e.png" id="10_x0c3d"]
 [ext_resource type="Script" path="res://Scenes/Maps/Map Scenes/e.gd" id="11_7hd8t"]
+[ext_resource type="PackedScene" uid="uid://601y8dxpqxp8" path="res://Assets/Objects/flag_end.tscn" id="12_xl2eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_375h5"]
 size = Vector2(108, 12)
@@ -34,16 +36,16 @@ size = Vector2(95, 12)
 size = Vector2(350, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i8jo"]
-size = Vector2(170, 15.8824)
+size = Vector2(923, 412.059)
 
 [sub_resource type="Resource" id="Resource_8vc0c"]
 script = ExtResource("8_d0eid")
-duration = 1.0
-transition = 0
+duration = 0.6
+transition = 1
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m178q"]
-size = Vector2(360, 20)
+size = Vector2(1707, 2269.62)
 
 [sub_resource type="Resource" id="Resource_t2y1r"]
 script = ExtResource("8_d0eid")
@@ -52,7 +54,7 @@ transition = 1
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvudd"]
-size = Vector2(20, 199)
+size = Vector2(185, 199)
 
 [sub_resource type="Resource" id="Resource_i0atc"]
 script = ExtResource("8_d0eid")
@@ -72,7 +74,7 @@ size = Vector2(48, 41)
 [sub_resource type="Resource" id="Resource_ub361"]
 script = ExtResource("8_d0eid")
 duration = 1.0
-transition = 0
+transition = 1
 ease = 2
 
 [sub_resource type="Resource" id="Resource_wmdds"]
@@ -94,6 +96,10 @@ size = Vector2(1083, 20)
 script = ExtResource("1_fsfh1")
 start_pos = Vector2(85, -14)
 
+[node name="OneWayPlatform" parent="." instance=ExtResource("2_2b34x")]
+position = Vector2(244, -188)
+scale = Vector2(3.92, 1)
+
 [node name="Spikes" type="TileMapLayer" parent="."]
 position = Vector2(3068, -46)
 tile_map_data = PackedByteArray("AACo/wUAAQAFAAQAAACn/wUAAQAEAAQAAACm/wUAAQAEAAQAAACl/wUAAQAEAAQAAACk/wUAAQAEAAQAAACj/wUAAQADAAQAAADK/wsAAQAFAAQAAADJ/wsAAQAEAAQAAADI/wsAAQAEAAQAAADH/wsAAQAEAAQAAADG/wsAAQAEAAQAAADF/wsAAQAEAAQAAADE/wsAAQAEAAQAAADD/wsAAQAEAAQAAADC/wsAAQAEAAQAAADB/wsAAQAEAAQAAADA/wsAAQAEAAQAAAC//wsAAQAEAAQAAAC+/wsAAQAEAAQAAAC9/wsAAQAEAAQAAAC8/wsAAQAEAAQAAAC7/wsAAQAEAAQAAAC6/wsAAQAEAAQAAAC5/wsAAQAEAAQAAAC4/wsAAQAEAAQAAAC3/wsAAQAEAAQAAAC2/wsAAQAEAAQAAAC1/wsAAQAEAAQAAAC0/wsAAQAEAAQAAACz/wsAAQAEAAQAAACy/wsAAQAEAAQAAACx/wsAAQAEAAQAAACw/wsAAQAEAAQAAACv/wsAAQAEAAQAAACu/wsAAQAEAAQAAACt/wsAAQAEAAQAAACs/wsAAQAEAAQAAACr/wsAAQADAAQAAADK////AQAEAAQAAADJ////AQAEAAQAAADI////AQAEAAQAAADH////AQAEAAQAAADG////AQAEAAQAAADF////AQAEAAQAAADE////AQAEAAQAAADD////AQAEAAQAAADC////AQAEAAQAAADB////AQAEAAQAAADA////AQAEAAQAAAC/////AQAEAAQAAAC+////AQAEAAQAAAC9////AQAEAAQAAAC8////AQAEAAQAAAC7////AQAEAAQAAAC6////AQAEAAQAAAC5////AQAEAAQAAAC4////AQAEAAQAAAC3////AQAEAAQAAAC2////AQAEAAQAAAC1////AQAEAAQAAAC0////AQAEAAQAAACz////AQAEAAQAAACy////AQAEAAQAAACx////AQADAAQAAADZ////AQAFAAQAAADY////AQAEAAQAAADX////AQAEAAQAAADW////AQAEAAQAAADV////AQAEAAQAAADU////AQAEAAQAAADT////AQAEAAQAAADS////AQAEAAQAAADR////AQAEAAQAAADQ////AQAEAAQAAADP////AQAEAAQAAADO////AQAEAAQAAADN////AQAEAAQAAADM////AQAEAAQAAADL////AQAEAAQAAADH/+z/AQAFAAQAAADG/+z/AQAEAAQAAADF/+z/AQAEAAQAAADE/+z/AQAEAAQAAADD/+z/AQAEAAQAAADC/+z/AQAEAAQAAADB/+z/AQAEAAQAAADA/+z/AQAEAAQAAAC//+z/AQAEAAQAAAC+/+z/AQAEAAQAAAC9/+z/AQAEAAQAAAC8/+z/AQAEAAQAAAC7/+z/AQAEAAQAAAC6/+z/AQAEAAQAAAC5/+z/AQAEAAQAAAC4/+z/AQAEAAQAAAC3/+z/AQAEAAQAAAC2/+z/AQAEAAQAAAC1/+z/AQAEAAQAAAC0/+z/AQAEAAQAAACz/+z/AQAEAAQAAACy/+z/AQAEAAQAAACx/+z/AQAEAAQAAACw/+z/AQAEAAQAAACv/+z/AQAEAAQAAACu/+z/AQAEAAQAAACt/+z/AQAEAAQAAACs/+z/AQAEAAQAAACr/+z/AQAEAAQAAACq/+z/AQAEAAQAAACp/+z/AQAEAAQAAACo/+z/AQAEAAQAAACn/+z/AQAEAAQAAACm/+z/AQADAAQAAAA=")
@@ -105,7 +111,7 @@ tile_map_data = PackedByteArray("AADC/wMAAQALAAEAAADC/wIAAQALAAAAAADB/wMAAQAKAAE
 tile_set = ExtResource("1_y37d3")
 
 [node name="Player" parent="." instance=ExtResource("2_is74e")]
-position = Vector2(85, -14)
+position = Vector2(44, 4)
 
 [node name="Springs" type="Node2D" parent="."]
 position = Vector2(0, 7)
@@ -238,7 +244,7 @@ Interaction_Camera1 = NodePath("CameraNodes/Bad End/PhantomCamera2D")
 [node name="Zone 0-1" type="Area2D" parent="CameraManager_SpringMap/CameraNodes"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager_SpringMap/CameraNodes/Zone 0-1"]
-position = Vector2(473, 8)
+position = Vector2(849, 199.1)
 scale = Vector2(1, 0.679999)
 shape = SubResource("RectangleShape2D_5i8jo")
 
@@ -252,7 +258,7 @@ draw_limits = true
 [node name="Zone0-2" type="Area2D" parent="CameraManager_SpringMap/CameraNodes"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager_SpringMap/CameraNodes/Zone0-2"]
-position = Vector2(275, -176)
+position = Vector2(948.5, -760.9)
 scale = Vector2(1, 0.52)
 shape = SubResource("RectangleShape2D_m178q")
 
@@ -272,7 +278,7 @@ limit_bottom = -24
 [node name="Zone 1" type="Area2D" parent="CameraManager_SpringMap/CameraNodes"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager_SpringMap/CameraNodes/Zone 1"]
-position = Vector2(1371, 102.5)
+position = Vector2(1442, 105)
 shape = SubResource("RectangleShape2D_bvudd")
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager_SpringMap/CameraNodes/Zone 1" node_paths=PackedStringArray("follow_target", "follow_path")]
@@ -338,6 +344,9 @@ shape = SubResource("RectangleShape2D_fkebr")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(727.5, -651)
 shape = SubResource("RectangleShape2D_6ek1f")
+
+[node name="Flag End" parent="." instance=ExtResource("12_xl2eo")]
+position = Vector2(175, -1278)
 
 [connection signal="body_entered" from="CameraManager_SpringMap/CameraNodes/Zone 0-1" to="CameraManager_SpringMap" method="_on_zone_01_body_entered"]
 [connection signal="body_entered" from="CameraManager_SpringMap/CameraNodes/Zone0-2" to="CameraManager_SpringMap" method="_on_zone_02_body_entered"]

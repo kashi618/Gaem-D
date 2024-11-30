@@ -86,7 +86,7 @@ tile_map_data = PackedByteArray("AAAAAAIAAQAKAAEAAAAAAAEAAQAKAAEAAAAAAAAAAQAKAAA
 tile_set = ExtResource("3_kn5wf")
 
 [node name="Player" parent="." instance=ExtResource("4_dcpu1")]
-position = Vector2(-136, -13)
+position = Vector2(1220, -386)
 
 [node name="Flag End" parent="." instance=ExtResource("5_wu1a6")]
 position = Vector2(1279, -369)
@@ -147,7 +147,7 @@ draw_limits = true
 [node name="Zone2-3" type="Area2D" parent="CameraManager/StaticBody2D"]
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager/StaticBody2D/Zone2-3" node_paths=PackedStringArray("follow_target", "follow_path")]
-position = Vector2(1447, -75)
+position = Vector2(1447, -386)
 script = ExtResource("9_sd1ry")
 follow_mode = 4
 follow_target = NodePath("../../../../Player")

@@ -1,0 +1,21 @@
+[signal arg="ConvoBegin"]
+"Old Dude": So you made it this far...
+"Old Dude": Unfortunately, you reached a dead end.
+"Old Dude": The road ahead is not possible for you at your current level.
+"Old Dude": You need to be stronger.
+"Old Dude": You need to find more SECRETS.
+[style name="Visual Novel"]
+[background arg="res://Assets/Characters/Old dude/Red.png" fade="1.5"]
+[wait time="2.0"]
+[background arg="res://Assets/Characters/Old dude/Dark Blue.png" fade="0.5" transition="Simple Fade"]
+The old man STABS you with a knife.
+You see the old man steal your pizza.
+You feel yourself getting weaker.
+You want to stop him but your arms grow weak.
+Your eyes begin to close...
+[wait time="1.0"]
+You reached a bad ending
+But this story does not end here.
+- FIND MORE SECRETS
+	[signal arg="ConvoEnd"]
+	[signal arg="ReturnToEnd"]

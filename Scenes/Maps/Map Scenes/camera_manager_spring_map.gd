@@ -52,6 +52,8 @@ func run_dialogue(dialogue):
 signal collected
 
 func DialogicSignal(arg: String):
+	if arg == "ReturnToEnd":
+		get_tree().change_scene_to_file("res://Scenes/main.tscn")
 	if arg == "ConvoBegin":
 		print("yooo")
 		Global.can_move = false
@@ -88,14 +90,7 @@ func find_interaction():
 					is_active_interaction = true
 					Global.can_move = false
 					active_interaction = found_interaction_area
-					if Global.isFirstEncounter == true:
-						run_dialogue("First Encounter")
-						Global.isFirstEncounter = false
-					elif Global.isFirstEncounter == false and (Global.hasWallPowerup == false):
-						Global.hasWallPowerup = true
-						run_dialogue("PowerupEncounter")
-					else:
-						run_dialogue("randomConvo")
+					run_dialogue("springConvo")
 					#Dialogic.signal_event.connect(DialogicSignal)
 					update_camera()
 
