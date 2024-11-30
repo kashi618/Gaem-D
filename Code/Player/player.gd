@@ -193,28 +193,51 @@ func reset_player():
 
 
 func update_animation_parameters():
+	# Animations for moving right
 	if dir == 1 and numJumps == 1:
 		animation_tree["parameters/conditions/is_idle"] = false
 		animation_tree["parameters/conditions/moving_right"] = false
 		animation_tree["parameters/conditions/is_jump"] = true
+		$Body/Head.flip_h = false
+		$Body/Torso.flip_h = false
+		$"Body/Right arm".flip_h = false
+		$"Body/Left arm".flip_h = false
+		$"Body/Right leg".flip_h = false
+		$"Body/Left leg".flip_h = false
+		runner.scale.x = -1
 	elif dir == 1:
 		animation_tree["parameters/conditions/is_idle"] = false
 		animation_tree["parameters/conditions/moving_right"] = true
 		animation_tree["parameters/conditions/is_jump"] = false
+		$Body/Head.flip_h = false
+		$Body/Torso.flip_h = false
+		$"Body/Right arm".flip_h = false
+		$"Body/Left arm".flip_h = false
+		$"Body/Right leg".flip_h = false
+		$"Body/Left leg".flip_h = false
+		runner.scale.x = -1
 	
+	# Animations for moving left
 	if dir == -1 and numJumps == 1:
 		animation_tree["parameters/conditions/is_idle"] = false
 		animation_tree["parameters/conditions/moving_left"] = false
 		animation_tree["parameters/conditions/is_jump"] = true
+		$Body/Head.flip_h = true
+		$Body/Torso.flip_h = true
+		$"Body/Right arm".flip_h = true
+		$"Body/Left arm".flip_h = true
 	elif dir == -1:
 		animation_tree["parameters/conditions/is_idle"] = false
 		animation_tree["parameters/conditions/moving_left"] = true
 		animation_tree["parameters/conditions/is_jump"] = false
-		
+		$Body/Head.flip_h = true
+		$Body/Torso.flip_h = true
+		$"Body/Right arm".flip_h = true
+		$"Body/Left arm".flip_h = true
+	
+	# Animations for idle
 	if dir == 0:
 		animation_tree["parameters/conditions/is_idle"] = true
 		animation_tree["parameters/conditions/moving_left"] = false
 		animation_tree["parameters/conditions/moving_right"] = false
 		animation_tree["parameters/conditions/is_jump"] = false
-	
-	
