@@ -1,3 +1,3 @@
 [signal arg="ConvoBegin"]
-"Old Dude": Hello!
+"Old Dude": <Hey what's up?/How are you doing?/What's up?/I'm old/I am not suspicious>
 [signal arg="ConvoEnd"]

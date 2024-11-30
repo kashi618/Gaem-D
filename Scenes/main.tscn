@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dibc818ncc4g3"]
+[gd_scene load_steps=15 format=3 uid="uid://dibc818ncc4g3"]
 
 [ext_resource type="PackedScene" uid="uid://doxfls6lhcxok" path="res://Scenes/UI/ui.tscn" id="1_jkguw"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ynf03"]
@@ -11,12 +11,13 @@
 [ext_resource type="Resource" uid="uid://daptfw0jvi10y" path="res://Scenes/Maps/Map resources/wall_double_jump.tres" id="6_ywg3b"]
 [ext_resource type="Resource" uid="uid://d5hc6f7132xy" path="res://Scenes/Maps/Map resources/tree_secret.tres" id="7_q25gg"]
 [ext_resource type="Resource" uid="uid://dxfhb652yvm0b" path="res://Scenes/Maps/Map resources/8_spring_map.tres" id="10_gkwe1"]
+[ext_resource type="Resource" uid="uid://cf0ubjy12g32s" path="res://Scenes/Maps/Map resources/9_troll.tres" id="11_2rle0"]
 [ext_resource type="PackedScene" uid="uid://c8blcq3ojv7un" path="res://Scenes/UI/pause_menu.tscn" id="11_t6rhh"]
 [ext_resource type="PackedScene" uid="uid://co1qjv07ngs6j" path="res://Scenes/UI/you_lose.tscn" id="12_5gtk2"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ynf03")
-Maps = Array[ExtResource("2_u3f0a")]([ExtResource("3_ixmbw"), ExtResource("4_johgv"), ExtResource("5_gf4ty"), ExtResource("6_ywg3b"), ExtResource("7_q25gg"), ExtResource("5_onhrp"), ExtResource("3_ivyqi"), ExtResource("10_gkwe1")])
+Maps = Array[ExtResource("2_u3f0a")]([ExtResource("3_ixmbw"), ExtResource("4_johgv"), ExtResource("5_gf4ty"), ExtResource("6_ywg3b"), ExtResource("7_q25gg"), ExtResource("5_onhrp"), ExtResource("3_ivyqi"), ExtResource("10_gkwe1"), ExtResource("11_2rle0")])
 
 [node name="current_map" type="Node2D" parent="."]
 
