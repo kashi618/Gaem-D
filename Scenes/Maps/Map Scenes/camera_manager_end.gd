@@ -52,6 +52,8 @@ func run_dialogue(dialogue):
 signal collected
 
 func DialogicSignal(arg: String):
+	if arg == "GameEnd":
+		get_tree().change_scene_to_file("res://Scenes/UI/menu.tscn")
 	if arg == "ReturnToEnd":
 		get_tree().change_scene_to_file("res://Scenes/main.tscn")
 	if arg == "ConvoBegin":
@@ -90,7 +92,7 @@ func find_interaction():
 					is_active_interaction = true
 					Global.can_move = false
 					active_interaction = found_interaction_area
-					run_dialogue("troll")
+					run_dialogue("End")
 					#Dialogic.signal_event.connect(DialogicSignal)
 					update_camera()
 

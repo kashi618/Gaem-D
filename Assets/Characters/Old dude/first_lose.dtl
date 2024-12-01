@@ -6,7 +6,7 @@ You are LATE.
 You head towards the gate.
 You are scared.
 You ring the doorbell.
-[sound volume="0.0"]
+[sound path="res://Assets/Sounds/door-bell-sound-99933.mp3" volume="0.0"]
 [wait time="1.0"]
 You see the door open.
 join pizza 2

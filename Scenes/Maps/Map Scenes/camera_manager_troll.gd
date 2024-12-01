@@ -155,3 +155,7 @@ func _on_interaction_area_body_entered(body):
 
 func _on_interaction_area_body_exited(body):
 	e.visible = false
+
+
+func _on_zone_flag_body_entered(body):
+	update_current_zone(body,3)

@@ -32,6 +32,7 @@ directories/dch_directory={
 "pizza": "res://Assets/Characters/pizza/pizza.dch"
 }
 directories/dtl_directory={
+"End": "res://Assets/Characters/Old dude/End.dtl",
 "First Encounter": "res://Assets/Characters/Old dude/First Encounter.dtl",
 "GameBegin": "res://Assets/Characters/Old dude/GameBegin.dtl",
 "PowerupEncounter": "res://Assets/Characters/Old dude/PowerupEncounter.dtl",
