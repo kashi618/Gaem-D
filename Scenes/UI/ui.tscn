@@ -103,8 +103,10 @@ max_distance = 10000.0
 
 [node name="1minute_song" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gu4yb")
+parameters/looping = true
 
 [node name="1minute30_song" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_mv3o5")
+parameters/looping = true
 
 [connection signal="no_more_time" from="Stopwatch" to="." method="_on_stopwatch_no_more_time"]

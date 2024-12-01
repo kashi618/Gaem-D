@@ -11,7 +11,6 @@ func _on_area_2d_body_entered(body):
 func _ready():
 	animation.play("idle")
 
-
 func _on_powerup_unlock_clear_powerup():
 	EventsBus.power_up_collected_finish.emit()
 	queue_free()

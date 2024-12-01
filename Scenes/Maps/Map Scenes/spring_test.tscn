@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://fji5edywqt3b"]
+[gd_scene load_steps=30 format=4 uid="uid://fji5edywqt3b"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_2dq07"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="2_gc11e"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scenes/Maps/Map Scenes/camera_manager_spring.gd" id="8_58esd"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_k5kvv"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_oh1hn"]
+[ext_resource type="PackedScene" uid="uid://bbt3a136aehqb" path="res://Assets/Objects/powerups/time_powerup.tscn" id="11_011gd"]
+[ext_resource type="PackedScene" uid="uid://h0eg4l110wey" path="res://Assets/Objects/powerups/timepowerup_unlock.tscn" id="12_aw7pk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgc2f"]
 size = Vector2(498.357, 20)
@@ -51,7 +53,7 @@ transition = 1
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7llo8"]
-size = Vector2(230, 175)
+size = Vector2(252, 175)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nj0s5"]
 size = Vector2(1283.37, 133.5)
@@ -290,7 +292,7 @@ tween_resource = SubResource("Resource_yxfvf")
 draw_limits = true
 
 [node name="ZoneSecretShape" type="CollisionShape2D" parent="CameraManager_Spring/CameraNode/zone_secret"]
-position = Vector2(-209, -736)
+position = Vector2(-198, -736)
 shape = SubResource("RectangleShape2D_7llo8")
 
 [node name="Follow_zone" type="Area2D" parent="CameraManager_Spring/CameraNode"]
@@ -369,6 +371,15 @@ draw_limits = true
 position = Vector2(1000, -874)
 shape = SubResource("RectangleShape2D_3xan1")
 
+[node name="timePowerup" parent="." instance=ExtResource("11_011gd")]
+position = Vector2(-192, -682)
+
+[node name="PowerupUnlock" parent="." instance=ExtResource("12_aw7pk")]
+offset_left = -487.0
+offset_top = -481.0
+offset_right = -487.0
+offset_bottom = -481.0
+
 [connection signal="body_entered" from="DeathZone" to="CameraManager_Spring" method="_on_death_zone_body_entered"]
 [connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone0" to="CameraManager_Spring" method="_on_zone_0_body_entered"]
 [connection signal="body_entered" from="CameraManager_Spring/CameraNode/zone1" to="CameraManager_Spring" method="_on_zone_1_body_entered"]
@@ -377,3 +388,4 @@ shape = SubResource("RectangleShape2D_3xan1")
 [connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone2" to="CameraManager_Spring" method="_on_zone_2_body_entered"]
 [connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone3" to="CameraManager_Spring" method="_on_zone_3_body_entered"]
 [connection signal="body_entered" from="CameraManager_Spring/CameraNode/Zone4" to="CameraManager_Spring" method="_on_zone_4_body_entered"]
+[connection signal="clearPowerup" from="PowerupUnlock" to="timePowerup" method="_on_powerup_unlock_clear_powerup"]

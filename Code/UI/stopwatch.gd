@@ -2,15 +2,16 @@ class_name stopwatch
 extends Node
 
 var start_time = 60
-var additional_time = 30
+var additional_time = 10
 var stopped = false
 var time = start_time
 signal no_more_time
 
 func _ready():
 	EventsBus.time_collected.connect(_on_time_collected)
-	if Global.has_time_powerup:
-		time += additional_time
+	
+	for n in Global.additional_time:
+		time += additional_time*n
 
 func _process(delta: float) -> void:
 	
@@ -44,3 +45,4 @@ func time_to_string() -> String:
 
 func _on_time_collected():
 	time += additional_time
+	start_time += additional_time

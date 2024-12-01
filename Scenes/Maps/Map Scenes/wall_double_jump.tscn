@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bwudwhq8vmc1q"]
+[gd_scene load_steps=23 format=4 uid="uid://bwudwhq8vmc1q"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_gevym"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_hg62b"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scenes/Maps/camera_manager4.gd" id="7_c77uk"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_e0m6b"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_3xyoh"]
+[ext_resource type="PackedScene" uid="uid://h0eg4l110wey" path="res://Assets/Objects/powerups/timepowerup_unlock.tscn" id="11_yseal"]
+[ext_resource type="PackedScene" uid="uid://bbt3a136aehqb" path="res://Assets/Objects/powerups/time_powerup.tscn" id="12_ddydl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7mcj"]
 size = Vector2(620, 11)
@@ -193,6 +195,15 @@ position = Vector2(638.296, -63)
 scale = Vector2(0.000725398, 1.10926)
 shape = SubResource("RectangleShape2D_qgnov")
 
+[node name="timePowerup" parent="." instance=ExtResource("12_ddydl")]
+position = Vector2(-197, -727)
+
+[node name="PowerupUnlock" parent="." instance=ExtResource("11_yseal")]
+offset_left = 413.0
+offset_top = -816.0
+offset_right = 413.0
+offset_bottom = -816.0
+
 [connection signal="body_entered" from="DeathZone" to="CameraManager" method="_on_death_zone_body_entered"]
 [connection signal="body_entered" from="CameraManager/CameraNodes/zone0-1" to="CameraManager" method="_on_zone_01_body_entered"]
 [connection signal="body_entered" from="CameraManager/CameraNodes/zone1-2" to="CameraManager" method="_on_zone_12_body_entered"]
@@ -200,3 +211,4 @@ shape = SubResource("RectangleShape2D_qgnov")
 [connection signal="body_entered" from="CameraManager/CameraNodes/zone3-4" to="CameraManager" method="_on_zone_34_body_entered"]
 [connection signal="body_entered" from="CameraManager/CameraNodes/zone4-5" to="CameraManager" method="_on_zone_45_body_entered"]
 [connection signal="body_entered" from="CameraManager/CameraNodes/zone 1-6" to="CameraManager" method="_on_zone_16_body_entered"]
+[connection signal="clearPowerup" from="PowerupUnlock" to="timePowerup" method="_on_powerup_unlock_clear_powerup"]
