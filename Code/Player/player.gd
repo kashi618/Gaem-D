@@ -48,6 +48,7 @@ var dir
 var didWallJump
 
 func _ready():
+	
 	current_map = get_parent()
 	canvas.visible = false
 	if not current_map.ready:
@@ -245,3 +246,12 @@ func update_animation_parameters():
 		animation_tree["parameters/conditions/moving_left"] = false
 		animation_tree["parameters/conditions/moving_right"] = false
 		animation_tree["parameters/conditions/is_jump"] = false
+
+func _on_dialogic(arg):
+	if arg == "ConvoBegin":
+		Global.can_move =false
+		velocity.x = 0
+	elif arg == "ConvoEnd":
+		Global.can_move = true
+	else:
+		pass

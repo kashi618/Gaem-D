@@ -25,17 +25,7 @@ var firstLost_checker = false
 #var has_time_powerup = true
 #var firstLost_checker = false
 
-##for normal settings:
-var wall_jump = false
-var double_jump = false
-var hasWallPowerup = false
-var spring_disabled = false
-var isFirstEncounter = true
-var firstPlay = true
-var firstLost = false
-var can_move = true
-var has_time_powerup = false
-var firstLost_checker = true
+
 
 #Applies to entire game
 var timer_start = false

@@ -8,15 +8,17 @@ signal no_more_time_v2
 @onready var stopwatch: stopwatch = $Stopwatch
 @onready var one_min_song = $"1 minute song"
 @onready var one_min_thirty_song = $"1 minute 30 second song"
+@onready var _1_minute_song: AudioStreamPlayer = $"1minute_song"
+@onready var _1_minute_30_song: AudioStreamPlayer = $"1minute30_song"
 
 func _ready():
 	EventsBus.switch_scene.connect(transition)
 	
 	if Global.has_time_powerup == true:
-		one_min_thirty_song.play()
+		_1_minute_30_song.play()
 		print("1 min thirty")
 	else:
-		one_min_song.play()
+		_1_minute_song.play()
 		print("1 min song")
 
 func transition():

@@ -95,8 +95,16 @@ libraries = {
 
 [node name="1 minute song" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_gu4yb")
+max_distance = 10000.0
 
 [node name="1 minute 30 second song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mv3o5")
+max_distance = 10000.0
+
+[node name="1minute_song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gu4yb")
+
+[node name="1minute30_song" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_mv3o5")
 
 [connection signal="no_more_time" from="Stopwatch" to="." method="_on_stopwatch_no_more_time"]
