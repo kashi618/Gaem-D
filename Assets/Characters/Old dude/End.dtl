@@ -1,0 +1,28 @@
+[signal arg="ConvoBegin"]
+"Old Dude": You arrived.[n] You made it here on time.
+"Old Dude": And the pizza is still hot!
+"Old Dude": I am impressed.[n] You should be proud of yourself.
+"Old Dude": Not many pizza delivery people get here.
+"Old Dude": and if they do, the pizza is cold \:(
+[style name="Visual Novel"]
+[background arg="res://Assets/Characters/Old dude/Dark Blue.png" fade="1.0"]
+[wait time="1.0"]
+join pizza 2
+You hand the old man the pizza.
+leave pizza
+You are paid!
+The old man disappears.
+Pleased with yourself, you walk away. 
+and you don't die.
+and the world does not end.
+Because YOU
+You are a great pizza delivery person!
+[sound path="res://Assets/Sounds/retrogame-win-song_67bpm_F_major.wav" volume="0.0"]
+[wait time="3.0"]
+You reached a good ending
+You found all the secrets.
+Thank you for playing the game <3
+[wait time="1.0"]
+- Main Menu
+[signal arg="ConvoEnd"]
+[signal arg="GameEnd"]
