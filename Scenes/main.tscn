@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dibc818ncc4g3"]
+[gd_scene load_steps=16 format=3 uid="uid://dibc818ncc4g3"]
 
 [ext_resource type="PackedScene" uid="uid://doxfls6lhcxok" path="res://Scenes/UI/ui.tscn" id="1_jkguw"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ynf03"]
@@ -14,10 +14,11 @@
 [ext_resource type="Resource" uid="uid://cf0ubjy12g32s" path="res://Scenes/Maps/Map resources/9_troll.tres" id="11_2rle0"]
 [ext_resource type="PackedScene" uid="uid://c8blcq3ojv7un" path="res://Scenes/UI/pause_menu.tscn" id="11_t6rhh"]
 [ext_resource type="PackedScene" uid="uid://co1qjv07ngs6j" path="res://Scenes/UI/you_lose.tscn" id="12_5gtk2"]
+[ext_resource type="Resource" uid="uid://bay4cgmjbd0s5" path="res://Scenes/Maps/Map resources/10_end.tres" id="12_mllqj"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ynf03")
-Maps = Array[ExtResource("2_u3f0a")]([ExtResource("3_ixmbw"), ExtResource("4_johgv"), ExtResource("5_gf4ty"), ExtResource("7_q25gg"), ExtResource("5_onhrp"), ExtResource("6_ywg3b"), ExtResource("3_ivyqi"), ExtResource("10_gkwe1"), ExtResource("11_2rle0")])
+Maps = Array[ExtResource("2_u3f0a")]([ExtResource("3_ixmbw"), ExtResource("4_johgv"), ExtResource("5_gf4ty"), ExtResource("7_q25gg"), ExtResource("5_onhrp"), ExtResource("6_ywg3b"), ExtResource("3_ivyqi"), ExtResource("10_gkwe1"), ExtResource("11_2rle0"), ExtResource("12_mllqj")])
 
 [node name="current_map" type="Node2D" parent="."]
 

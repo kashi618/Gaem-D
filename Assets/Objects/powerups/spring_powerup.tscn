@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Assets/Objects/powerups/spring_powerup.gd" id="1_mblkn"]
 [ext_resource type="Texture2D" uid="uid://dcc8y02vc5ygj" path="res://Assets/Objects/powerups/images/spring powerup.png" id="2_c2cnr"]
-[ext_resource type="Material" uid="uid://dc0dd87b0ilgj" path="res://Assets/Objects/powerups/powerupParticle.tres" id="3_mnr5p"]
+[ext_resource type="Material" uid="uid://cg8kofh5mk0ku" path="res://Assets/Objects/powerups/EndParticles.tres" id="3_hcdmm"]
 [ext_resource type="Texture2D" uid="uid://nieyv15hhkma" path="res://Assets/Objects/powerups/images/crosshair121.png" id="4_oeg68"]
 
 [sub_resource type="Animation" id="Animation_udlu1"]
@@ -59,7 +59,7 @@ libraries = {
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 modulate = Color(0.839216, 1, 0.996078, 1)
 position = Vector2(0, 29)
-process_material = ExtResource("3_mnr5p")
+process_material = ExtResource("3_hcdmm")
 texture = ExtResource("4_oeg68")
 
 [node name="Area2D" type="Area2D" parent="."]
