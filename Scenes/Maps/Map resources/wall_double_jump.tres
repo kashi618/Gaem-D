@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_kqgf8")
-map_ID = 4
+map_ID = 6
 map_name = ""
 start_pos = Vector2(-150, 19)
 map_path = "Maps/Map Scenes/wall_double_jump"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkn35y4qgq7wd"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Moving_platform.gd" id="1_libsv"]
-[ext_resource type="Texture2D" uid="uid://bhehncluoywvb" path="res://Assets/Objects/Textures/Platform.png" id="2_cvrtu"]
+[ext_resource type="Texture2D" uid="uid://b07voadeqgc1c" path="res://Assets/Objects/Textures/Move platform.png" id="2_hqm6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h4hs"]
 size = Vector2(84, 5)
@@ -16,7 +16,8 @@ shape = SubResource("RectangleShape2D_8h4hs")
 one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_cvrtu")
+modulate = Color(0.839216, 1, 0.988235, 1)
+texture = ExtResource("2_hqm6x")
 
 [node name="ResetTimer" type="Timer" parent="."]
 
