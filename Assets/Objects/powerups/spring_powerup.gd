@@ -4,11 +4,14 @@ extends Node2D
 signal collected
 
 func _on_area_2d_body_entered(body):
-	emit_signal("collected")
+	if body is Player:
+		emit_signal("collected")
+		EventsBus.power_up_collected.emit()
 
 func _ready():
 	animation.play("idle")
 
 
 func _on_powerup_unlock_clear_powerup():
+	EventsBus.power_up_collected_finish.emit()
 	queue_free()

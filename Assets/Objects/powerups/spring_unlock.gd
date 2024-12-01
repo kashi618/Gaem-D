@@ -42,3 +42,4 @@ func _on_spring_powerup_collected():
 	particleRight.emitting = true
 	Global.spring_disabled = false
 	unlock_music.play()
+	

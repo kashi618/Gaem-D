@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_oh1hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgc2f"]
-size = Vector2(503.857, 20)
+size = Vector2(498.357, 20)
 
 [sub_resource type="Resource" id="Resource_7e0xa"]
 script = ExtResource("9_oh1hn")
@@ -112,7 +112,7 @@ position = Vector2(410, 382)
 shape = SubResource("RectangleShape2D_kgc2f")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(1106, 0)
+position = Vector2(1103.69, 0)
 scale = Vector2(0.84, 1)
 shape = SubResource("RectangleShape2D_kgc2f")
 

@@ -12,6 +12,7 @@ func _ready():
 	MapManager.load_map(Map_ID)
 	
 	Map_ID +=1
+	await get_tree().create_timer(1).timeout
 
 func _on_go_next_map():
 	MapManager.load_map(Map_ID)

@@ -193,7 +193,8 @@ func add_choice_container(node:Container, alignment:=FlowContainer.ALIGNMENT_BEG
 
 
 func get_speaker_canvas_position() -> Vector2:
-	if node_to_point_at:
+	print(node_to_point_at)
+	if node_to_point_at != null:
 		if node_to_point_at is Node3D:
 			base_position = get_viewport().get_camera_3d().unproject_position(
 				(node_to_point_at as Node3D).global_position)
