@@ -9,7 +9,7 @@ signal no_more_time
 
 func _ready():
 	EventsBus.time_collected.connect(_on_time_collected)
-	
+	Dialogic.signal_event.connect(_on_dialogic)
 	time += additional_time*Global.additional_time
 
 func _process(delta: float) -> void:
@@ -45,3 +45,9 @@ func time_to_string() -> String:
 func _on_time_collected():
 	time += additional_time
 	start_time += additional_time
+
+func _on_dialogic(arg):
+	if arg == "TimeStop":
+		Global.timer_start = false
+	elif arg == "TimerContinue":
+		Global.timer_start = true
