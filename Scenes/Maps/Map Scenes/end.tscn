@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bbipgytnf0k5y"]
+[gd_scene load_steps=18 format=4 uid="uid://bbipgytnf0k5y"]
 
 [ext_resource type="Script" path="res://Code/Class/Map.gd" id="1_0huik"]
 [ext_resource type="TileSet" uid="uid://coabby1c0rdwd" path="res://Assets/Tile Map/main_tilemap.tres" id="1_lwotd"]
@@ -10,8 +10,6 @@
 [ext_resource type="Script" path="res://Scenes/Maps/Map Scenes/camera_manager_end.gd" id="8_g301y"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_hjb0b"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_of73s"]
-[ext_resource type="Material" uid="uid://cg8kofh5mk0ku" path="res://Assets/Objects/powerups/EndParticles.tres" id="11_uqxas"]
-[ext_resource type="Texture2D" uid="uid://nieyv15hhkma" path="res://Assets/Objects/powerups/images/crosshair121.png" id="12_5vrua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkbu1"]
 size = Vector2(634, 559)
@@ -137,13 +135,6 @@ script = ExtResource("8_hjb0b")
 zoom = Vector2(10, 10)
 tween_resource = SubResource("Resource_hjqbn")
 draw_limits = true
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-modulate = Color(0.262745, 0.862745, 0.854902, 1)
-position = Vector2(501, -8)
-amount = 13
-process_material = ExtResource("11_uqxas")
-texture = ExtResource("12_5vrua")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1566, 49)

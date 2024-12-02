@@ -1,4 +1,5 @@
 [signal arg="ConvoBegin"]
+[signal arg="TimeStop"]
 "Old Dude": You arrived.[n] You made it here on time.
 "Old Dude": And the pizza is still hot!
 "Old Dude": I am impressed.[n] You should be proud of yourself.
@@ -12,7 +13,7 @@ You hand the old man the pizza.
 leave pizza
 You are paid!
 The old man disappears.
-Pleased with yourself, you walk away. 
+Pleased with yourself, you walk away.
 and you don't die.
 and the world does not end.
 Because YOU
@@ -24,5 +25,6 @@ You found all the secrets.
 Thank you for playing the game <3
 [wait time="1.0"]
 - Main Menu
+[signal arg="TimeContinue"]
 [signal arg="ConvoEnd"]
 [signal arg="GameEnd"]

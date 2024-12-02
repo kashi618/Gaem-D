@@ -75,6 +75,10 @@ func run_dialogue(dialogue):
 signal collected
 
 func DialogicSignal(arg: String):
+	if arg == "TimeStop":
+		Global.timer_start = false
+	if arg == "TimeContinue":
+		Global.timer_start = true
 	if arg == "ConvoBegin":
 		print("yooo")
 		Global.can_move = false

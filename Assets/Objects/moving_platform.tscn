@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkn35y4qgq7wd"]
 
-[ext_resource type="Script" path="res://Assets/Objects/Moving_platform.gd" id="1_libsv"]
+[ext_resource type="Script" path="res://Assets/Objects/moving_platform.gd" id="1_libsv"]
 [ext_resource type="Texture2D" uid="uid://b07voadeqgc1c" path="res://Assets/Objects/Textures/Move platform.png" id="2_hqm6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h4hs"]

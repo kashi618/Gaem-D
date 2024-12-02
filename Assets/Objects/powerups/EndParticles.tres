@@ -10,7 +10,7 @@ curve = SubResource("Curve_yba7o")
 [resource]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(1800, 0, 1)
+emission_box_extents = Vector3(20, 0, 1)
 direction = Vector3(0, -1, 0)
 initial_velocity_max = 123.67
 gravity = Vector3(0, 0, 0)

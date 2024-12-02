@@ -1,3 +1,5 @@
 [signal arg="ConvoBegin"]
+[signal arg="TimeStop"]
 "Old Dude": <Hey what's up?/How are you doing?/What's up?/I'm old/I am not suspicious>
+[signal arg="TimeContinue"]
 [signal arg="ConvoEnd"]

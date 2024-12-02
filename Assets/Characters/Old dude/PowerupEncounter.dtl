@@ -1,4 +1,5 @@
 [signal arg="ConvoBegin"]
+[signal arg="TimeStop"]
 "Old Dude": psst...
 "Old Dude": Listen here pal.
 "Old Dude": Sorry keeping you busy last time.
@@ -14,5 +15,6 @@
 "Old Dude": You'll see more secret power ups on your travels.
 "Old Dude": and they're all [wave amp=50.0 freq=5.0 connected=1]PERMANENT![/wave]
 "Old Dude": Good luck on your journey!
+[signal arg="TimeContinue"]
 [signal arg="doubleJumpPickedUp"]
 [signal arg="ConvoEnd"]

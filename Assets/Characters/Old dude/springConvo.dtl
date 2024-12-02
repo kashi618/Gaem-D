@@ -1,4 +1,5 @@
 [signal arg="ConvoBegin"]
+[signal arg="TimeStop"]
 "Old Dude": So you made it this far...
 "Old Dude": Unfortunately, you reached a dead end.
 "Old Dude": The road ahead is not possible for you at your current level.
@@ -16,6 +17,7 @@ Your eyes begin to close...
 [wait time="1.0"]
 You reached a bad ending
 But this story does not end here.
+[signal arg="TimeContinue"]
 - FIND MORE SECRETS
 	[signal arg="ConvoEnd"]
 	[signal arg="ReturnToEnd"]
