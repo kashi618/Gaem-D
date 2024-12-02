@@ -2,6 +2,7 @@ extends Node
 #
 func _ready():
 	EventsBus.time_collected.connect(_on_time_collected)
+	
 ##for testing powerups:
 var wall_jump = true
 var double_jump = true

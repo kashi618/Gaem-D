@@ -235,7 +235,7 @@ libraries = {
 wait_time = 8.0
 one_shot = true
 
-[node name="UnlockMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="Unlock music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wdyrb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

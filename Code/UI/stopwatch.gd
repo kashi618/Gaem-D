@@ -10,8 +10,7 @@ signal no_more_time
 func _ready():
 	EventsBus.time_collected.connect(_on_time_collected)
 	
-	for n in Global.additional_time:
-		time += additional_time*n
+	time += additional_time*Global.additional_time
 
 func _process(delta: float) -> void:
 	

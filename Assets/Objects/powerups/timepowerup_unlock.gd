@@ -1,7 +1,7 @@
 extends Control
 
 signal clearPowerup
-@onready var unlock_music: AudioStreamPlayer2D = $UnlockMusic
+@onready var unlock_music: AudioStreamPlayer = $"Unlock music"
 
 func _ready():
 	$CanvasLayer.visible = false
