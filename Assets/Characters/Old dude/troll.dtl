@@ -1,5 +1,5 @@
 [signal arg="ConvoBegin"]
 [signal arg="TimeStop"]
 "Old Dude": One of these paths lead to the exit!
-[signal arg="Timecontinue"]
+[signal arg="TimeContinue"]
 [signal arg="ConvoEnd"]

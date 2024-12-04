@@ -14,7 +14,11 @@ config/name="Game-Jam 2024"
 run/main_scene="res://Scenes/UI/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.0862745, 0.117647, 0.172549, 1)
+boot_splash/image="res://Assets/Characters/pizza/Boot splash.png"
+boot_splash/fullsize=false
+config/icon="res://Assets/Characters/pizza/pizza.png"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 

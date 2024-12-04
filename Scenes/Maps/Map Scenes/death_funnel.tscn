@@ -146,10 +146,10 @@ scale = Vector2(1, -0.0389026)
 shape = SubResource("RectangleShape2D_kslfm")
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager2/CameraNode/zone0-one"]
-position = Vector2(-112, -117)
+position = Vector2(59, -75)
 rotation = -1.56409
 script = ExtResource("6_s2831")
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_o7nlq")
 draw_limits = true
 

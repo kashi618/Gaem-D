@@ -4,8 +4,8 @@ func _ready():
 	EventsBus.time_collected.connect(_on_time_collected)
 	
 ##for testing powerups:
-var wall_jump = true
-var double_jump = true
+#var wall_jump = true
+#var double_jump = true
 ##var hasWallPowerup = true
 #var spring_disabled = false
 ##var isFirstEncounter = false
@@ -19,8 +19,8 @@ var double_jump = true
 ##var firstLost_checker = false
 
 ##for normal settings:
-#var wall_jump = false
-#var double_jump = false
+var wall_jump = false
+var double_jump = false
 var hasWallPowerup = false
 var spring_disabled = true
 var isFirstEncounter = true
